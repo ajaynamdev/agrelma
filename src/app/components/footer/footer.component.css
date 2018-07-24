@@ -1,0 +1,11 @@
+/*Primary Color : #ee796B    */
+.footer-container{
+	width: 100%;
+	background-color: #ee796B;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: white;
+	padding: 20px;
+}

@@ -1,0 +1,76 @@
+<div class="side-container">
+	<button class="offer-button" mat-stroked-button matBadge="Free" matBadgeSize="medium">Present Your Products Online</button>
+</div>
+<div class="side-container">
+	<mat-form-field  class="request-select" color="warn">
+	  <mat-select placeholder="Select Your Country's Top Requests" [value]="'India'">
+	    <mat-option *ngFor="let country of countries" [value]="country">
+	      {{country}}
+	    </mat-option>
+	  </mat-select>
+	</mat-form-field>
+</div>
+<div class="side-container">
+	<mat-toolbar class="sectors">The Sectors</mat-toolbar>
+	<div style="width: 250px; background-color: white;">
+		<mat-tab-group class="sector-tabs">
+		  <mat-tab>
+		  	<ng-template mat-tab-label class="tab-header">
+		  		<span class="test">
+			      Offers
+			    </span>
+		    </ng-template>
+		    <p>
+		    	<mat-nav-list>
+		    		<span *ngFor="let sector of sectors; i as index">
+		    			<span *ngIf="sector.sub[0]">
+								<mat-list-item>
+									<span>{{sector.name}}</span>
+								</mat-list-item>
+							</span>
+							<span *ngIf="!sector.sub[0]">
+								<mat-list-item>
+									<span>{{sector.name}}</span>
+								</mat-list-item>
+							</span>
+						</span>
+					</mat-nav-list>
+		    </p>
+		  </mat-tab>
+		  <mat-tab>
+		  	<ng-template mat-tab-label class="tab-header">
+		  		<span class="test">
+			      Requests
+			    </span>
+		    </ng-template>
+		    <p>
+		    	<mat-nav-list>
+		    		<span *ngFor="let sector of sectors; i as index">
+		    			<span *ngIf="sector.sub[0]">
+								<mat-list-item>
+									<span>{{sector.name}}</span>
+								</mat-list-item>
+							</span>
+							<span *ngIf="!sector.sub[0]">
+								<mat-list-item>
+									<span>{{sector.name}}</span>
+								</mat-list-item>
+							</span>
+						</span>
+					</mat-nav-list>
+		    </p>
+		  </mat-tab>
+		</mat-tab-group>
+	</div>
+</div>
+<div class="side-container">
+	<button mat-stroked-button class="phone"><i class="fas fa-phone"></i> +39.0481.32530</button>
+	<button mat-stroked-button class="fax"><i class="fas fa-fax"></i> +39.0481.345347</button>
+	<button mat-stroked-button class="chat"><i class="far fa-comments"></i> Chat</button>
+	<button mat-stroked-button class="call"><i class="fab fa-skype"></i> Call</button>
+</div>
+<div class="side-container">
+	<a href="http://registrarcorp.com/"><mat-card class="registration"><img src="https://www.agrelma.com/Img/logoFDA_UK.jpg"></mat-card></a>
+	<br>
+	<button mat-raised-button class="registration-button">ASSISTANCE WITH U.S.<br> FOOD & WINE REGULATIONS</button>
+</div>

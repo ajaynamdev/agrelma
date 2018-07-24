@@ -68,17 +68,39 @@ import {MatTableModule} from '@angular/material/table';
 
 
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-
+import { NguCarouselModule } from '@ngu/carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { SearchComponent } from './components/search/search.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LatestRequestComponent } from './components/latest-request/latest-request.component';
+import { LatestOfferComponent } from './components/latest-offer/latest-offer.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { AsearchComponent } from './components/asearch/asearch.component';
+import { TestComponent } from './components/test/test.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    SearchComponent,
+    SidebarComponent,
+    LatestRequestComponent,
+    LatestOfferComponent,
+    BannerComponent,
+    AsearchComponent,
+    TestComponent,
+    NotfoundComponent
   ],
   imports: [
     AppRoutingModule,
@@ -118,7 +140,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    NguCarouselModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: []
 })

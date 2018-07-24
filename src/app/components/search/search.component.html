@@ -1,0 +1,27 @@
+<section class="advance-search"><button mat-button routerLink="/advance-search">Advance Search</button></section>
+<section class="search">
+	<mat-form-field class="offer-selector" appearance="outline">
+	  <mat-select [value]="'offer'">
+	    <mat-option [value]="'offer'">
+	      Offer
+	    </mat-option>
+	    <mat-option [value]="'request'">
+	      Request
+	    </mat-option>
+	  </mat-select>
+	</mat-form-field>
+	<mat-form-field class="query" appearance="outline">
+		<mat-label>Search Here</mat-label>
+    <input matInput placeholder="Start Typing Results Would Appear Accordingly">
+  </mat-form-field>
+  <mat-form-field class="sector-selector" appearance="outline">
+	  <mat-select [value]="'default'">
+	  	<mat-option [value]="'default'">
+	      Search In All Sectors
+	    </mat-option>
+	    <mat-option *ngFor="let sector of sectors" [value]="sector">
+	      {{sector}}
+	    </mat-option>
+	  </mat-select>
+	</mat-form-field>
+</section>

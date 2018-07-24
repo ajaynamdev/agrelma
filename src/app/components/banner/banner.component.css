@@ -1,0 +1,21 @@
+.banner-container{
+	width: 100%;
+	min-height: 300px;
+	background: linear-gradient(90deg, rgba(255,1,1,0.1), rgba(1,255,1,0.1))
+}
+.content-left, .content-right{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 300px;
+}
+.content-right img{
+	width: 100%;
+	height: auto;
+	display: inline-block;
+}
+.content-left{
+	align-items: flex-start;
+	/*justify-content: flex-start;*/
+	flex-direction: column;
+}

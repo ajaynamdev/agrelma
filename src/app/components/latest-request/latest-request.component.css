@@ -1,0 +1,52 @@
+/*Primary Color : #ee796B    */
+.request-container{
+	width: 100%;
+}
+.request-title{
+	font-size: 18px;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #ee796B;
+	/*box-shadow: 1px 1px 1px rgb(255,1,1,0.1),
+							-1px -1px 1px rgb(255,1,1,0.1);*/
+	border-radius: 3px;
+}
+.requests{
+	width: 100%;
+	padding: 20px;
+	min-height: 300px;
+	border: 1px solid #ee796B;
+	border-top: unset;
+	/*background-color: white;*/
+}
+.request-slider{
+	min-height: 350px;
+	margin: 10px;
+	border-radius: 5px;
+}
+.leftRs{
+	position: absolute;
+  margin: auto;
+  top: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #ee796B;
+}
+.rightRs{
+	position: absolute;
+  margin: auto;
+  top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ee796B;
+}
+
+.request-slider mat-card-subtitle{
+	height: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 10px;
+}

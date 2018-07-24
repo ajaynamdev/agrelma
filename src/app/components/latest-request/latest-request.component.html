@@ -1,0 +1,29 @@
+<section class="request-container">
+	<div class="request-title">Latest Requests</div>
+	<div class="requests">
+		<ngu-carousel [inputs]="carouselOne">
+          <ngu-item NguCarouselItem *ngFor="let request of requests">
+            <mat-card class="request-slider">
+		          <mat-card-subtitle>
+		          	<span style="font-size: 12px;">Sector</span>
+		          	<b>{{request.sector}}</b>
+		          </mat-card-subtitle>
+		          <mat-card-subtitle>
+		          	<span style="font-size: 12px;">Request For</span>
+		          	<b>{{request.rfor}}</b>
+		          </mat-card-subtitle>
+		          <mat-card-subtitle>
+		          	<span style="font-size: 12px;">Country</span>
+		          	<b>{{request.country}}</b>
+		          </mat-card-subtitle>
+		          <mat-card-subtitle>
+		          	<span style="font-size: 12px;">Date</span>
+		          	<b>{{request.rdate}}</b>
+		          </mat-card-subtitle>
+            </mat-card>
+          </ngu-item>
+          <button NguCarouselPrev class='leftRs' mat-mini-fab><i class="fas fa-chevron-left"></i></button>
+          <button NguCarouselNext class='rightRs' mat-mini-fab><i class="fas fa-chevron-right"></i></button>
+    </ngu-carousel>
+	</div>
+</section>

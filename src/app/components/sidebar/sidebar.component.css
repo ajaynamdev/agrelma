@@ -1,0 +1,62 @@
+/*Primary Color : #ee796B    */
+
+.offer-button{
+	color: #ee796B;
+	/*padding: 8px 5px;*/
+	width: 100%;
+}
+.request-select{
+	width: 100%;
+}
+.request-select mat-option{
+	color: #ee796B;
+}
+.sectors{
+	height: 50px;
+	width: 100%;
+	background-color: white;
+	border: 1px solid #ee796B;
+	border-bottom: unset;
+	border-radius: 3px 3px 0 0;
+}
+.sector-tabs{
+	width: 100%;
+	border: 1px solid #ee796B;
+	border-top: unset;	
+	border-radius: 0 0 3px 3px;
+}
+.side-container{
+	width: 50;
+	padding: 30px;
+}
+.tab-header{
+	width: 10px;
+	height: 10px;
+}
+mat-nav-list{
+	font-size: 1px;
+}
+
+/deep/.mat-tab-label, /deep/.mat-tab-label-active{
+ min-width: 48%!important;
+ padding: 3px!important;
+ margin: 3px!important;
+}
+
+.phone, .fax{
+	width: 100%;
+}
+.chat, .call{
+	width: 50%;
+}
+
+.registration{
+	width: 100%;
+}
+.registration img{
+	width: 100%;
+	height: auto;
+}
+.registration-button{
+	width: 100%;
+}

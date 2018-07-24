@@ -1,0 +1,14 @@
+.advance-search-button{
+	height: 50px;
+}
+.advance-search-button:hover{
+	background-color: white;
+	color: black;
+}
+
+
+
+
+.v-hover-dropdown{
+	max-width: 300px;
+}
