@@ -260,7 +260,91 @@ export class HomeComponent implements OnInit {
 			"country":"Mexico",
 			"rdate":"20/06/2018",
 		}
+  ];
 
-  ]
+  sectors = [
+		{
+			"id": "1",
+			"name": "WINES AND LIQUORS",
+			"sub": ["Quality Wine", "Table Wine", "Liquors"]
+		},
+		{
+			"id": "2",
+			"name": "OIL AND OLIVES",
+			"sub": ["Oil", "Olives", "Oil Seeds"]
+		},
+		{
+			"id": "16",
+			"name": "FISH AND SEAFOOD",
+			"sub": ["Fish and Seafood", "Crostacea and Mollusca", "Packed Fisheries"]
+		},
+		{
+			"id": "3",
+			"name": "MEAT AND CURED PORK",
+			"sub": ["Cured Pork", "Meat"]
+		},
+		{
+			"id": "4",
+			"name": "FRUITS AND VEGE.",
+			"sub": ["Fruits","Citrus","Vegetables","Packed Fruit and Vegetables"]
+		},
+		{
+			"id": "3",
+			"name": "PASTA",
+			"sub": []
+		},
+		{
+			"id": "4",
+			"name": "DELICATESSEN",
+			"sub": []
+		},
+		{
+			"id": "7",
+			"name": "PRESERVES",
+			"sub": []
+		},
+		{
+			"id": "8",
+			"name": "SWEETS AND DOUGH PRODUCTS",
+			"sub": []
+		},
+		{
+			"id": "9",
+			"name": "CHEESE",
+			"sub": []
+		},
+		{
+			"id": "10",
+			"name": "COFFEE",
+			"sub": []
+		},
+		{
+			"id": "11",
+			"name": "DRINKS",
+			"sub": []
+		},
+		{
+			"id": "12",
+			"name": "FROZEN PRODUCTS",
+			"sub": []
+		},
+		{
+			"id": "13",
+			"name": "CEREALS",
+			"sub": []
+		},
+		{
+			"id": "14",
+			"name": "CONVENIENCE FOOD/READY MEALS",
+			"sub": []
+		},
+		{
+			"id": "15",
+			"name": "VINEGAR",
+			"sub": []
+		}
+  ];
+
+  nodisplay:boolean = false;
 
 }

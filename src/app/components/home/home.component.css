@@ -1,4 +1,4 @@
-/*Primary Color : #ee796B    */
+/*Primary Color : #67a961    */
 .container{
 	width: 100%;
 	padding: 10px;
@@ -20,7 +20,7 @@
 
 
 
-/*Primary Color : #ee796B    */
+/*Primary Color : #67a961    */
 .request-container{
 	width: 100%;
 }
@@ -28,7 +28,7 @@
 	font-size: 18px;
 	padding: 10px;
 	background-color: white;
-	border: 1px solid #ee796B;
+	border: 1px solid #67a961;
 	/*box-shadow: 1px 1px 1px rgb(255,1,1,0.1),
 							-1px -1px 1px rgb(255,1,1,0.1);*/
 	border-radius: 3px;
@@ -37,7 +37,7 @@
 	width: 100%;
 	padding: 20px;
 	min-height: 300px;
-	border: 1px solid #ee796B;
+	border: 1px solid #67a961;
 	border-top: unset;
 	/*background-color: white;*/
 }
@@ -61,7 +61,7 @@
   top: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(98,171,1,0.7);
+	background-color: #67a961;
 }
 .rightRs{
 	position: absolute;
@@ -69,7 +69,7 @@
   top: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(98,171,1,1);
+	background-color: #67a961;
 }
 
 .request-slider mat-card-subtitle{
@@ -80,4 +80,81 @@
 	flex-direction: column;
 	text-align: center;
 	padding: 10px;
+}
+
+
+
+
+
+.product_cat{
+	padding: 0;
+	margin: 0;
+
+}
+
+
+
+
+
+/*Primary Color : #67a961    */
+
+
+
+.sectors{
+	height: 50px;
+	padding: 0;
+	width: 100%;
+	background-color: white;
+	border: 2px solid #67a961;
+	border-bottom: unset;
+	border-radius: 3px 3px 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.sector-tabs{
+	width: 100%;
+	border: 2px solid #67a961;
+	border-top: unset;	
+	border-radius: 3px 3px 3px 3px;
+}
+.side-container{
+	/*width: 50;*/
+	/*padding: 30px;*/
+}
+.tab-header{
+	width: 10px;
+	height: 10px;
+}
+mat-nav-list{
+	/*font-size: 1px;*/
+}
+
+/deep/.mat-tab-label, /deep/.mat-tab-label-active{
+ min-width: 48%!important;
+ padding: 3px!important;
+ margin: 3px!important;
+}
+
+
+
+
+
+
+.v-showcase-border{
+	border: 2px solid #67a961;
+	padding: 20px;
+}
+.v-middle{
+	border-top: unset;
+	border-bottom: unset;
+}
+.v-top{
+	margin-bottom: 0;
+	border-bottom: unset;
+	border-radius: 3px 3px 0 0;
+}
+.v-bottom{
+	border-top: unset;
+	border-radius: 0 0 3px 3px;
 }
