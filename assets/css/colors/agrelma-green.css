@@ -101,7 +101,7 @@ input[type="submit"].dokan-btn-theme:focus, a.dokan-btn-theme:focus, .dokan-btn-
 .site-content .landing-v1-slider .slider-1 .button:hover,
 .site-content .landing-v2-slider .slider-1 .button:hover,
 .about-accordion .card .card-header h5 > a:not(.collapsed) i {
-  background-color: #6aaa5b; }
+  background-color: rgb(99, 180, 120); }
 
 .primary-navigation .nav .dropdown-menu,
 .secondary-navigation .nav .dropdown-menu,
@@ -109,7 +109,7 @@ input[type="submit"].dokan-btn-theme:focus, a.dokan-btn-theme:focus, .dokan-btn-
 .primary-navigation .nav .yamm-fw > .dropdown-menu > li,
 .navbar-primary .nav .yamm-fw > .dropdown-menu > li,
 .top-bar .nav .show > .dropdown-menu {
-  border-top-color: #6aaa5b; }
+  border-top-color: rgb(99, 180, 120); }
 
 .widget_shopping_cart .buttons a:first-child:hover,
 .widget_shopping_cart_content .buttons a:first-child:hover,
@@ -208,7 +208,7 @@ article.post .post-readmore .btn-primary,
 .landing-v1-slider .slider-1 .button,
 .landing-v2-slider .slider-1 .button,
 .site-content .home-v6-slider .slider-1 .caption .offer-price {
-  color: #6aaa5b; }
+  color: rgb(99, 180, 120); }
 
 #secondary.sidebar-blog .widget_recent_comments ul li.recentcomments a:hover,
 .footer-widgets.sidebar-blog .widget_recent_comments ul li.recentcomments a:hover,
@@ -242,7 +242,7 @@ article.post .post-readmore .btn-primary,
   background-color: #8ad0c3; }
 
 .section-landscape-products-widget-carousel.product-widgets .section-header:after {
-  border-bottom-color: #6aaa5b; }
+  border-bottom-color: rgb(99, 180, 120); }
 
 .site-header.header-v4 .site-branding .cls-3,
 .site-header.header-v5 .site-branding .cls-3 {
@@ -330,26 +330,26 @@ input[type="submit"].dokan-btn-theme:focus, a.dokan-btn-theme:focus, .dokan-btn-
 .site-content .home-v12-slider .slider-1 .button:hover,
 .site-content .landing-v1-slider .slider-1 .button:hover,
 .site-content .landing-v2-slider .slider-1 .button:hover {
-  border-color: #6aaa5b; }
+  border-color: rgb(99, 180, 120); }
 
 .slider-sm-btn,
 .slider-sm-btn:hover {
-  border-color: #6aaa5b !important; }
+  border-color: rgb(99, 180, 120) !important; }
 
 .slider-sm-btn {
-  color: #6aaa5b !important; }
+  color: rgb(99, 180, 120) !important; }
 
 .slider-sm-btn:hover,
 .wcmp_main_page .wcmp_main_holder .wcmp_vendor_dashboard_content .action_div .wcmp_orange_btn {
-  background-color: #6aaa5b !important; }
+  background-color: rgb(99, 180, 120) !important; }
 
 @media (max-width: 1023px) {
   .shop-control-bar {
-    background-color: #6aaa5b; } }
+    background-color: rgb(99, 180, 120); } }
 
 
 /*
-#6aaa5b
+rgb(99, 180, 120)
 #5ebead
 #49b5a1
 #83cdbf
