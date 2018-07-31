@@ -15,6 +15,8 @@ import { XpayComponent } from './components/xpay/xpay.component';
 import { LoginComponent } from './components/login/login.component';
 import { PresentOnlineComponent } from './components/present-online/present-online.component';
 import { SpecificRequestComponent } from './components/specific-request/specific-request.component';
+import { ContactProducerComponent } from './components/contact-producer/contact-producer.component';
+import { ContactDetailProducerComponent } from './components/contact-detail-producer/contact-detail-producer.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
@@ -78,6 +80,15 @@ const routes: Routes = [
 		path: "send-specific-request",
 		component: SpecificRequestComponent
 	},
+	{
+		path: "contact-producer",
+		component: ContactProducerComponent
+	},
+	{
+		path: "contact-detail-producer",
+		component: ContactDetailProducerComponent
+	},
+
 	{ path: '**', component: NotfoundComponent },
 
 ];

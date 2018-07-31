@@ -98,6 +98,8 @@ import { XpayComponent } from './components/xpay/xpay.component';
 import { LoginComponent } from './components/login/login.component';
 import { PresentOnlineComponent } from './components/present-online/present-online.component';
 import { SpecificRequestComponent } from './components/specific-request/specific-request.component';
+import { ContactProducerComponent } from './components/contact-producer/contact-producer.component';
+import { ContactDetailProducerComponent } from './components/contact-detail-producer/contact-detail-producer.component';
 
 @NgModule({
   declarations: [
@@ -127,7 +129,9 @@ import { SpecificRequestComponent } from './components/specific-request/specific
     TryNow,
     LoginComponent,
     PresentOnlineComponent,
-    SpecificRequestComponent
+    SpecificRequestComponent,
+    ContactProducerComponent,
+    ContactDetailProducerComponent
   ],
   imports: [
     AppRoutingModule,
