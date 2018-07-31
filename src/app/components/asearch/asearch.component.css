@@ -1,11 +1,42 @@
 .container{
 	width: 100%;
-	min-height: 100vh;
+	/*min-height: 100vh;*/
 }
 .heading{
 	width: 100%;
 	text-align: center;
 }
 .heading h1{
-	font-size: 20px;
+	font-size: 30px;
+}
+
+.advanced-search-box{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*flex-direction: column;*/
+	flex-wrap: wrap;
+}
+
+.w-50{
+	width: 48%;
+}
+.w-100{
+	width: 100%;
+}
+.col-sm-4{
+	/*display: inline-block;*/
+}
+.search-button{
+	padding: 10px 30px;
+	background-color: #67a961;
+	color: white;
+	border: none;
+}
+.search-button-box{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 100px;
 }

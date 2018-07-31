@@ -19,7 +19,7 @@
 <!-- .top-bar-v1 -->
 <header id="masthead" class="site-header header-v1" style="background-image: none; ">
     <div class="col-full desktop-only">
-        <div class="techmarket-sticky-wrap">
+        <div class="">
             <div class="row">
                 <div class="site-branding">
                     <a routerLink="/" class="custom-logo-link" rel="home">
@@ -32,19 +32,26 @@
                 <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu">
                     <ul id="menu-primary-menu" class="nav yamm">
                         <li class="sale-clr yamm-fw menu-item animate-dropdown">
-                            <a title="Super deals" routerLink="/">Home</a>
+                            <a title="Home" routerLink="/">Home</a>
                         </li>
                         <li class="menu-item animate-dropdown">
-                            <a title="Logitech Sale" href="product-category.html">Who We Are</a>
+                            <a title="Who We Are" routerLink="/about-us">Who We Are</a>
                         </li>
                         <li class="menu-item animate-dropdown">
-                            <a title="Headphones Sale" href="product-category.html">Contact Us</a>
+                            <a title="Contact Us" routerLink="/contact-us">Contact Us</a>
                         </li>
                         <li class="menu-item animate-dropdown">
-                            <a title="Headphones Sale" href="product-category.html">Partners</a>
+                            <a title="Partners" routerLink="/partners">Partners</a>
                         </li>
                         <li class="menu-item animate-dropdown">
-                            <a title="Headphones Sale" href="product-category.html">FAQ</a>
+                            <a title="FAQ" routerLink="/faq">FAQ</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <button mat-stroked-button class="advance-search-button" routerLink="/advance-search">Advance Search</button>
+                        </li>
+                        
+                        <li class="menu-item animate-dropdown">
+                            
                         </li>
                         <li class="techmarket-flex-more-menu-item dropdown">
                             <a title="..." href="#" data-toggle="dropdown" class="dropdown-toggle">...</a>
@@ -99,7 +106,7 @@
         </div>
         <!-- .techmarket-sticky-wrap -->
         <div class="row align-items-center">
-            <div id="departments-menu" class="dropdown departments-menu">
+            <div id="departments-menu" class="dropdown departments-menu" >
                 <button class="btn dropdown-toggle btn-block" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="tm tm-departments-thin"></i>
                     <span>All Sectors</span>
@@ -159,7 +166,9 @@
             </form>
             
             <!-- .header-wishlist -->
-            <button mat-stroked-button class="advance-search-button">Advanced Search</button>
+            <!-- <button mat-stroked-button class="advance-search-button">Advanced Search</button> -->
+            <button mat-stroked-button class="advance-search-button" (click)="openLogin()">Login</button>
+            <button mat-stroked-button class="advance-search-button" (click)="openSignup()">Sign Up</button>
             <!-- .site-header-cart -->
         </div>
         <!-- /.row -->

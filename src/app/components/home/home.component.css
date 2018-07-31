@@ -1,4 +1,7 @@
-/*Primary Color : #67a961    */
+*{
+	color: rgb(35, 47, 63);
+}
+/*Primary Color : rgb(99, 180, 120)    */
 .container{
 	width: 100%;
 	padding: 10px;
@@ -16,11 +19,13 @@
 	min-height: 600px;
 }
 
+.jumbo-title{
+	color: rgb(35, 47, 63);
+}
 
 
 
-
-/*Primary Color : #67a961    */
+/*Primary Color : rgb(99, 180, 120)    */
 .request-container{
 	width: 100%;
 }
@@ -28,7 +33,7 @@
 	font-size: 18px;
 	padding: 10px;
 	background-color: white;
-	border: 1px solid #67a961;
+	border: 1px solid rgb(99, 180, 120);
 	/*box-shadow: 1px 1px 1px rgb(255,1,1,0.1),
 							-1px -1px 1px rgb(255,1,1,0.1);*/
 	border-radius: 3px;
@@ -37,7 +42,7 @@
 	width: 100%;
 	padding: 20px;
 	min-height: 300px;
-	border: 1px solid #67a961;
+	border: 1px solid rgb(99, 180, 120);
 	border-top: unset;
 	/*background-color: white;*/
 }
@@ -61,7 +66,8 @@
   top: 0;
 	bottom: 0;
 	left: 0;
-	background-color: #67a961;
+	background-color: rgb(99, 180, 120);
+	color: white!important;
 }
 .rightRs{
 	position: absolute;
@@ -69,7 +75,8 @@
   top: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #67a961;
+	background-color: rgb(99, 180, 120);
+	color: white!important;
 }
 
 .request-slider mat-card-subtitle{
@@ -96,7 +103,7 @@
 
 
 
-/*Primary Color : #67a961    */
+/*Primary Color : rgb(99, 180, 120)    */
 
 
 
@@ -105,18 +112,20 @@
 	padding: 0;
 	width: 100%;
 	background-color: white;
-	border: 2px solid #67a961;
+	border: 2px solid rgba(220,220,220,0.5);
 	border-bottom: unset;
-	border-radius: 3px 3px 0 0;
+	border-radius: 5px 5px 0 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: 15px;
+	color: rgb(35, 47, 63);
 }
 .sector-tabs{
 	width: 100%;
-	border: 2px solid #67a961;
+	border: 2px solid rgba(220,220,220,0.5);
 	border-top: unset;	
-	border-radius: 3px 3px 3px 3px;
+	border-radius: 0px 0px 5px 5px;
 }
 .side-container{
 	/*width: 50;*/
@@ -128,6 +137,21 @@
 }
 mat-nav-list{
 	/*font-size: 1px;*/
+	/*font-size: 10px!important;*/
+	font-size: 1.071em!important;
+  font-weight: 400;
+  color: #2b2b2b;
+  letter-spacing: -.01em;
+  line-height: 1.4em;
+	text-transform: capitalize!important;
+}
+mat-nav-list span{
+	font-size: 15px;
+  font-weight: 400;
+  color: #2b2b2b;
+  letter-spacing: -.01em;
+  line-height: 1.4em;
+	text-transform: capitalize!important;
 }
 
 /deep/.mat-tab-label, /deep/.mat-tab-label-active{
@@ -142,7 +166,7 @@ mat-nav-list{
 
 
 .v-showcase-border{
-	border: 2px solid #67a961;
+	border: 2px solid rgba(99, 180, 120, 0.4);
 	padding: 20px;
 }
 .v-middle{
@@ -152,9 +176,98 @@ mat-nav-list{
 .v-top{
 	margin-bottom: 0;
 	border-bottom: unset;
-	border-radius: 3px 3px 0 0;
+	border-radius: 5px 5px 0 0;
 }
 .v-bottom{
 	border-top: unset;
-	border-radius: 0 0 3px 3px;
+	border-radius: 0 0 5px 5px;
+}
+
+
+.sector-divider{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+
+.side-container .offer-button{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.side-container .offer-button:hover{
+	background-color: white;
+	color: black;
+}
+
+.side-container{
+	width: 100%;
+}
+.side-container img{
+	width: 100%;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+/deep/.mat-badge-content{
+	width: 25px !important;
+	height: 25px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(99, 180, 120);
+	font-size: 11px;
+}
+
+.tryIt{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 20px;
+	padding: 20px;
+	margin-top: 20px;
+	border: 1px dashed rgb(35, 47, 63);
+	color: rgb(62, 97, 164);
+	font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+
+/*Try Now Css*/
+
+.try-container{
+	width: 800px;
+	max-width: 100%;
+	height: 90vh;
+	overflow-y: auto;
+}
+.try-container h2{
+	text-align: center;
+	color: rgb(35, 47, 63);
+}
+.try-container h3, .try-container h4{
+	color: rgb(62, 97, 164);
+}
+.try-container .info{
+	border-right: 1px solid rgb(35, 47, 63);
+}
+.try-container .content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.try-container img{
+	margin-left: auto;
+	margin-right: auto;
 }

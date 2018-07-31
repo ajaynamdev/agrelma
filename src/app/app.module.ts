@@ -75,9 +75,9 @@ import { NguCarouselModule } from '@ngu/carousel';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent, LoginDialog, SignupDialog } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent, TryNow } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LatestRequestComponent } from './components/latest-request/latest-request.component';
@@ -86,6 +86,18 @@ import { BannerComponent } from './components/banner/banner.component';
 import { AsearchComponent } from './components/asearch/asearch.component';
 import { TestComponent } from './components/test/test.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { SearchresultComponent } from './components/searchresult/searchresult.component';
+import { OfferComponent } from './components/offer/offer.component';
+import { RequestComponent } from './components/request/request.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
+import { PartnersComponent } from './components/partners/partners.component';
+import { XpayComponent } from './components/xpay/xpay.component';
+import { LoginComponent } from './components/login/login.component';
+import { PresentOnlineComponent } from './components/present-online/present-online.component';
+import { SpecificRequestComponent } from './components/specific-request/specific-request.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +112,22 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     BannerComponent,
     AsearchComponent,
     TestComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    FaqComponent,
+    LoginDialog,
+    SignupDialog,
+    SubscribeComponent,
+    SearchresultComponent,
+    OfferComponent,
+    RequestComponent,
+    ContactComponent,
+    AboutComponent,
+    PartnersComponent,
+    XpayComponent,
+    TryNow,
+    LoginComponent,
+    PresentOnlineComponent,
+    SpecificRequestComponent
   ],
   imports: [
     AppRoutingModule,
@@ -145,6 +172,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: []
+  providers: [],
+  entryComponents: [LoginDialog, SignupDialog, TryNow]
 })
 export class AppModule { }

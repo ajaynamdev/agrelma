@@ -1,0 +1,24 @@
+.content{
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	border: 1px dashed lightgrey;
+	padding: 15px;
+}
+h1{
+	font-size: 18px;
+	text-align: center;
+}
+h2{
+	font-size: 15px;
+	text-align: center;
+	margin-top: 15px;
+}
+.payment{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px dashed lightgrey;
+	margin-top: 20px;
+	padding: 20px; 
+}

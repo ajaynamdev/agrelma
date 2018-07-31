@@ -1,0 +1,11 @@
+.page-header-caption{
+	text-align: center;
+}
+.v-heading{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.v-heading img{
+	max-height: 50px;
+}

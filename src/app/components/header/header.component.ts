@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -95,4 +96,61 @@ export class HeaderComponent implements OnInit {
 			"sub": []
 		}
   ];
+
+  nodisplay = false;
+
+  openLogin(): void {
+    let dialogRef = this.dialog.open(LoginDialog, {
+      width: '500px',
+      data: { name: "Vishal Pandey", animal: "fkjdshk" }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openSignup(): void {
+    let dialogRef = this.dialog.open(SignupDialog, {
+      width: '500px',
+      data: { name: "Vishal Pandey", animal: "fkjdshk" }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+}
+
+@Component({
+  selector: 'login-dialog',
+  templateUrl: 'login-dialog.html',
+  styleUrls: ['./header.component.css']
+})
+export class LoginDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<LoginDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'signup-dialog',
+  templateUrl: 'signup-dialog.html',
+  styleUrls: ['./header.component.css']
+})
+export class SignupDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<SignupDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

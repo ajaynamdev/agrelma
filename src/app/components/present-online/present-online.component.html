@@ -1,0 +1,186 @@
+<section class="container">
+	<section class="col-full">
+		<section class="content col-sm-12">
+			<h2>PRESENT YOUR PRODUCTS ONLINE</h2>
+			<p>Through this page, Agrelma allows you to subscribe free of charge. After subscribing, you can access the system via login and enter your offers.</p>
+			<mat-tab-group [(selectedIndex)]="selectedTab" class="tabs-container">
+				<mat-tab label="Access Data">
+					<div class="col-sm-12">
+						<p>Insert the data selected to access the system:</p>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Company Name</label>
+							<input type="text" class="col-sm-9" placeholder="Company Name">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">e-Mail address</label>
+							<input type="text" class="col-sm-9" placeholder="e-Mail address">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Country</label>
+							<input type="text" class="col-sm-9" placeholder="Country">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">UserName</label>
+							<input type="text" class="col-sm-9" placeholder="UserName">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Password</label>
+							<input type="text" class="col-sm-9" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Repeat the password</label>
+							<input type="text" class="col-sm-9" placeholder="Repeat the password">
+						</div>
+					</div>
+					<div class="col-sm-12 next-button">
+						<button (click)="selectedTab = 1; scroll(10);">Next Step</button>
+					</div>
+				</mat-tab>
+				<mat-tab label="Company Data">
+					<div class="col-sm-12">
+						<p>For the correct entry of company and your offer, please enter data into the following form:</p>
+						<mat-toolbar>Company data</mat-toolbar>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Address</label>
+							<input type="text" class="col-sm-9" placeholder="Address">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">City</label>
+							<input type="text" class="col-sm-9" placeholder="City">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">PO Box</label>
+							<input type="text" class="col-sm-9" placeholder="PO Box">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Phone</label>
+							<input type="text" class="col-sm-9" placeholder="Phone">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Fax</label>
+							<input type="text" class="col-sm-9" placeholder="Fax">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Website</label>
+							<input type="text" class="col-sm-9" placeholder="Website">
+						</div>
+						<mat-toolbar>Social Network</mat-toolbar>
+						<div class="form-group" *ngFor="let s of socialContact">
+							<select class="col-sm-2">
+								<option>Select</option>
+								<option>Skype</option>
+								<option>Facebook</option>
+								<option>Instagram</option>
+								<option>Google+</option>
+								<option>LinkedIn</option>
+								<option>MySpace</option>
+								<option>Tumbler</option>
+							</select>
+							<input type="text" class="col-sm-9" placeholder="Handle {{s}}">
+							<button class="remove-button" mat-mini-fab (click)="remove(s)">x</button>
+						</div>
+						<button mat-stroked-button class="addmore-button" (click)="addMore()">Add More</button>
+						<mat-toolbar>Details of the person responsible</mat-toolbar>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Contact</label>
+							<input type="text" class="col-sm-9" placeholder="Contact">
+						</div>
+						<mat-toolbar>Company activity</mat-toolbar>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Main sector</label>
+							<select class="col-sm-9">
+								<option>Select</option>
+								<option *ngFor="let s of sectors">{{s.name}}</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-12">Company activity description: (- Enter from 20 to 500 characters.)</label>
+							<textarea class="col-sm-12"></textarea>
+						</div>
+					</div>
+					<div class="col-sm-12 next-button">
+						<button (click)="selectedTab = 2; scroll(10);">Next Step</button>
+					</div>
+				</mat-tab>
+				<mat-tab label="Activity Sector">
+					<div class="col-sm-12" style="overflow-y: hidden;">
+						<p>Select the sectors of your activity:</p>
+						<div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+							<span *ngFor="let s of sectors" style="width: 80%;">
+								<mat-checkbox>{{s.name}}</mat-checkbox>
+							</span>
+						</div>
+					</div>
+					<div class="col-sm-12 next-button">
+						<button (click)="selectedTab = 3; scroll(10);">Next Step</button>
+					</div>
+				</mat-tab>
+				<mat-tab label="Company Details">
+					<div class="col-sm-12" style="overflow-y: hidden;">
+						
+						<mat-toolbar>Basic Information</mat-toolbar>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Number Of Employees</label>
+							<select class="col-sm-9">
+								<option>Less than 5 persons</option>
+								<option>From 5 to 10 persons</option>
+								<option>From 10 to 20 persons</option>
+								<option>From 20 to 50 persons</option>
+								<option>More than 50 persons</option>
+							</select>
+						</div>
+						<mat-toolbar>Ownership & Capital</mat-toolbar>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Year Established:</label>
+							<input type="text" class="col-sm-9" placeholder="Year Established:">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Legal Representative/Business Owner:</label>
+							<input type="text" class="col-sm-9" placeholder="Legal Representative/Business Owner:">
+						</div>
+
+						<mat-toolbar>Ownership & Capital</mat-toolbar>
+
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Main Customer</label>
+							<input type="text" class="col-sm-9" placeholder="Main Customer:">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Total Annual Sales Volume</label>
+							<input type="text" class="col-sm-9" placeholder="Total Annual Sales Volume">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Export Percentage</label>
+							<input type="text" class="col-sm-9" placeholder="Export Percentage">
+						</div>
+						<div class="form-group">
+							<label for="email" class="col-sm-3">Total Annual Purchase Volume</label>
+							<input type="text" class="col-sm-9" placeholder="Total Annual Purchase Volume">
+						</div>
+						
+						<div class="form-group">
+							<label for="email" class="col-sm-12">Products/Services:(Sold)</label>
+							<textarea class="col-sm-12" placeholder="Enter text in English."></textarea>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="col-sm-12">Products/Services:(Purchased)</label>
+							<textarea class="col-sm-12" placeholder="Enter text in English."></textarea>
+						</div>
+						<mat-divider></mat-divider>
+						<p>Please enter the code which appears in the image in order to save the data:</p>
+						<mat-divider></mat-divider>
+						<mat-checkbox><a>I HAVE READ AND ACCEPTED THE DATA PRIVACY PROTECTION INFO </a></mat-checkbox><br>
+						<mat-checkbox checked="true">I wish to subscribe to Agrelma’s newsletter</mat-checkbox><br>
+						<mat-checkbox checked="true">I wish to receive via e-mail the buyers’ requests</mat-checkbox><br><br><br>
+
+					</div>
+
+					<div class="col-sm-12 next-button">
+						<button>Continue</button>
+					</div>
+				</mat-tab>
+			</mat-tab-group>
+		</section>
+	</section>
+</section>

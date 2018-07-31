@@ -1,0 +1,107 @@
+<section class="container col-sm-12">
+	<section class="whole-container col-sm-12">
+		<h1>AGRELMA SUBSCRIPTION</h1>
+		<div class="col-sm-12 subscription-container">
+			<input type="text" placeholder="Company Name" class="col-sm-5">
+			<input type="text" placeholder="Address" class="col-sm-5">
+			<input type="text" placeholder="City" class="col-sm-5">
+			<input type="text" placeholder="Country" class="col-sm-5">
+			<input type="text" placeholder="Phone" class="col-sm-5">
+			<input type="text" placeholder="Mobile" class="col-sm-5">
+			<input type="text" placeholder="PO Box" class="col-sm-5">
+			<input type="text" placeholder="Provience" class="col-sm-5">
+			<input type="text" placeholder="Fax" class="col-sm-5">
+			<input type="text" placeholder="Email" class="col-sm-5">
+			<input type="text" placeholder="Website" class="col-sm-5">
+			<input type="text" placeholder="Contact" class="col-sm-5">
+			<input type="text" placeholder="VAT/Fiscal Code:" class="col-sm-5">
+		</div>
+		<div class="col-sm-12 sectors-container">
+			<h6 class="col-sm-12">Select one or more Sectors related to your company activity.</h6>
+			<div class="col-sm-5">
+				<h6>Available Sectors</h6>
+				<div class="sector-container">
+
+					<mat-selection-list role="list" #theSectors>
+					  <mat-list-option role="listitem" *ngFor="let sector of sectors">{{sector.name}}</mat-list-option>
+					</mat-selection-list>
+				</div>
+			</div>
+			<div class="col-sm-2 actionButton">
+				<button mat-stroked-button (click)="right(theSectors)">Add</button><br>
+				<button mat-stroked-button (click)="left(theSelectedSectors)">Remove</button><br>
+				<button mat-stroked-button (click)="addAll()">Add All</button><br>
+				<button mat-stroked-button (click)="removeAll()">Remove All</button>
+			</div>
+			<div class="col-sm-5">
+				<h6>Selected Sectors</h6>
+				<div class="sector-container">
+					<mat-selection-list role="list" #theSelectedSectors>
+					  <mat-list-option role="listitem" *ngFor="let sector of selectedSectors">{{sector.name}}</mat-list-option>
+					</mat-selection-list>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 subscription-container">
+			<h6 class="col-sm-12">Select the Agrelma Solution you want to subscribe.</h6>
+			<h6 class="col-sm-12">According to the selected services, the cost for the subscription will show up in the section for payment option.</h6>
+			<div class="col-sm-12">
+				<div class="listitem col-sm-12">
+					<mat-checkbox checked="true" (change)="test($event)">AGRELMA BASE</mat-checkbox>
+					<div class="col-sm-6">
+						<mat-checkbox (change)="test2($event)" [checked]="hi">Showcase for 1 month</mat-checkbox>
+						<small>Buy a credit for to your offer in Showcase for 1 month!</small>
+					</div>
+					<div class="col-sm-6">
+						<mat-radio-group (change)="test3($event)">
+						  <mat-radio-button value="1">for the access to our website for 2 month SPECIAL OFFER</mat-radio-button>
+						  <mat-radio-button value="2" checked="true">for the access to our website for 12 month</mat-radio-button>
+						</mat-radio-group>
+					</div>
+				</div>
+				<div class="listitem col-sm-12">
+					<mat-checkbox (change)="test1($event, 'foodi')">FOOD IMPORTERS DIRECTORY</mat-checkbox>
+				</div>
+				<div class="listitem col-sm-12">
+					<mat-checkbox (change)="test1($event, 'winei')">WINE IMPORTERS DIRECTORY</mat-checkbox>
+				</div>
+				<div class="listitem col-sm-12">
+					<mat-checkbox (change)="test1($event, 'foodp')">FOOD PRODUCERS DIRECTORY</mat-checkbox>
+				</div>
+				<div class="listitem col-sm-12">
+					<mat-checkbox (change)="test1($event, 'winep')">WINE PRODUCERS DIRECTORY</mat-checkbox>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 subscription-container">
+			<h6 class="col-sm-12">Select the Method of Payment you want to use.</h6>
+			<mat-radio-group >
+			  <mat-radio-button value="1" class="col-sm-12" checked="true">Payment by Credit Card (Mastercard, Visa o American Express)<br>
+			  	<div class="col-sm-12" style="display: flex;
+			  	align-items: center; justify-content: space-between; padding: 20px; border: 1px solid green;">
+				  	<img src="https://www.agrelma.com/Img/Carte-x-Pay.png"> Total amount <button mat-mini-fab>{{cost}}</button>
+				  </div>
+				</mat-radio-button>
+			  <mat-radio-button value="2" class="col-sm-12"> By Bank Transfer to COMELTRA SRLS<br>
+			  	<div class="col-sm-12" style="display: flex;
+			  	align-items: center; justify-content: space-between; padding: 20px; border: 1px solid green;">
+				  	 Total amount <button mat-mini-fab>{{cost}}</button>
+				  </div>
+			  </mat-radio-button>
+			</mat-radio-group>
+		</div>
+		<div class="col-sm-12 subscription-container">
+			<h6 class="col-sm-12">Please read and accept contract conditions by clicking on the following link to complete the subscription.</h6>
+			<mat-checkbox class="col-sm-12"> I HAVE READ AND ACCEPTED THE GENERAL CONDITIONS OF CONTRACT </mat-checkbox>
+			<mat-checkbox class="col-sm-12" checked="true">I wish to subscribe to Agrelma’s newsletter	</mat-checkbox>
+			<mat-checkbox class="col-sm-12" checked="true">I wish to receive via e-mail the buyers’ requests</mat-checkbox>
+		</div>
+		
+		<div class="col-sm-12" style="text-align: center;">
+			<button class="subscribe-button">Subscribe</button>
+		</div>
+		<br>
+		<br>
+		<br>
+	</section>
+</section>

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { NguCarousel } from '@ngu/carousel';
+declare var $:any;
 
 @Component({
   selector: 'app-home',
@@ -8,9 +10,13 @@ import { NguCarousel } from '@ngu/carousel';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+
+  	$.getScript("../../../assets/js/scripts.js", function() {
+		});
+		
   	this.carouselOne = {
       grid: {xs: 1, sm: 2, md: 3, lg: 4, all: 0},
       slide: 1,
@@ -24,6 +30,10 @@ export class HomeComponent implements OnInit {
       loop: true,
       custom: 'banner'
     }
+    $(".slick-arrow").click(function(){
+    	alert("Hello");
+    	console.log("fkdlslll");
+    })
   }
 
   public carouselOne: NguCarousel;
@@ -265,86 +275,116 @@ export class HomeComponent implements OnInit {
   sectors = [
 		{
 			"id": "1",
-			"name": "WINES AND LIQUORS",
+			"name": "Wines And Liquors",
 			"sub": ["Quality Wine", "Table Wine", "Liquors"]
 		},
 		{
 			"id": "2",
-			"name": "OIL AND OLIVES",
+			"name": "Oil And Olives",
 			"sub": ["Oil", "Olives", "Oil Seeds"]
 		},
 		{
 			"id": "16",
-			"name": "FISH AND SEAFOOD",
-			"sub": ["Fish and Seafood", "Crostacea and Mollusca", "Packed Fisheries"]
+			"name": "Fish And Seafood",
+			"sub": ["Fish And Seafood", "Crostacea And Mollusca", "Packed Fisheries"]
 		},
 		{
 			"id": "3",
-			"name": "MEAT AND CURED PORK",
+			"name": "Meat And Cured Pork",
 			"sub": ["Cured Pork", "Meat"]
 		},
 		{
 			"id": "4",
-			"name": "FRUITS AND VEGE.",
-			"sub": ["Fruits","Citrus","Vegetables","Packed Fruit and Vegetables"]
+			"name": "Fruits And Vege.",
+			"sub": ["Fruits","Citrus","Vegetables","Packed Fruit And Vegetables"]
 		},
 		{
 			"id": "3",
-			"name": "PASTA",
+			"name": "Pasta",
 			"sub": []
 		},
 		{
 			"id": "4",
-			"name": "DELICATESSEN",
+			"name": "Delicatessen",
 			"sub": []
 		},
 		{
 			"id": "7",
-			"name": "PRESERVES",
+			"name": "Preserves",
 			"sub": []
 		},
 		{
 			"id": "8",
-			"name": "SWEETS AND DOUGH PRODUCTS",
+			"name": "Sweets And Dough Products",
 			"sub": []
 		},
 		{
 			"id": "9",
-			"name": "CHEESE",
+			"name": "Cheese",
 			"sub": []
 		},
 		{
 			"id": "10",
-			"name": "COFFEE",
+			"name": "Coffee",
 			"sub": []
 		},
 		{
 			"id": "11",
-			"name": "DRINKS",
+			"name": "Drinks",
 			"sub": []
 		},
 		{
 			"id": "12",
-			"name": "FROZEN PRODUCTS",
+			"name": "Frozen Products",
 			"sub": []
 		},
 		{
 			"id": "13",
-			"name": "CEREALS",
+			"name": "Cereals",
 			"sub": []
 		},
 		{
 			"id": "14",
-			"name": "CONVENIENCE FOOD/READY MEALS",
+			"name": "Convenience Food/Ready Meals",
 			"sub": []
 		},
 		{
 			"id": "15",
-			"name": "VINEGAR",
+			"name": "Vinegar",
 			"sub": []
 		}
   ];
 
   nodisplay:boolean = false;
+
+  openTry(): void {
+    let dialogRef = this.dialog.open(TryNow, {
+      width: 'auto',
+      height: 'auto',
+      data: { name: "Vishal Pandey", animal: "fkjdshk" }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+}
+
+
+@Component({
+  selector: 'try-now',
+  templateUrl: 'try-now.html',
+  styleUrls: ['./home.component.css']
+})
+export class TryNow {
+
+  constructor(
+    public dialogRef: MatDialogRef<TryNow>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
 }

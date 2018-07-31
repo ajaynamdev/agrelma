@@ -1,11 +1,28 @@
+<div id="content" class="site-content">
+	<div class="col-full">
+    <div class="row">
+      <nav class="woocommerce-breadcrumb">
+        <a href="home-v1.html">Home</a>
+        <span class="delimiter">
+            <i class="tm tm-breadcrumbs-arrow-right"></i>
+        </span>
+        Frequently Asked Questions
+      </nav>
+    </div>
+	</div>
+</div>
+
+
+
 <section class="container">
 	<div class="heading"> <h1>Advanced search</h1> </div>
-	<div class="advanced-search-box">
-		<mat-form-field class="query" appearance="outline">
+	<div class="advanced-search-box col-sm-12">
+		<mat-form-field class="query" appearance="outline" class="col-sm-8">
 			<mat-label>Search Here</mat-label>
 	    <input matInput placeholder="Start Typing Results Would Appear Accordingly">
 	  </mat-form-field>
-	  <mat-form-field class="sector-selector" appearance="outline">
+	  <br>
+	  <mat-form-field class="sector-selector" appearance="outline" class="col-sm-4">
 		  <mat-select [value]="'default'">
 		  	<mat-option [value]="'default'">
 		      All The Words
@@ -18,10 +35,72 @@
 		    </mat-option>
 		  </mat-select>
 		</mat-form-field>
-		<mat-radio-group>
+		<br>
+		
+		<mat-form-field class="sector-selector" appearance="outline" class="col-sm-4">
+			<mat-label>Producer Country</mat-label>
+		  <mat-select [value]="'default'">
+		  	<mat-option [value]="'default'">
+		      All
+		    </mat-option>
+		    <mat-option *ngFor="let country of countries" value="{{country.value}}">
+		      {{country.content}}
+		    </mat-option>
+		  </mat-select>
+		</mat-form-field>
+		<br>
+		<mat-form-field class="sector-selector" appearance="outline" class="col-sm-4">
+			<mat-label>Sector</mat-label>
+		  <mat-select [value]="'default'">
+		  	<mat-option [value]="'default'">
+		      All
+		    </mat-option>
+		    <mat-option *ngFor="let sector of sectors" value="{{sector.id}}">
+		      {{sector.name}}
+		    </mat-option>
+		  </mat-select>
+		</mat-form-field>
+		<br>
+		<mat-radio-group class="col-sm-4">
+			<mat-label>Reslut Type</mat-label>
 		  <mat-radio-button value="1" checked="true">Offers</mat-radio-button>
 		  <mat-radio-button value="2">Requests</mat-radio-button>
 		</mat-radio-group>
+		<br>
+		<div class="col-sm-12 search-button-box">
+			<button mat-stroked-button class="center search-button">Search</button>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

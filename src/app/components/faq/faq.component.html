@@ -1,0 +1,55 @@
+<div id="content" class="site-content">
+      <div class="col-full">
+          <div class="row">
+              <nav class="woocommerce-breadcrumb">
+                  <a href="home-v1.html">Home</a>
+                  <span class="delimiter">
+                      <i class="tm tm-breadcrumbs-arrow-right"></i>
+                  </span>
+                  Frequently Asked Questions
+              </nav>
+              <!-- .woocommerce-breadcrumb -->
+              <div id="primary" class="content-area">
+                  <main id="main" class="site-main">
+                      <div class="type-page hentry">
+                          <!-- .entry-header -->
+                          <div class="entry-content">
+                              
+                              <!-- .row -->
+                              <h2 class="faq-title-v2">Frequently Asked Questions</h2>
+                              <div class="faq-subtitle">Here you can find the Frequently Asked Questions about Agrelma system</div>
+                              <div id="accordion" class="faq-accordion-wrap" role="tablist" aria-multiselectable="true">
+                                  <div class="card" *ngFor="let f of faq;">
+                                      <div class="card-header" role="tab" id="headingOne">
+                                          <h5 class="mb-0 question">
+                                              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{f.id}}" aria-expanded="false" aria-controls="f.id">
+                                                  <i class="icon"></i>
+                                                  {{f.q}}
+                                              </a>
+                                          </h5>
+                                      </div>
+                                      <!-- .card-header -->
+                                      <div id="{{f.id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                                          <div class="card-block">
+                                              {{f.a}}
+                                          </div>
+                                      </div>
+                                      <!-- .collapse -->
+                                  </div>
+                                  
+                                  <!-- .card -->
+                              </div>
+                              <!-- .faq-accordion-wrap -->
+                          </div>
+                          <!-- .entry-content -->
+                      </div>
+                      <!-- .hentry -->
+                  </main>
+                  <!-- #main -->
+              </div>
+              <!-- #primary -->
+          </div>
+          <!-- .row -->
+      </div>
+      <!-- .col-full -->
+  </div>

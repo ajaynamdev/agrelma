@@ -2328,11 +2328,31 @@
                         <!-- .woocommerce-pagination -->
                     </div>
                     <!-- .shop-control-bar-bottom -->
+
+                    <div class="tryIt">
+                        <img src="https://www.agrelma.com/Img/PromoVetr.png">
+                        <div>
+                            <span>Increase your visibility</span><br>
+                            <span style="color: rgb(12, 166, 129);">will multiply your contacts</span>
+                        </div>
+                        <button (click)="openTry()">Try It Now</button>
+                    </div>
                 </main>
                 <!-- #main -->
             </div>
             <!-- #primary -->
             <div id="secondary" class="widget-area shop-sidebar" role="complementary">
+
+                <div class="side-container">
+                    <button class="offer-button" mat-stroked-button matBadge="Free" matBadgeSize="medium" routerLink="/present-product-online">Present Your Products Online</button>
+                </div>
+                <div class="side-container">
+                    <button class="offer-button" mat-stroked-button routerLink="/send-specific-request">Send Your Specific Request</button>
+                </div>
+                <div class="side-container">
+                    <img src="https://www.agrelma.com/Img/banner-promo-UK.png" routerLink="/subscribe">
+                </div>
+
 
                 <div class="widget woocommerce widget_product_categories techmarket_widget_product_categories" style="margin-left: auto; margin-right: auto;">
                     <mat-toolbar class="sectors">The Sectors</mat-toolbar>
@@ -2348,17 +2368,19 @@
                                 <mat-nav-list>
                                     <span *ngFor="let sector of sectors; i as index">
                                         <span *ngIf="sector.sub[0]">
-                                                <mat-list-item>
-                                                    <span>{{sector.name}}</span>
-                                                </mat-list-item>
-                                            </span>
-                                            <span *ngIf="!sector.sub[0]">
-                                                <mat-list-item>
-                                                    <span>{{sector.name}}</span>
-                                                </mat-list-item>
-                                            </span>
+                                            <mat-list-item routerLink="/search-result/offer">
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item>
                                         </span>
-                                    </mat-nav-list>
+                                            <!-- <mat-divider></mat-divider> -->
+                                        <span *ngIf="!sector.sub[0]" >
+                                            <mat-list-item routerLink="/search-result/offer">
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item>
+                                        </span>
+                                        <mat-divider class="sector-divider" *ngIf="sector.id != '15'"></mat-divider>
+                                    </span>
+                                </mat-nav-list>
                             </p>
                           </mat-tab>
                           <mat-tab>
@@ -2371,15 +2393,16 @@
                                 <mat-nav-list>
                                     <span *ngFor="let sector of sectors; i as index">
                                         <span *ngIf="sector.sub[0]">
-                                                <mat-list-item>
+                                                <mat-list-item routerLink="/search-result/request">
                                                     <span>{{sector.name}}</span>
                                                 </mat-list-item>
                                             </span>
                                             <span *ngIf="!sector.sub[0]">
-                                                <mat-list-item>
+                                                <mat-list-item routerLink="/search-result/request">
                                                     <span>{{sector.name}}</span>
                                                 </mat-list-item>
                                             </span>
+                                            <mat-divider class="sector-divider" *ngIf="sector.id != '15'"></mat-divider>
                                         </span>
                                     </mat-nav-list>
                             </p>
@@ -2410,7 +2433,7 @@
                     </ul>
                 </div>
 
-                <div class="section-deals-carousel-and-products-carousel-tabs row">
+                <div class="section-deals-carousel-and-products-carousel-tabs row" *ngIf="nodisplay">
                     <section class="col-sm-12 deals-carousel" id="sale-with-timer-carousel">
                         <div class="deals-carousel-inner-block">
                             <header class="section-header">
@@ -2423,7 +2446,7 @@
                                 <div class="products-carousel">
                                     <div class="container-fluid">
                                         <div class="woocommerce columns-1">
-                                            <div class="products" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#sale-with-timer-carousel .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:767,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}}]}">
+                                            <div class="products" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:true,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#sale-with-timer-carousel .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:767,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}}]}">
                                                 <div class="sale-product-with-timer product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="sale-product-with-timer-header">
@@ -2701,10 +2724,130 @@
                             <nav class="custom-slick-nav"></nav>
                         </header>
                         <!-- .section-header -->
-                        <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#single-sidebar-carousel .custom-slick-nav&quot;}">
+                        <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:true,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;rows&quot;:4,&quot;slidesPerRow&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm v-right-arrow tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#single-sidebar-carousel .custom-slick-nav&quot;}">
                             <div class="container-fluid">
                                 <div class="woocommerce columns-1">
                                     <div class="products">
+                                        <div class="landscape-product-widget product">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
                                         <div class="landscape-product-widget product">
                                             <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                 <div class="media">
