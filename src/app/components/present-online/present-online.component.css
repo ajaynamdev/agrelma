@@ -1,5 +1,9 @@
+.content{
+	font-size: 15px;
+}
 .content h2{
 	text-align: center;
+	font-size: 18px;
 }
 .content{
 	margin-left: auto;
