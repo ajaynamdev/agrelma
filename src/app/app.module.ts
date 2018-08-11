@@ -64,6 +64,12 @@ import {MatTableModule} from '@angular/material/table';
 
 
 
+import { AuthGuardService } from './admin/services/auth-guard.service';
+import { AuthService } from './admin/services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
 
 
 
@@ -100,6 +106,15 @@ import { PresentOnlineComponent } from './components/present-online/present-onli
 import { SpecificRequestComponent } from './components/specific-request/specific-request.component';
 import { ContactProducerComponent } from './components/contact-producer/contact-producer.component';
 import { ContactDetailProducerComponent } from './components/contact-detail-producer/contact-detail-producer.component';
+import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
+import { ProducerComponent } from './admin/components/producer/producer.component';
+import { OfferRequestComponent } from './producer/components/offer-request/offer-request.component';
+import { CompanyDataComponent } from './producer/components/company-data/company-data.component';
+import { BookRequestComponent } from './producer/components/book-request/book-request.component';
+import { MessageListComponent } from './producer/components/message-list/message-list.component';
+import { MessageAgrelmaComponent } from './producer/components/message-agrelma/message-agrelma.component';
+import { OtherDataComponent } from './producer/components/other-data/other-data.component';
+import { MiniSiteComponent } from './producer/components/mini-site/mini-site.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +146,16 @@ import { ContactDetailProducerComponent } from './components/contact-detail-prod
     PresentOnlineComponent,
     SpecificRequestComponent,
     ContactProducerComponent,
-    ContactDetailProducerComponent
+    ContactDetailProducerComponent,
+    DashboardComponent,
+    ProducerComponent,
+    OfferRequestComponent,
+    CompanyDataComponent,
+    BookRequestComponent,
+    MessageListComponent,
+    MessageAgrelmaComponent,
+    OtherDataComponent,
+    MiniSiteComponent
   ],
   imports: [
     AppRoutingModule,
@@ -174,9 +198,11 @@ import { ContactDetailProducerComponent } from './components/contact-detail-prod
     CommonModule,
     NguCarouselModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule,
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthService, CookieService],
   entryComponents: [LoginDialog, SignupDialog, TryNow]
 })
 export class AppModule { }

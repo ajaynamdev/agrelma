@@ -19,6 +19,20 @@ import { ContactProducerComponent } from './components/contact-producer/contact-
 import { ContactDetailProducerComponent } from './components/contact-detail-producer/contact-detail-producer.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
+import { AuthGuardService } from './admin/services/auth-guard.service';
+import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
+
+// Producer Routes
+import { ProducerComponent } from './admin/components/producer/producer.component';
+import { OfferRequestComponent } from './producer/components/offer-request/offer-request.component';
+import { BookRequestComponent } from './producer/components/book-request/book-request.component';
+import { CompanyDataComponent } from './producer/components/company-data/company-data.component';
+import { MessageAgrelmaComponent } from './producer/components/message-agrelma/message-agrelma.component';
+import { MessageListComponent } from './producer/components/message-list/message-list.component';
+import { MiniSiteComponent } from './producer/components/mini-site/mini-site.component';
+import { OtherDataComponent } from './producer/components/other-data/other-data.component';
+
+
 const routes: Routes = [
 	{
 		path: "",
@@ -87,6 +101,54 @@ const routes: Routes = [
 	{
 		path: "contact-detail-producer",
 		component: ContactDetailProducerComponent
+	},
+
+	{
+		path: 'admin',
+    component: DashboardComponent,
+    canActivate: [AuthGuardService],
+    children: [
+        {
+          path: 'producer',
+          component: ProducerComponent,
+          canActivate: [AuthGuardService],
+          children : [
+          	{
+	          	path: '',
+	          	component: OfferRequestComponent
+	          },
+	          {
+	          	path: 'offer-request',
+	          	component: OfferRequestComponent
+	          },
+	          {
+	          	path: 'book-request',
+	          	component: BookRequestComponent
+	          },
+	          {
+	          	path: 'company-data',
+	          	component: CompanyDataComponent
+	          },
+	          {
+	          	path: 'message-agrelma',
+	          	component: MessageAgrelmaComponent
+	          },
+	          {
+	          	path: 'message-list',
+	          	component: MessageListComponent
+	          },
+	          {
+	          	path: 'mini-site',
+	          	component: MiniSiteComponent
+	          },
+	          {
+	          	path: 'other-data',
+	          	component: OtherDataComponent
+	          },
+
+          ]
+        }
+      ]
 	},
 
 	{ path: '**', component: NotfoundComponent },

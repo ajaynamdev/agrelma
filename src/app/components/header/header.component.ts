@@ -1,5 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Router }      from '@angular/router';
+import { AuthService } from '../../admin/services/auth.service';
+
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -128,12 +132,38 @@ export class HeaderComponent implements OnInit {
 })
 export class LoginDialog {
 
+	message:any;
+
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public authService: AuthService, 
+    public router: Router, 
+    private cookieService:CookieService
+    ) {
+  		this.message = "Login";
+    }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  key:any;
+  config: Config;
+
+  login(id:any, pwd:any) {
+    this.message = "Loggin in ... ";
+    this.authService.getLogin(id,pwd).subscribe((data) => {
+      this.config = { ...data }
+      if (this.config.key == 'success') {
+        this.message = "Logged In";
+        this.cookieService.set("admin",this.config.value,360000,"/");
+        // this.router.navigate(['/']);
+        window.location.href = "/admin/producer";
+      }else{
+        this.message = this.config.key;
+      }
+
+    })
   }
 
 }
@@ -153,4 +183,9 @@ export class SignupDialog {
     this.dialogRef.close();
   }
 
+}
+
+export interface Config {
+  key: string;
+  value: string;
 }

@@ -1,0 +1,39 @@
+.d-container{
+	min-height: 100vh;
+	background-color: rgb(231, 231, 231);
+	padding: 10px;
+}
+.d-i-container{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 10px!important;
+}
+.d-box{
+	background-color: white;
+	border: 1px solid rgb(220,220,220);
+	padding: 7px;
+	margin-bottom: 10px;
+}
+.d-box header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.d-box header h3{
+	font-size: 18px;
+
+}
+.d-box header span.action button:hover{
+	color: black;
+}
+.d-box header span.action button{
+	transform: rotate(90deg);
+}
+.l-col, .r-col, .m-col{
+	padding: 7px;
+}
+.d-active{
+	color: green;
+	font-weight: bolder;
+}
