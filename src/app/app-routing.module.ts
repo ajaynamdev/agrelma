@@ -31,6 +31,7 @@ import { MessageAgrelmaComponent } from './producer/components/message-agrelma/m
 import { MessageListComponent } from './producer/components/message-list/message-list.component';
 import { MiniSiteComponent } from './producer/components/mini-site/mini-site.component';
 import { OtherDataComponent } from './producer/components/other-data/other-data.component';
+import { ProducerAccountingComponent } from './producer/components/producer-accounting/producer-accounting.component';
 
 
 const routes: Routes = [
@@ -144,6 +145,10 @@ const routes: Routes = [
 	          {
 	          	path: 'other-data',
 	          	component: OtherDataComponent
+	          },
+						{
+	          	path: 'producer-accounting',
+	          	component: ProducerAccountingComponent
 	          },
 
           ]

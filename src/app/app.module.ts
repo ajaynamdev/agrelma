@@ -115,6 +115,7 @@ import { MessageListComponent } from './producer/components/message-list/message
 import { MessageAgrelmaComponent } from './producer/components/message-agrelma/message-agrelma.component';
 import { OtherDataComponent } from './producer/components/other-data/other-data.component';
 import { MiniSiteComponent } from './producer/components/mini-site/mini-site.component';
+import { ProducerAccountingComponent } from './producer/components/producer-accounting/producer-accounting.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +156,8 @@ import { MiniSiteComponent } from './producer/components/mini-site/mini-site.com
     MessageListComponent,
     MessageAgrelmaComponent,
     OtherDataComponent,
-    MiniSiteComponent
+    MiniSiteComponent,
+    ProducerAccountingComponent
   ],
   imports: [
     AppRoutingModule,

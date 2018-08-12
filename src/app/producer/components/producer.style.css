@@ -47,3 +47,12 @@
 button:hover{
 	color: black;
 }
+.submit-button{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+}
+.submit-button button:hover{
+	color: black;
+}

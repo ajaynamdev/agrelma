@@ -11,5 +11,6 @@ export class OtherDataComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  accessEdit:boolean = false;
+  navigationEdit:boolean = false;
 }

@@ -14,10 +14,11 @@ export class MessageListComponent implements OnInit {
 
   ngOnInit() {
   }
-
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
 }
+
 
 export interface PeriodicElement {
   name: string;

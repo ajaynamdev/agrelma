@@ -10,8 +10,11 @@
 						</button>
 					</span>
 				</header>
+				<main>
+					<p>Nei Settaggi si possono modificare i propri dati di accesso al sito (Username e Password) e tutte le impostazioni del sito come la lingua per la navigazione, il formato della data, ecc... Le modifiche effettuate in questa sezione influiranno nell'impostazione una volta effettuato il Login.</p>
+				</main>
 			</div>
-			<section class="col-sm-6 l-col">
+			<section class="col-sm-12 l-col">
 				<div class="d-box">
 					<header>
 						<h3>Access Data</h3>
@@ -22,7 +25,94 @@
 						</span>
 					</header>
 					<main>
-						
+						<div *ngIf="!accessEdit">
+							<div class="form-group">
+								<span class="col-sm-4"><b>User Name</b></span>
+								<span class="col-sm-8">Ajay</span>
+							</div>
+							<div class="form-group">
+								<span class="col-sm-4"><b>Password</b></span>
+								<span class="col-sm-8">********</span>
+							</div>
+							<div class="submit-button"><button mat-raised-button (click)="accessEdit = true">Edit</button></div>
+						</div>
+						<div *ngIf="accessEdit">
+							<div class="form-group">
+								<span class="col-sm-4"><b>User Name</b></span>
+								<span class="col-sm-8"><input type="text" value="Ajay" class="col-sm-12"></span>
+							</div>
+							<div class="form-group">
+								<span class="col-sm-4"><b>Password</b></span>
+								<span class="col-sm-8"><input type="password" class="col-sm-12"></span>
+							</div>
+							<div class="form-group">
+								<span class="col-sm-4"><b>Repeat Password</b></span>
+								<span class="col-sm-8"><input type="password" class="col-sm-12"></span>
+							</div>
+							<div class="submit-button"><button mat-raised-button (click)="accessEdit = false">Cancel</button><button mat-raised-button (click)="accessEdit = false">Save</button></div>
+						</div>
+					</main>
+				</div>
+			</section>
+			<section class="col-sm-12 r-col">
+				<div class="d-box">
+					<header>
+						<h3>Site Navigation</h3>
+						<span class="action">
+							<button mat-icon-button>
+							  <mat-icon>more_vert</mat-icon>
+							</button>
+						</span>
+					</header>
+					<main>
+						<div *ngIf="!navigationEdit">
+							<div class="form-group">
+								<span class="col-sm-4"><b>Site Language</b></span>
+								<span class="col-sm-8">English</span>
+							</div>
+							<div class="form-group">
+								<span class="col-sm-4"><b>Date Format</b></span>
+								<span class="col-sm-8">dd/mm/yyyy (12/08/2018)</span>
+							</div>
+							<div class="form-group">
+								<span class="col-sm-4"><b>Main Currency</b></span>
+								<span class="col-sm-8">EURO (EUR)</span>
+							</div>
+							<div class="submit-button"><button mat-raised-button (click)="navigationEdit = true">Edit</button></div>
+						</div>
+						<div *ngIf="navigationEdit">
+							<div class="form-group">
+								<span class="col-sm-4"><b>Site Language</b></span>
+								<span class="col-sm-8">
+									<select>
+										<option value="IT">Italiano
+									  <option value="DE">Deutsch
+									  <option value="UK" selected>English
+									  <option value="FR">Française
+									  <option value="ES">Español
+									  <option value="PT">Português
+									</select>
+								</span>
+							</div>
+							<div class="form-group">
+								<span class="col-sm-4"><b>Date Format</b></span>
+								<span class="col-sm-8">
+									<select>
+										<option value="dmY" selected>dd/mm/yyyy (12/08/2018)
+									  <option value="mdY">mm/dd/yyyy (08/12/2018)
+									</select>
+								</span>
+							</div>
+							<div class="form-group">
+								<span class="col-sm-4"><b>Main Currency</b></span>
+								<span class="col-sm-8">
+									<select>
+										<option value='DZD'>Algerian dinar (DZD)<option value='ARS'>Argentine peso (ARS)<option value='AMD'>Armenian dram (AMD)<option value='AWG'>Aruban guilder (AWG)<option value='AUD'>Australian dollar (AUD)<option value='AZN'>Azerbaijanian manat (AZN)<option value='BSD'>Bahamian dollar (BSD)<option value='BHD'>Bahraini dinar (BHD)<option value='THB'>Baht (THB)<option value='PAB'>Balboa (PAB)<option value='BDT'>Bangladeshi taka (BDT)<option value='BBD'>Barbados dollar (BBD)<option value='BYR'>Belarusian ruble (BYR)<option value='BZD'>Belize dollar (BZD)<option value='BMD'>Bermudian dollar (BMD)<option value='BOB'>Boliviano (BOB)<option value='BRL'>Brazilian real (BRL)<option value='BND'>Brunei dollar (BND)<option value='BGN'>Bulgarian lev (BGN)<option value='BIF'>Burundian franc (BIF)<option value='CAD'>Canadian dollar (CAD)<option value='CVE'>Cape Verde escudo (CVE)<option value='KYD'>Cayman Islands dollar (KYD)<option value='GHS'>Cedi (GHS)<option value='XOF'>CFA Franc BCEAO (XOF)<option value='XAF'>CFA franc BEAC (XAF)<option value='XPF'>CFP franc (XPF)<option value='CLP'>Chilean peso (CLP)<option value='CNY'>Chinese Yuan (CNY)<option value='COP'>Colombian peso (COP)<option value='KMF'>Comoro franc (KMF)<option value='BAM'>Convertible marks (BAM)<option value='NIO'>Cordoba oro (NIO)<option value='CRC'>Costa Rican colon (CRC)<option value='HRK'>Croatian kuna (HRK)<option value='CUP'>Cuban peso (CUP)<option value='CZK'>Czech Koruna (CZK)<option value='GMD'>Dalasi (GMD)<option value='DKK'>Danish krone (DKK)<option value='MKD'>Denar (MKD)<option value='DJF'>Djibouti franc (DJF)<option value='STD'>Dobra (STD)<option value='DOP'>Dominican peso (DOP)<option value='XCD'>East Caribbean dollar (XCD)<option value='EGP'>Egyptian pound (EGP)<option value='ETB'>Ethiopian birr (ETB)<option value='EUR' selected>EURO (EUR)<option value='FKP'>Falkland Islands pound (FKP)<option value='FJD'>Fiji dollar (FJD)<option value='HUF'>Forint (HUF)<option value='CDF'>Franc Congolais (CDF)<option value='GIP'>Gibraltar pound (GIP)<option value='PYG'>Guarani (PYG)<option value='GNF'>Guinea franc (GNF)<option value='GYD'>Guyana dollar (GYD)<option value='HTG'>Haiti gourde (HTG)<option value='HKD'>Hong Kong dollar (HKD)<option value='UAH'>Hryvnia (UAH)<option value='ISK'>Iceland krona (ISK)<option value='INR'>Indian rupee (INR)<option value='IRR'>Iranian rial (IRR)<option value='IQD'>Iraqi dinar (IQD)<option value='ILS'>Israeli new sheqel (ILS)<option value='JMD'>Jamaican dollar (JMD)<option value='JPY'>Japanese yen (JPY)<option value='JOD'>Jordanian dinar (JOD)<option value='KES'>Kenyan shilling (KES)<option value='PGK'>Kina (PGK)<option value='LAK'>Kip (LAK)<option value='EEK'>Kroon (EEK)<option value='KWD'>Kuwaiti dinar (KWD)<option value='MWK'>Kwacha (MWK)<option value='ZMK'>Kwacha (ZMK)<option value='AOA'>Kwanza (AOA)<option value='MMK'>Kyat (MMK)<option value='GEL'>Lari (GEL)<option value='LVL'>Latvian lats (LVL)<option value='LBP'>Lebanese pound (LBP)<option value='ALL'>Lek (ALL)<option value='HNL'>Lempira (HNL)<option value='SLL'>Leone (SLL)<option value='LSL'>Lesotho loti (LSL)<option value='LRD'>Liberian dollar (LRD)<option value='LYD'>Libyan dinar (LYD)<option value='SZL'>Lilangeni (SZL)<option value='LTL'>Lithuanian litas (LTL)<option value='MGA'>Malagasy ariary (MGA)<option value='MYR'>Malaysian ringgit (MYR)<option value='TMT'>Manat (TMT)<option value='MUR'>Mauritius rupee (MUR)<option value='MZN'>Metical (MZN)<option value='MXN'>Mexican peso (MXN)<option value='MDL'>Moldovan leu (MDL)<option value='MAD'>Moroccan dirham (MAD)<option value='NGN'>Naira (NGN)<option value='ERN'>Nakfa (ERN)<option value='NAD'>Namibian dollar (NAD)<option value='NPR'>Nepalese rupee (NPR)<option value='ANG'>Netherlands Antillean guilder (ANG)<option value='TWD'>New Taiwan dollar (TWD)<option value='NZD'>New Zealand dollar (NZD)<option value='BTN'>Ngultrum (BTN)<option value='KPW'>North Korean won (KPW)<option value='NOK'>Norwegian krone (NOK)<option value='PEN'>Nuevo sol (PEN)<option value='MRO'>Ouguiya (MRO)<option value='PKR'>Pakistan rupee (PKR)<option value='MOP'>Pataca (MOP)<option value='TOP'>Pa´anga (TOP)<option value='UYU'>Peso Uruguayo (UYU)<option value='PHP'>Philippine peso (PHP)<option value='GBP'>Pound sterling (GBP)<option value='BWP'>Pula (BWP)<option value='QAR'>Qatari rial (QAR)<option value='GTQ'>Quetzal (GTQ)<option value='OMR'>Rial Omani (OMR)<option value='KHR'>Riel (KHR)<option value='RON'>Romanian new leu (RON)<option value='MVR'>Rufiyaa (MVR)<option value='IDR'>Rupiah (IDR)<option value='RUB'>Russian rouble (RUB)<option value='RWF'>Rwanda franc (RWF)<option value='SHP'>Saint Helena pound (SHP)<option value='WST'>Samoan tala (WST)<option value='SAR'>Saudi riyal (SAR)<option value='RSD'>Serbian dinar (RSD)<option value='SCR'>Seychelles rupee (SCR)<option value='SGD'>Singapore dollar (SGD)<option value='SBD'>Solomon Islands dollar (SBD)<option value='KGS'>Som (KGS)<option value='SOS'>Somali shilling (SOS)<option value='TJS'>Somoni (TJS)<option value='ZAR'>South African rand (ZAR)<option value='KRW'>South Korean won (KRW)<option value='LKR'>Sri Lanka rupee (LKR)<option value='SDG'>Sudanese pound (SDG)<option value='SRD'>Surinam dollar (SRD)<option value='SEK'>Swedish krona/kronor (SEK)<option value='CHF'>Swiss franc (CHF)<option value='SYP'>Syrian pound (SYP)<option value='TZS'>Tanzanian shilling (TZS)<option value='KZT'>Tenge (KZT)<option value='TTD'>Trinidad and Tobago dollar (TTD)<option value='MNT'>Tugrik (MNT)<option value='TND'>Tunisian dinar (TND)<option value='TRY'>Turkish lira (TRY)<option value='UGX'>Uganda shilling (UGX)<option value='AED'>United Arab Emirates dirham (AED)<option value='USD'>US dollar (USD)<option value='UZS'>Uzbekistan som (UZS)<option value='VUV'>Vatu (VUV)<option value='VEF'>Venezuelan bolívar fuerte (VEF)<option value='VND'>Vietnamese Đồng (VND)<option value='YER'>Yemeni rial (YER)<option value='ZWL'>Zimbabwe dollar (ZWL)<option value='PLN'>Zloty (PLN)
+									</select>
+								</span>
+							</div>
+							<div class="submit-button"><button mat-raised-button (click)="navigationEdit = false">Cancel</button><button mat-raised-button (click)="navigationEdit = false">Save</button></div>
+						</div>
 					</main>
 				</div>
 			</section>
@@ -38,7 +128,8 @@
 					</span>
 				</header>
 				<main>
-					<p>To Update and Complete your company data in Agrelma, We advise you to click the Update now.</p>
+					<p>In this section you can check all the payments that have been made, invoices, outstanding balance and the status of your account against Agrelma. In addition, You can renew your membership from this page and check your account status.</p>
+					<button mat-stroked-button routerLink="../producer-accounting">Accounting Section</button>
 				</main>
 			</div>
 		</section>
