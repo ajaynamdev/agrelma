@@ -13,7 +13,7 @@ export class OfferRequestComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'sector', 'type', 'country', 'clicks'];
-  displayedColumns1: string[] = ['delete', 'modify', 'date', 'image', 'title',  'click', 'page'];
+  displayedColumns1: string[] = ['delete', 'modify', 'date', 'image', 'title',  'click', 'page', 'showcase', 'relist'];
   displayedColumns2: string[] = ['date', 'title', 'type'];
   dataSource = ELEMENT_DATA;
   dataSource1 = ELEMENT_DATA;
