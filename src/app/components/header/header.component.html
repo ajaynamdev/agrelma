@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="site-branding">
                     <a routerLink="/" class="custom-logo-link" rel="home">
-                        <img src="http://agrelma.demosteps.com/images/agrelma_logo.jpg">
+                        <img src="https://raw.githubusercontent.com/vishal-pandey/agrelma/developement/src/assets/agrelma-logo.gif">
                     </a>
                     <!-- /.custom-logo-link -->
                 </div>
@@ -46,18 +46,18 @@
                         <li class="menu-item animate-dropdown">
                             <a title="FAQ" routerLink="/faq">FAQ</a>
                         </li>
-                        <li class="menu-item animate-dropdown">
-                            <button mat-stroked-button class="advance-search-button" routerLink="/advance-search">Advance Search</button>
+                        <li class="menu-item animate-dropdown" style="float: right;">
+                            <a (click)="openSignup()" style="cursor: pointer;">Register</a> or <a (click)="openLogin()" style="cursor: pointer;">Sign In</a>
+                            <!-- <button mat-stroked-button class="advance-search-button" routerLink="/advance-search">Advance Search</button> -->
                         </li>
                         
                         <li class="menu-item animate-dropdown">
                             
                         </li>
-                        <li class="techmarket-flex-more-menu-item dropdown">
+                        <!-- <li class="techmarket-flex-more-menu-item dropdown">
                             <a title="..." href="#" data-toggle="dropdown" class="dropdown-toggle">...</a>
                             <ul class="overflow-items dropdown-menu"></ul>
-                            <!-- . -->
-                        </li>
+                        </li> -->
                     </ul>
                     <!-- .nav -->
                 </nav>
@@ -106,7 +106,10 @@
         </div>
         <!-- .techmarket-sticky-wrap -->
         <div class="row align-items-center">
-            
+            <!-- <div id="departments-menu" class="dropdown departments-menu" >
+                
+                
+            </div> -->
             <!-- .departments-menu -->
             <form class="navbar-search" method="get" action="home-v1.html">
                 <label class="sr-only screen-reader-text" for="search">Search for:</label>
@@ -154,7 +157,7 @@
             <div class="row">
                 <div class="site-branding">
                     <a routerLink="/" class="custom-logo-link" rel="home">
-                        <img src="http://agrelma.demosteps.com/images/agrelma_logo.jpg">
+                        <img src="https://raw.githubusercontent.com/vishal-pandey/agrelma/developement/src/assets/agrelma-logo.gif">
                     </a>
                     <!-- /.custom-logo-link -->
                 </div>
