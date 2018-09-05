@@ -25,3 +25,6 @@
 .tabs-container{
 	border: 1px solid lightgrey;
 }
+.req{
+	color: red;
+}

@@ -16,9 +16,13 @@ export class AppComponent {
      	return "page-template-default";
      }
 
-     if(this.router.url === "/offer"){
+     let fullUrl = this.router.url.split("/");
+
+     if(this.router.url === "/offer" || fullUrl[1] == "offer"){
        return "single-product full-width normal";
      }
+
+
    }
   title = 'app';
 }

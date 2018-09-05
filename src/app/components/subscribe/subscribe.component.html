@@ -2,19 +2,19 @@
 	<section class="whole-container col-sm-12">
 		<h1>AGRELMA SUBSCRIPTION</h1>
 		<div class="col-sm-12 subscription-container">
-			<input type="text" placeholder="Company Name" class="col-sm-5">
-			<input type="text" placeholder="Address" class="col-sm-5">
-			<input type="text" placeholder="City" class="col-sm-5">
-			<input type="text" placeholder="Country" class="col-sm-5">
-			<input type="text" placeholder="Phone" class="col-sm-5">
-			<input type="text" placeholder="Mobile" class="col-sm-5">
-			<input type="text" placeholder="PO Box" class="col-sm-5">
+			<input type="text" placeholder="Company Name" class="col-sm-5" #company_name>
+			<input type="text" placeholder="Address" class="col-sm-5" #address>
+			<input type="text" placeholder="City" class="col-sm-5" #city>
+			<input type="text" placeholder="Country" class="col-sm-5" #country>
+			<input type="text" placeholder="Phone" class="col-sm-5" #phone>
+			<input type="text" placeholder="Mobile" class="col-sm-5" #mobile>
+			<input type="text" placeholder="PO Box" class="col-sm-5" #po_box>
 			<input type="text" placeholder="Provience" class="col-sm-5">
-			<input type="text" placeholder="Fax" class="col-sm-5">
-			<input type="text" placeholder="Email" class="col-sm-5">
-			<input type="text" placeholder="Website" class="col-sm-5">
-			<input type="text" placeholder="Contact" class="col-sm-5">
-			<input type="text" placeholder="VAT/Fiscal Code:" class="col-sm-5">
+			<input type="text" placeholder="Fax" class="col-sm-5" #fax>
+			<input type="text" placeholder="Email" class="col-sm-5" #email>
+			<input type="text" placeholder="Website" class="col-sm-5" #website>
+			<input type="text" placeholder="Contact" class="col-sm-5" #contact>
+			<input type="text" placeholder="VAT/Fiscal Code:" class="col-sm-5" #vat>
 		</div>
 		<div class="col-sm-12 sectors-container">
 			<h6 class="col-sm-12">Select one or more Sectors related to your company activity.</h6>
@@ -75,14 +75,14 @@
 		</div>
 		<div class="col-sm-12 subscription-container">
 			<h6 class="col-sm-12">Select the Method of Payment you want to use.</h6>
-			<mat-radio-group >
-			  <mat-radio-button value="1" class="col-sm-12" checked="true">Payment by Credit Card (Mastercard, Visa o American Express)<br>
+			<mat-radio-group [(ngModel)]="paymentMethod" >
+			  <mat-radio-button value="credit_card" class="col-sm-12" checked="true">Payment by Credit Card (Mastercard, Visa o American Express)<br>
 			  	<div class="col-sm-12" style="display: flex;
 			  	align-items: center; justify-content: space-between; padding: 20px; border: 1px solid green;">
 				  	<img src="https://www.agrelma.com/Img/Carte-x-Pay.png"> Total amount <button mat-mini-fab>{{cost}}</button>
 				  </div>
 				</mat-radio-button>
-			  <mat-radio-button value="2" class="col-sm-12"> By Bank Transfer to COMELTRA SRLS<br>
+			  <mat-radio-button value="bank_transfer" class="col-sm-12"> By Bank Transfer to COMELTRA SRLS<br>
 			  	<div class="col-sm-12" style="display: flex;
 			  	align-items: center; justify-content: space-between; padding: 20px; border: 1px solid green;">
 				  	 Total amount <button mat-mini-fab>{{cost}}</button>
@@ -93,12 +93,12 @@
 		<div class="col-sm-12 subscription-container">
 			<h6 class="col-sm-12">Please read and accept contract conditions by clicking on the following link to complete the subscription.</h6>
 			<mat-checkbox class="col-sm-12"> I HAVE READ AND ACCEPTED THE GENERAL CONDITIONS OF CONTRACT </mat-checkbox>
-			<mat-checkbox class="col-sm-12" checked="true">I wish to subscribe to Agrelma’s newsletter	</mat-checkbox>
-			<mat-checkbox class="col-sm-12" checked="true">I wish to receive via e-mail the buyers’ requests</mat-checkbox>
+			<mat-checkbox class="col-sm-12" checked="true" #is_newsletter>I wish to subscribe to Agrelma’s newsletter	</mat-checkbox>
+			<mat-checkbox class="col-sm-12" checked="true" #is_buyersreq>I wish to receive via e-mail the buyers’ requests</mat-checkbox>
 		</div>
 		
 		<div class="col-sm-12" style="text-align: center;">
-			<button class="subscribe-button">Subscribe</button>
+			<button class="subscribe-button" (click)="aSubs(company_name.value, address.value, city.value, country.value, po_box.value, phone.value, mobile.value, fax.value, email.value, contact.value, website.value, vat.value, is_newsletter.checked, is_buyersreq.checked)">Subscribe</button>
 		</div>
 		<br>
 		<br>

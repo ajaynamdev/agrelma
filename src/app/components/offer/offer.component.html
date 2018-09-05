@@ -5,13 +5,10 @@
                 <a routerLink="/">Home</a>
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
-                </span><a routerLink="/offer">Offer</a>
+                </span><a routerLink="/offer/455">Offer</a>
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
-                </span><a >Liquors</a>
-                <span class="delimiter">
-                    <i class="tm tm-breadcrumbs-arrow-right"></i>
-                </span>Hennessy Cognac
+                </span>{{offer?.nomesettore}}
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
@@ -19,40 +16,22 @@
                     <div class="product product-type-simple">
                         <div class="single-product-wrapper">
                             <div class="product-images-wrapper thumb-count-4">
-                                <span class="onsale">-
+                                <!-- <span class="onsale">-
                                     <span class="woocommerce-Price-amount amount">
                                         <span class="woocommerce-Price-currencySymbol">$</span>242.99</span>
-                                </span>
+                                </span> -->
                                 <!-- .onsale -->
                                 <div id="techmarket-single-product-gallery" class="techmarket-single-product-gallery techmarket-single-product-gallery--with-images techmarket-single-product-gallery--columns-4 images" data-columns="4">
                                     <div class="techmarket-single-product-gallery-images" data-ride="tm-slick-carousel" data-wrap=".woocommerce-product-gallery__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:false,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .techmarket-single-product-gallery-thumbnails__wrapper&quot;}">
                                         <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4">
                                             <a href="#" class="woocommerce-product-gallery__trigger">🔍</a>
                                             <figure class="woocommerce-product-gallery__wrapper ">
-                                                <div data-thumb="assets/images/products/sm-card-1.jpg" class="woocommerce-product-gallery__image">
-                                                    <a href="https://www.agrelma.com/DomOff/Foto/large/c724fe89d7ac54715f519c35994b3957.jpg" tabindex="0">
-                                                        <img width="600" height="600" src="https://www.agrelma.com/DomOff/Foto/large/c724fe89d7ac54715f519c35994b3957.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="">
+                                                <div *ngFor="let p of photo" data-thumb="assets/images/products/sm-card-3.jpg" class="woocommerce-product-gallery__image">
+                                                    <a href="https://www.agrelma.com/DomOff/Foto/large/{{p?.nomefile}}" tabindex="-1">
+                                                        <img width="600" height="600" src="https://www.agrelma.com/DomOff/Foto/{{p?.nomefile}}" class="attachment-shop_single size-shop_single" alt="">
                                                     </a>
                                                 </div>
-                                                <div data-thumb="assets/images/products/sm-card-3.jpg" class="woocommerce-product-gallery__image">
-                                                    <a href="assets/images/products/big-card-2.jpg" tabindex="-1">
-                                                        <img width="600" height="600" src="assets/images/products/big-card-2.jpg" class="attachment-shop_single size-shop_single" alt="">
-                                                    </a>
-                                                </div>
-                                                <div data-thumb="assets/images/products/sm-card-2.jpg" class="woocommerce-product-gallery__image">
-                                                    <a href="assets/images/products/big-card-1.jpg" tabindex="-1">
-                                                        <img width="600" height="600" src="assets/images/products/big-card-1.jpg" class="attachment-shop_single size-shop_single" alt="">
-                                                    </a>
-                                                </div>
-                                                <div data-thumb="assets/images/products/deals-sm-5.jpg" class="woocommerce-product-gallery__image">
-                                                    <a href="assets/images/products/big-4.jpg" tabindex="-1">
-                                                        <img width="600" height="600" src="assets/images/products/big-4.jpg" class="attachment-shop_single size-shop_single" alt=""> </a>
-                                                </div>
-                                                <div data-thumb="assets/images/products/sm-card-2.jpg" class="woocommerce-product-gallery__image">
-                                                    <a href="assets/images/products/big-card-2.jpg" tabindex="-1">
-                                                        <img width="600" height="600" src="assets/images/products/big-card-1.jpg" class="attachment-shop_single size-shop_single" alt="">
-                                                    </a>
-                                                </div>
+                                                
                                             </figure>
                                         </div>
                                         <!-- .woocommerce-product-gallery -->
@@ -60,21 +39,10 @@
                                     <!-- .techmarket-single-product-gallery-images -->
                                     <div class="techmarket-single-product-gallery-thumbnails" data-ride="tm-slick-carousel" data-wrap=".techmarket-single-product-gallery-thumbnails__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;vertical&quot;:true,&quot;verticalSwiping&quot;:true,&quot;focusOnSelect&quot;:true,&quot;touchMove&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-up\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-down\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .woocommerce-product-gallery__wrapper&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:765,&quot;settings&quot;:{&quot;vertical&quot;:false,&quot;horizontal&quot;:true,&quot;verticalSwiping&quot;:false,&quot;slidesToShow&quot;:4}}]}">
                                         <figure class="techmarket-single-product-gallery-thumbnails__wrapper">
-                                            <figure data-thumb="https://www.agrelma.com/DomOff/Foto/large/c724fe89d7ac54715f519c35994b3957.jpg" class="techmarket-wc-product-gallery__image">
-                                                <img width="180" height="180" src="https://www.agrelma.com/DomOff/Foto/large/c724fe89d7ac54715f519c35994b3957.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+                                            <figure *ngFor="let p of photo" data-thumb="https://www.agrelma.com/DomOff/Foto/large/c724fe89d7ac54715f519c35994b3957.jpg" class="techmarket-wc-product-gallery__image">
+                                                <img width="180" height="180" src="https://www.agrelma.com/DomOff/Foto/{{p?.nomefile}}" class="attachment-shop_thumbnail size-shop_thumbnail" alt="">
                                             </figure>
-                                            <figure data-thumb="assets/images/products/sm-card-3.jpg" class="techmarket-wc-product-gallery__image">
-                                                <img width="180" height="180" src="assets/images/products/sm-card-3.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="">
-                                            </figure>
-                                            <figure data-thumb="assets/images/products/sm-card-2.jpg" class="techmarket-wc-product-gallery__image">
-                                                <img width="180" height="180" src="assets/images/products/sm-card-2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="">
-                                            </figure>
-                                            <figure data-thumb="assets/images/products/big-4.jpg" class="techmarket-wc-product-gallery__image">
-                                                <img width="180" height="180" src="assets/images/products/big-4.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="">
-                                            </figure>
-                                            <figure data-thumb="assets/images/products/sm-card-2.jpg" class="techmarket-wc-product-gallery__image">
-                                                <img width="180" height="180" src="assets/images/products/sm-card-2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="">
-                                            </figure>
+                                            
                                         </figure>
                                         <!-- .techmarket-single-product-gallery-thumbnails__wrapper -->
                                     </div>
@@ -85,27 +53,29 @@
                             <!-- .product-images-wrapper -->
                             <div class="summary entry-summary">
                                 <div class="single-product-header">
-                                    <h1 class="product_title entry-title">Hennessy Cognac</h1>
+                                    <h1 class="product_title entry-title">{{offer?.titolo}}</h1>
                                     <a class="add-to-wishlist" href="wishlist.html"> Add to Wishlist</a>
                                 </div>
                                 <!-- .single-product-header -->
                                 <div class="single-product-meta">
                                     <div class="brand">
                                         <a href="#">
-                                            <img alt="galaxy" src="assets/images/brands/5.png">
+                                            <b>Brand</b><br>
+                                            {{offer?.nomeprodotto}}
+                                            <!-- <img alt="galaxy" src="assets/images/brands/5.png"> -->
                                         </a>
                                     </div>
                                     <div class="cat-and-sku">
                                         <span class="posted_in categories">
                                             <a rel="tag" href="product-category.html">Type</a>
                                         </span>
-                                        <span class="sku_wrapper">Brandy
+                                        <span class="sku_wrapper">{{offer?.nometipologia}}
                                             <!-- <span class="sku">5487FB8/11</span> -->
                                         </span>
                                     </div>
                                     <div class="product-label">
                                         <div class="ribbon label green-label">
-                                            <span>15 Clicks</span>
+                                            <span>{{offer?.numtotclick}} Clicks</span>
                                         </div>
                                     </div>
                                 </div>
@@ -123,12 +93,14 @@
                                 <!-- .rating-and-sharing-wrapper -->
                                 <div class="woocommerce-product-details__short-description">
                                     <ul>
-                                        <li>The color: deep ocher</li>
-                                        <li>On the nose: ripe fruit, a hint of spices, mellow wood tones, and a nice alcoholic ‘green’ note</li>
-                                        <li>The taste: soft fruit, toasted wood, balanced, elegant and robust, some cinnamon</li>
-                                        <li>The finish: intense taste, pretty long lasting</li>
-                                        <li>The origin: Hennessy is known for buying eaux-de-vie from all the Cognac region. So it will probably be a blend of the Grande Champagne, Petite Champagne, Fins Bois, Borderies…</li>
-                                        <li>The age: The average age of the eaux-de-vie is 45 years</li>
+                                        <li *ngIf="(offer?.nomevarieta != ' ') && (offer?.nomevarieta != '')"><b>Variety:</b> {{offer?.nomevarieta}} </li>
+                                        <li *ngIf="offer?.nomevarieta != ' ' && offer?.qualita != ''"><b>Quality:</b> {{offer?.qualita}}</li>
+                                        <li *ngIf="offer?.certificazioni != ' ' && offer?.certificazioni != ''"><b>Certificates:</b> {{offer?.certificazioni}}</li>
+                                        <li *ngIf="offer?.certificazioni != ' ' && offer?.certificazioni != ''"><b>Organic Product:</b> {{offer?.certificazioni}}</li>
+                                        <li *ngIf="offer?.imballo != ' ' && offer?.imballo != ''"><b>Packing:</b> {{offer?.imballo}}</li>
+                                        <li *ngIf="offer?.nazconsegna != ' ' && offer?.nazconsegna != ''"><b>Origin:</b> {{offer?.luogoconsegna}} - {{offer?.nazconsegna}}</li>
+                                        <li *ngIf="offer?.unitamisura != ' ' && offer?.unitamisura != ''"><b>Minimum Order:</b> {{offer?.ordineminimo}} {{offer?.unitamisura}}</li>
+                                        <li *ngIf="offer?.modpag != ' ' && offer?.modpag != ''"><b>Preffered Way of Payment:</b> {{offer?.modpag}}</li>
                                     </ul>
                                 </div>
                                 <!-- .woocommerce-product-details__short-description -->
@@ -154,7 +126,7 @@
                                             <button class="single_add_to_cart_button button alt" value="185" name="add-to-cart" type="submit">Contact Details</button>
                                         </form>
                                         <!-- .cart -->
-                                        <a class="add-to-compare-link">Produced in (country) : Sweden</a>
+                                        <a class="add-to-compare-link">Produced in (country) : {{offer?.paese}}</a>
                                     </div>
                                     <!-- .product-actions -->
                                 </div>
@@ -295,39 +267,7 @@
                                 </div>
                                 <div class="tab-pane active panel wc-tab" id="tab-description" role="tabpanel">
                                     <h2>Description</h2>
-                                    <p style="text-align: center;max-width: 1160px;margin: auto auto 60px;">The product of a gradual blend of over 60 eaux de vie taken from the four leading vineyards in the Cognac region, V.S.O.P is slowly matured in old barrels from which most of the tannin has been extracted. A delicate blend of wood notes and spices, punctuated by the scent of cloves and cinnamon. Discreet, subtle and harmonious, it is characterized by a the fragrance of honey and a suggestion of liquorice.</p>
-                                    <div style="text-align: center;">
-                                        <iframe width="854" height="480" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/K5OGs8a3vlM?ecver=1"></iframe>
-                                    </div>
-                                    <div class="outer-wrap">
-                                        <div class="content-info">
-                                            <h1 style="text-align: left;">Dynamic brightness
-                                                <br> reveals hidden details</h1>
-                                            <p style="text-align: left;">Nullam dignissim elit ut urna rutrum, a fermentum mi auctor. Mauris efficitur magna orci, et dignissim lacus
-                                                <br> scelerisque sit amet. Proin malesuada tincidunt nisl ac commodo. Vivamus eleifend porttitor ex sit amet suscipit.
-                                                <br> Vestibulum at ullamcorper lacus, vel facilisis arcu. Aliquam erat volutpat.</p>
-                                        </div>
-                                        <!-- .content-info -->
-                                        <div class="image-info">
-                                            <img src="assets/images/products/des1.png" alt="">
-                                        </div>
-                                        <!-- .image-info -->
-                                    </div>
-                                    <!-- .outer-wrap -->
-                                    <div class="outer-wrap">
-                                        <div class="image-info">
-                                            <img src="assets/images/products/des2.png" class="alignnone" alt="">
-                                        </div>
-                                        <!-- .image-info -->
-                                        <div class="content-info">
-                                            <h1 style="text-align: right;">An incredible view,
-                                                <br> wherever you sit</h1>
-                                            <p style="text-align: right;">Nullam dignissim elit ut urna rutrum, a fermentum mi auctor. Mauris efficitur magna orci, et dignissim lacus
-                                                <br> scelerisque sit amet. Proin malesuada tincidunt nisl ac commodo. Vivamus eleifend porttitor ex sit amet suscipit. Vestibulum at ullamcorper lacus, vel facilisis arcu. Aliquam erat volutpat.</p>
-                                        </div>
-                                        <!-- .content-info -->
-                                    </div>
-                                    <!-- .outer-wrap -->
+                                    <p style="text-align: center;max-width: 1160px;margin: auto auto 60px;" innerHtml="{{description}}"></p>
                                 </div>
                                 <div class="tab-pane" id="tab-specification" role="tabpanel">
                                     <div class="tm-shop-attributes-detail like-column columns-3">

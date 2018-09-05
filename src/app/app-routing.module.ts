@@ -17,6 +17,7 @@ import { PresentOnlineComponent } from './components/present-online/present-onli
 import { SpecificRequestComponent } from './components/specific-request/specific-request.component';
 import { ContactProducerComponent } from './components/contact-producer/contact-producer.component';
 import { ContactDetailProducerComponent } from './components/contact-detail-producer/contact-detail-producer.component';
+import { MessageComponent } from './components/message/message.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
 import { AuthGuardService } from './admin/services/auth-guard.service';
@@ -60,7 +61,15 @@ const routes: Routes = [
 		component: OfferComponent
 	},
 	{
+		path: "offer/:id",
+		component: OfferComponent
+	},
+	{
 		path: "request",
+		component: RequestComponent
+	},
+	{
+		path: "request/:id",
 		component: RequestComponent
 	},
 	{
@@ -102,6 +111,14 @@ const routes: Routes = [
 	{
 		path: "contact-detail-producer",
 		component: ContactDetailProducerComponent
+	},
+	{
+		path: "message",
+		component: MessageComponent
+	},
+	{
+		path: "message/:id",
+		component: MessageComponent
 	},
 
 	{

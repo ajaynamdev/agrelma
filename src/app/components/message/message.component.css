@@ -1,0 +1,20 @@
+.container{
+	width: 100%;
+	background-color: lightgrey;
+}
+.main{
+	width: 100%;
+	max-width: 1100px;
+	min-height: 50vh;
+	/*background-color: white;*/
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.message{
+	display: inline-block;
+	padding: 30px;
+	background-color: white;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}

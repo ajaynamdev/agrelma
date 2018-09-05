@@ -106,32 +106,7 @@
         </div>
         <!-- .techmarket-sticky-wrap -->
         <div class="row align-items-center">
-            <div id="departments-menu" class="dropdown departments-menu" >
-                <button class="btn dropdown-toggle btn-block" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="tm tm-departments-thin"></i>
-                    <span>All Sectors</span>
-                </button>
-                <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
-                    
-                    
-                    
-                    <li class="menu-item animate-dropdown" *ngFor="let sector of sectors" [ngClass]="{'yamm-tfw': sector.sub.length , 'menu-item-has-children': sector.sub.length, 'dropdown-submenu': sector.sub.length, 'menu-item-type-custom': !sector.sub.length}">
-                        
-                        <a title="{{sector.name}}" href="#" *ngIf="!sector.sub.length">{{sector.name}}</a>
-                        <a title="{{sector.name}}" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#" *ngIf="sector.sub.length">{{sector.name}} <span class="caret"></span></a>
-                        <ul role="menu" class="v-hover-dropdown dropdown-menu" id="menu-departments-menu" *ngIf="sector.sub.length">
-                            <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                <div class="yamm-content">
-                                    <ul>
-                                        <li class="menu-item animate-dropdown" *ngFor="let s of sector.sub"><a href="#">{{s}}</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                </ul>
-            </div>
+            
             <!-- .departments-menu -->
             <form class="navbar-search" method="get" action="home-v1.html">
                 <label class="sr-only screen-reader-text" for="search">Search for:</label>

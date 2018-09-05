@@ -13,64 +13,65 @@
 							Enter the data related to the sought product:
 						</p>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Title</label>
-							<input type="text" class="col-sm-9" placeholder="Title">
+							<label for="email" class="col-sm-3">Title <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="Title" #title>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Product</label>
-							<input type="text" class="col-sm-9" placeholder="Product">
+							<label for="email" class="col-sm-3">Product <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="Product" #product>  
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Product description</label>
-							<textarea class="col-sm-9" placeholder="Product Description"></textarea>
+							<label for="email" class="col-sm-3">Product description <i class="req">*</i></label>
+							<textarea class="col-sm-9" placeholder="Product Description" #product_description></textarea>
 						</div>
 						<div class="form-group">
 							<label for="email" class="col-sm-3">Estimated order quantity</label>
-							<input type="text" class="col-sm-9" placeholder="Estimated order quantity">
+							<input type="text" class="col-sm-9" placeholder="Estimated order quantity" #quantity>
 						</div>
 					</div>
 					<div class="col-sm-12 next-button">
-						<button (click)="selectedTab = 1; scroll(10);">Next Step</button>
+						<button (click)="checkForm(title.value, product.value, product_description.value)">Next Step</button>
+						<!-- <button (click)="selectedTab = 1; scroll(10);">Next Step</button> -->
 					</div>
 				</mat-tab>
 				<mat-tab label="Company Information">
 					<div class="col-sm-12">
 						<p>Before sending your request, make sure that your company’s profile is completed:</p>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Company name</label>
-							<input type="text" class="col-sm-9" placeholder="Company name">
+							<label for="email" class="col-sm-3">Company name <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="Company name" #company>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">City</label>
-							<input type="text" class="col-sm-9" placeholder="City">
+							<label for="email" class="col-sm-3">City <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="City" #city>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Address</label>
-							<input type="text" class="col-sm-9" placeholder="Address">
+							<label for="email" class="col-sm-3">Address <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="Address" #address>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Country</label>
-							<input type="text" class="col-sm-9" placeholder="Country">
+							<label for="email" class="col-sm-3">Country </label>
+							<input type="text" class="col-sm-9" placeholder="Country" #country>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Phone</label>
-							<input type="text" class="col-sm-9" placeholder="Phone">
+							<label for="email" class="col-sm-3">Phone <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="Phone" #phone>
 						</div>
 						<div class="form-group">
 							<label for="email" class="col-sm-3">Fax</label>
-							<input type="text" class="col-sm-9" placeholder="Fax">
+							<input type="text" class="col-sm-9" placeholder="Fax" #fax>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">e-Mail</label>
-							<input type="text" class="col-sm-9" placeholder="e-Mail">
+							<label for="email" class="col-sm-3">e-Mail <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="e-Mail" #email>
 						</div>
 						<div class="form-group">
-							<label for="email" class="col-sm-3">Contact</label>
-							<input type="text" class="col-sm-9" placeholder="Contact">
+							<label for="email" class="col-sm-3">Contact <i class="req">*</i></label>
+							<input type="text" class="col-sm-9" placeholder="Contact" #contact>
 						</div>
 					</div>
 					<div class="col-sm-12 next-button">
-						<button>Continue</button>
+						<button (click)="sendSpecificRequest(title.value, product.value, product_description.value, company.value, city.value, address.value, country.value, phone.value, email.value, contact.value, quantity.value, fax.value)">{{dmessage}}</button>
 					</div>
 				</mat-tab>
 			</mat-tab-group>

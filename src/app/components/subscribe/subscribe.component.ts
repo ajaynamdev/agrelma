@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../../services/main.service';
+import {MatSnackBar} from '@angular/material';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-subscribe',
@@ -7,7 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubscribeComponent implements OnInit {
 
-  constructor() { }
+
+	bmessage = "Send Message";
+
+
+  constructor(private mS:MainService,
+    public snackBar: MatSnackBar,
+    private route: ActivatedRoute,
+	  private router: Router,) { }
 
   ngOnInit() {
   }
@@ -352,6 +362,16 @@ export class SubscribeComponent implements OnInit {
 	wineimp = 0;
 	winepro = 0;
 	hi = false;
+	serviceOpted = {
+		"agrelmabase": true,
+		"showcase": false,
+		"twoMonth": false,
+		"tweleveMonth": true,
+		"foodImporterDirectory": false,
+		"wineImporterDirectory": false,
+		"foodProducerDirectory": false,
+		"wineProducerDirectory": false
+	}
 
 	cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 
@@ -361,9 +381,11 @@ export class SubscribeComponent implements OnInit {
 			// this.base = 0;
 			this.hi = false;
 			this.cost = this.foodimp+this.foodpro+this.wineimp+this.winepro;
+			this.serviceOpted.agrelmabase = false;
 		}else if($event.checked == true){
 			this.base = this.showcase+this.month;
 			this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
+			this.serviceOpted.agrelmabase = true;
 		}
 	}
 
@@ -371,29 +393,37 @@ export class SubscribeComponent implements OnInit {
 		if ($event.checked == false) {
 			if (x == 'foodi') {
 				this.foodimp = 0;
+				this.serviceOpted.foodImporterDirectory = false;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}else if(x == 'foodp'){
 				this.foodpro = 0;
+				this.serviceOpted.foodProducerDirectory = false;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}else if(x == 'winei'){
 				this.wineimp = 0;
+				this.serviceOpted.wineImporterDirectory = false;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}else if(x == 'winep'){
 				this.winepro = 0;
+				this.serviceOpted.wineProducerDirectory = false;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}
 		}else if ($event.checked == true) {
 			if (x == 'foodi') {
 				this.foodimp = 100;
+				this.serviceOpted.foodImporterDirectory = true;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}else if(x == 'foodp'){
 				this.foodpro = 100;
+				this.serviceOpted.foodProducerDirectory = true;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}else if(x == 'winei'){
 				this.wineimp = 100;
+				this.serviceOpted.wineImporterDirectory = true;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}else if(x == 'winep'){
 				this.winepro = 100;
+				this.serviceOpted.wineProducerDirectory = true;
 				this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 			}
 		}
@@ -402,10 +432,12 @@ export class SubscribeComponent implements OnInit {
 	test2($event){
 		if ($event.checked == false) {
 			this.showcase = 0;
+			this.serviceOpted.showcase = false;
 			this.base = this.showcase+this.month;
 			this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 		}else if ($event.checked == true){
 			this.showcase = 28;
+			this.serviceOpted.showcase = true;
 			this.base = this.showcase+this.month;
 			this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 		}
@@ -415,10 +447,14 @@ export class SubscribeComponent implements OnInit {
 		console.log($event);
 		if ($event.value == '1') {
 			this.month = 100;
+			this.serviceOpted.twoMonth = true;
+			this.serviceOpted.tweleveMonth = false;
 			this.base = this.showcase+this.month;
 			this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 		}else if($event.value == '2'){
 			this.month = 400;
+			this.serviceOpted.twoMonth = false;
+			this.serviceOpted.tweleveMonth = true;
 			this.base = this.showcase+this.month;
 			this.cost = this.base+this.foodimp+this.foodpro+this.wineimp+this.winepro;
 		}
@@ -456,6 +492,80 @@ export class SubscribeComponent implements OnInit {
 	
 	removeAll(){
 		this.selectedSectors = [];
+	}
+
+	// paymentMethod = "credit_card";
+	paymentMethod = "bank_transfer";
+
+	aSubs(company_name, address, city, country, po_box, phone, mobile, fax, email, contact, website, vat, is_newsletter, is_buyersreq) {
+		if(company_name == ""){
+			this.snackBar.open("Please Enter Company Name", "x", {duration: 2000});
+		}
+		else if(address == ""){
+			this.snackBar.open("Please Enter address", "x", {duration: 2000});
+		}
+		else if(city == ""){
+			this.snackBar.open("Please Enter city", "x", {duration: 2000});
+		}
+		else if(country == ""){
+			this.snackBar.open("Please Enter country", "x", {duration: 2000});
+		}
+		else if(phone == ""){
+			this.snackBar.open("Please Enter phone", "x", {duration: 2000});
+		}
+		else if(email == ""){
+			this.snackBar.open("Please Enter email", "x", {duration: 2000});
+		}
+		else if(contact == ""){
+			this.snackBar.open("Please Enter contact", "x", {duration: 2000});
+		}
+		else if(vat == ""){
+			this.snackBar.open("Please Enter vat", "x", {duration: 2000});
+		}
+		else{
+			let sectors = JSON.stringify(this.selectedSectors);
+			let services_opted = JSON.stringify(this.serviceOpted);
+			let amount = this.cost;
+			let payment_method = this.paymentMethod;
+			if (is_newsletter) {
+				is_newsletter = 1;
+			}else{
+				is_newsletter = 0;
+			}
+
+			if (is_buyersreq) {
+				is_buyersreq = 1;
+			}else{
+				is_buyersreq = 0;
+			}
+
+			console.log( company_name );
+			console.log( address );
+			console.log( city );
+			console.log( country );
+			console.log( po_box );
+			console.log( phone );
+			console.log( mobile );
+			console.log( fax );
+			console.log( email );
+			console.log( contact );
+			console.log( website );
+			console.log( vat );
+			console.log( sectors );
+			console.log( services_opted );
+			console.log( amount );
+			console.log( payment_method );
+			console.log( is_newsletter );
+			console.log( is_buyersreq );
+ 			this.mS.aSubs(company_name, address, city, country, po_box, phone, mobile, fax, email, contact, website, vat, sectors, services_opted, amount, payment_method, is_newsletter, is_buyersreq).subscribe((r:any)=>{
+				console.log(r);
+				if (r == "Createed") {
+					this.router.navigate(["/message/2"]);
+					// alert("Thanks for the subscription request please transfer money \n we would be in touch with you very soon");
+					// window.location.reload();
+				}
+			})
+		}
 	}
 
 }

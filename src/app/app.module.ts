@@ -116,6 +116,7 @@ import { MessageAgrelmaComponent } from './producer/components/message-agrelma/m
 import { OtherDataComponent } from './producer/components/other-data/other-data.component';
 import { MiniSiteComponent } from './producer/components/mini-site/mini-site.component';
 import { ProducerAccountingComponent } from './producer/components/producer-accounting/producer-accounting.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -157,7 +158,8 @@ import { ProducerAccountingComponent } from './producer/components/producer-acco
     MessageAgrelmaComponent,
     OtherDataComponent,
     MiniSiteComponent,
-    ProducerAccountingComponent
+    ProducerAccountingComponent,
+    MessageComponent
   ],
   imports: [
     AppRoutingModule,
