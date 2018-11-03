@@ -6,7 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MainService {
 
-	apiUrl="https://agrelma.vishalpandey.xyz/api/";
+	// apiUrl="https://agrelma.vishalpandey.xyz/api/";
+	// localUrl="https://agrelma.vishalpandey.xyz/api/";
+	apiUrl="http://localhost:8000/api/";
 	localUrl="http://localhost:8000/api/";
 
   constructor(private http: HttpClient,) { }
@@ -72,6 +74,36 @@ export class MainService {
   }
   getPhoto($id){
   	return this.http.get(this.localUrl+"vphoto/"+$id);
+  }
+
+  getOfferList($id, $pid=null, $countryId=0, $typeId=0){
+  	if ($pid) {
+	  	return this.http.get(this.localUrl+"getoffers/"+$id+"/"+$pid+"/"+$countryId+"/"+$typeId);
+  	}else{
+	  	return this.http.get(this.localUrl+"getoffers/"+$id);
+  	}
+  }
+
+  getRequestList($id, $pid=null, $typeId=0){
+  	let countryId = 139;
+  	if ($pid) {
+  		return this.http.get(this.localUrl+"getrequests/"+$id+"/"+countryId+"/"+$pid+"/"+$typeId);
+  	}else{
+  		return this.http.get(this.localUrl+"getrequests/"+$id+"/"+countryId+"/1");
+  	}
+  }
+
+  getProducerCompany($id){
+  	return this.http.get(this.localUrl+"getcompany/"+$id);
+  }
+
+
+  showcase(){
+  	return this.http.get(this.localUrl+"showcase");
+  }
+
+  latestoffer(){
+  	return this.http.get(this.localUrl+"latestoffers");
   }
 
 

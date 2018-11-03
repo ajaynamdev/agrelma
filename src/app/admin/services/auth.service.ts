@@ -17,13 +17,15 @@ export class AuthService {
   isLoggedIn = false;
   // store the URL so we can redirect after logging in
   redirectUrl: string;
+  // loginUrl = "http://localhost:8000/api/login/";
+  loginUrl = "https://agrelma.vishalpandey.xyz/api/login";
 
   getLogin(id:any, pwd:any){
     let toSend={
-      id: id,
+      user: id,
       pwd: pwd
     }
-    return this.http.post<Config>('https://api.vishalpandey.xyz/login/',toSend, {responseType: 'json'});
+    return this.http.post<Config>(this.loginUrl, toSend, {responseType: 'json'});
   }
 
   
@@ -31,6 +33,7 @@ export class AuthService {
   logout(): void {
     // this.isLoggedIn = false;
     this.cookieService.delete('admin','/');
+    window.location.href = "/";
   }
 
   isLoggedInn(): boolean{

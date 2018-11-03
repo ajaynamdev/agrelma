@@ -82,7 +82,7 @@
                         <h1 class="woocommerce-products-header__title page-title">Offers In Showcase</h1>
                         
                         <!-- .shop-view-switcher -->
-                        <form class="form-techmarket-wc-ppp" method="POST">
+                        <!-- <form class="form-techmarket-wc-ppp" method="POST">
                             <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
                                 <option value="20">Show 20</option>
                                 <option value="40">Show 40</option>
@@ -91,9 +91,9 @@
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
+                        </form> -->
                         <!-- .form-techmarket-wc-ppp -->
-                        <form method="get" class="woocommerce-ordering">
+                        <!-- <form method="get" class="woocommerce-ordering">
                             <select class="orderby" name="orderby">
                                 <option value="popularity">Sort by popularity</option>
                                 <option value="rating">Sort by average rating</option>
@@ -104,13 +104,13 @@
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
+                        </form> -->
                         <!-- .woocommerce-ordering -->
-                        <nav class="techmarket-advanced-pagination">
+                        <!-- <nav class="techmarket-advanced-pagination">
                             <form class="form-adv-pagination" method="post">
                                 <input type="number" value="1" class="form-control" step="1" max="5" min="1" size="2" id="goto-page">
                             </form> of 5<a href="#" class="next page-numbers">→</a>
-                        </nav>
+                        </nav> -->
                         <!-- .techmarket-advanced-pagination -->
                     </div>
                     <!-- .shop-control-bar -->
@@ -118,173 +118,33 @@
                         <div id="grid" class="tab-pane active" role="tabpanel">
                             <div class="woocommerce columns-5">
                                 <div class="products">
-                                    <div class="product first">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/1.jpg">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">Bbd 23-Inch Screen LED-Lit Monitorss Buds</h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                                        </div>
-                                        <!-- .hover-area -->
-                                    </div>
+
                                     <!-- .product -->
-                                    <div class="product ">
+                                    <div class="product " *ngFor="let show of showcase">
                                         <div class="yith-wcwl-add-to-wishlist">
                                             <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                                         </div>
                                         <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/3.jpg">
+                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" routerLink="/offer/{{show.iddomoff}}">
+                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image v-showcase-image" src="https://www.agrelma.com/DomOff/Foto/{{show.nomefile}}">
                                             <span class="price">
+                                                <span class="woocommerce-Price-amount amount"  *ngIf="show.prezzo != '0.000'">
+                                                    <span class="woocommerce-Price-currencySymbol">{{show.valuta}} </span> {{show.prezzo}} / {{show.prezzoper}} {{show.umprezzoper}}
+                                                </span>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
+                                                    <span class="woocommerce-Price-currencySymbol">From :</span> {{show.paese}}
+                                                </span>
                                             </span>
-                                            <h2 class="woocommerce-loop-product__title">Smart Watches 3 SWR50</h2>
+                                            <h2 class="woocommerce-loop-product__title">{{show.titolo}}</h2>
                                         </a>
                                         <!-- .woocommerce-LoopProduct-link -->
                                         <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
+                                            <a class="button" routerLink="/contact-producer">Send Message</a>
+                                            <a class="add-to-compare-link1" *ngIf="show.ordineminimo != ' '"><b>Minimum Order : </b>{{show.ordineminimo}} {{show.umprezzoper}}</a>
                                         </div>
                                         <!-- .hover-area -->
                                     </div>
-                                    <!-- .product -->
-                                    <div class="product ">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/4.jpg">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">Xtreme ultimate splashproof portable speaker</h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                                        </div>
-                                        <!-- .hover-area -->
-                                    </div>
-                                    <!-- .product -->
-                                    <div class="product last">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/5.jpg">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">On-ear Wireless NXTG</h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                                        </div>
-                                        <!-- .hover-area -->
-                                    </div>
-                                    <!-- .product -->
-                                    <div class="product first">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/6.jpg">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">On-ear Wireless NXTG</h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                                        </div>
-                                        <!-- .hover-area -->
-                                    </div>
-                                    <!-- .product -->
-                                    <div class="product ">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/8.jpg">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">Gear Virtual Reality 3D with Bluetooth Glasses</h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                                        </div>
-                                        <!-- .hover-area -->
-                                    </div>
-                                    <!-- .product -->
-                                    <div class="product ">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/9.jpg">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">Watch Stainless with Grey Suture Leather Strap</h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                                        </div>
-                                        <!-- .hover-area -->
-                                    </div>
-                                    <!-- .product -->
-                                    <div class="product last">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/10.jpg">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>800.00</span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">ZenBook 3 Ultrabook 8GB 512SSD W10</h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a class="button" href="cart.html">Add to cart</a>
-                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                                        </div>
-                                        <!-- .hover-area -->
-                                    </div>
+                                    
                                     
                                     <!-- .product -->
                                 </div>
@@ -2297,7 +2157,8 @@
                     </div>
                     <!-- .tab-content -->
                     <div class="shop-control-bar-bottom v-showcase-border v-bottom">
-                        <form class="form-techmarket-wc-ppp" method="POST">
+                        <br><br>
+                        <!-- <form class="form-techmarket-wc-ppp" method="POST">
                             <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
                                 <option value="20">Show 20</option>
                                 <option value="40">Show 40</option>
@@ -2306,13 +2167,13 @@
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
+                        </form> -->
                         <!-- .form-techmarket-wc-ppp -->
-                        <p class="woocommerce-result-count">
+                        <!-- <p class="woocommerce-result-count">
                             Showing 1&ndash;15 of 73 results
-                        </p>
+                        </p> -->
                         <!-- .woocommerce-result-count -->
-                        <nav class="woocommerce-pagination">
+                        <!-- <nav class="woocommerce-pagination">
                             <ul class="page-numbers">
                                 <li>
                                     <span class="page-numbers current">1</span>
@@ -2323,8 +2184,7 @@
                                 <li><a href="#" class="page-numbers">5</a></li>
                                 <li><a href="#" class="next page-numbers">→</a></li>
                             </ul>
-                            <!-- .page-numbers -->
-                        </nav>
+                        </nav> -->
                         <!-- .woocommerce-pagination -->
                     </div>
                     <!-- .shop-control-bar-bottom -->
@@ -2366,21 +2226,85 @@
                             </ng-template>
                             <p>
                                 <mat-nav-list>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu1">
+                                            <span>Wines And Liquors</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu2">
+                                            <span>Oil And Olives</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu3">
+                                            <span>Fish And Seafood</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu4">
+                                            <span>Meat And Cured Pork</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu5">
+                                            <span>Fruits And Vege.</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+
                                     <span *ngFor="let sector of sectors; i as index">
                                         <span *ngIf="sector.sub[0]">
-                                            <mat-list-item routerLink="/search-result/offer">
+                                            <!-- <mat-list-item>
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item> -->
+                                            <!-- <mat-list-item routerLink="/search-result/offer" id="v-d-{{sector.id}}">
                                                 <span>{{sector.name}}</span>
                                             </mat-list-item>
+                                            <div class="v-d-{{sector.id}}">
+                                                Menu
+                                            </div> -->
                                         </span>
                                             <!-- <mat-divider></mat-divider> -->
                                         <span *ngIf="!sector.sub[0]" >
-                                            <mat-list-item routerLink="/search-result/offer">
+                                            <mat-list-item routerLink="/search-result/offer/{{sector.sid}}">
                                                 <span>{{sector.name}}</span>
                                             </mat-list-item>
+                                            <mat-divider class="sector-divider" *ngIf="sector.id != '15'"></mat-divider>
                                         </span>
-                                        <mat-divider class="sector-divider" *ngIf="sector.id != '15'"></mat-divider>
                                     </span>
                                 </mat-nav-list>
+                                <mat-menu #menu1="matMenu" [overlapTrigger]="'flase'" direction="end">
+                                  <button mat-menu-item routerLink="/search-result/offer/4">Quality Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/9">Table Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/23">Liquors</button>
+                                </mat-menu>
+                                <mat-menu #menu2="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/offer/12">Oil</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/18">Olives</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/22">Oil Seeds</button>
+                                </mat-menu>
+                                <mat-menu #menu3="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/offer/2">Fish And Seafood</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/10">Crostacea And Mollusca</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/21">Packed Fisheries</button>
+
+                                </mat-menu>
+                                <mat-menu #menu4="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/offer/24">Cured Pork</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/15">Meat</button>
+                                </mat-menu>
+                                <mat-menu #menu5="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/offer/1">Fruits</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/8">Citrus</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/7">Vegetables</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/20">Packed Fruit And Vegetables</button>
+
+                                </mat-menu>
                             </p>
                           </mat-tab>
                           <mat-tab>
@@ -2391,20 +2315,85 @@
                             </ng-template>
                             <p>
                                 <mat-nav-list>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu1">
+                                            <span>Wines And Liquors</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu2">
+                                            <span>Oil And Olives</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu3">
+                                            <span>Fish And Seafood</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu4">
+                                            <span>Meat And Cured Pork</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu5">
+                                            <span>Fruits And Vege.</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+
                                     <span *ngFor="let sector of sectors; i as index">
                                         <span *ngIf="sector.sub[0]">
-                                                <mat-list-item routerLink="/search-result/request">
-                                                    <span>{{sector.name}}</span>
-                                                </mat-list-item>
-                                            </span>
-                                            <span *ngIf="!sector.sub[0]">
-                                                <mat-list-item routerLink="/search-result/request">
-                                                    <span>{{sector.name}}</span>
-                                                </mat-list-item>
-                                            </span>
+                                            <!-- <mat-list-item>
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item> -->
+                                            <!-- <mat-list-item routerLink="/search-result/offer" id="v-d-{{sector.id}}">
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item>
+                                            <div class="v-d-{{sector.id}}">
+                                                Menu
+                                            </div> -->
+                                        </span>
+                                            <!-- <mat-divider></mat-divider> -->
+                                        <span *ngIf="!sector.sub[0]" >
+                                            <mat-list-item routerLink="/search-result/request/{{sector.sid}}">
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item>
                                             <mat-divider class="sector-divider" *ngIf="sector.id != '15'"></mat-divider>
                                         </span>
-                                    </mat-nav-list>
+                                    </span>
+                                </mat-nav-list>
+                                <mat-menu #menu1="matMenu" [overlapTrigger]="'flase'" direction="end">
+                                  <button mat-menu-item routerLink="/search-result/request/4">Quality Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/request/9">Table Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/request/23">Liquors</button>
+                                </mat-menu>
+                                <mat-menu #menu2="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/request/12">Oil</button>
+                                  <button mat-menu-item routerLink="/search-result/request/18">Olives</button>
+                                  <button mat-menu-item routerLink="/search-result/request/22">Oil Seeds</button>
+                                </mat-menu>
+                                <mat-menu #menu3="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/request/2">Fish And Seafood</button>
+                                  <button mat-menu-item routerLink="/search-result/request/10">Crostacea And Mollusca</button>
+                                  <button mat-menu-item routerLink="/search-result/request/21">Packed Fisheries</button>
+
+                                </mat-menu>
+                                <mat-menu #menu4="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/request/24">Cured Pork</button>
+                                  <button mat-menu-item routerLink="/search-result/request/15">Meat</button>
+                                </mat-menu>
+                                <mat-menu #menu5="matMenu" [overlapTrigger]="'flase'">
+                                  <button mat-menu-item routerLink="/search-result/request/1">Fruits</button>
+                                  <button mat-menu-item routerLink="/search-result/request/8">Citrus</button>
+                                  <button mat-menu-item routerLink="/search-result/request/7">Vegetables</button>
+                                  <button mat-menu-item routerLink="/search-result/request/20">Packed Fruit And Vegetables</button>
+
+                                </mat-menu>
                             </p>
                           </mat-tab>
                         </mat-tab-group>
@@ -2728,14 +2717,14 @@
                             <div class="container-fluid">
                                 <div class="woocommerce columns-1">
                                     <div class="products">
-                                        <div class="landscape-product-widget product">
+                                        <div class="landscape-product-widget product" *ngFor="let offe of latestoffers">
                                             <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                 <div class="media">
                                                     <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
                                                     <div class="media-body">
                                                         <span class="price">
                                                             <ins>
-                                                                <span class="amount"> 50.99</span>
+                                                                <span class="amount"> 50.99 VUskal</span>
                                                             </ins>
                                                             <del>
                                                                 <span class="amount">26.99</span>

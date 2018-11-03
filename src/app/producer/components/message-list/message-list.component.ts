@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { MainService } from '../../services/main.service';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-message-list',
@@ -10,32 +13,85 @@ import { Component, OnInit } from '@angular/core';
 
 export class MessageListComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  msgrCols:string[] = ["subject", "sender", "date", "actions"];
+  msgsCols:string[] = ["subject", "recipient", "date", "actions"];
+
+  msgrSource:any;
+  msgsSource:any;
+
+  constructor(private mS:MainService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.mS.msgR().subscribe((r:any)=>{
+      console.log(r);
+      let x = [];
+      for (var i of r) {
+        let date = i.datamsg.slice(0,4)+"-"+i.datamsg.slice(4,6)+"-"+i.datamsg.slice(6,8);
+        let time = i.oramsg.slice(0,2)+":"+i.oramsg.slice(2,4);
+        let sender = i.mittente;
+        let subject = i.oggetto;
+        let actions = "X";
+        let message = i.messaggio;
+        let topush = {subject: subject, sender: sender, date: date, time: time, actions: actions, message: message}
+        x.push(topush);
+      }
+      this.msgrSource = x;
+    })
+    this.mS.msgS().subscribe((r:any)=>{
+      console.log(r);
+      let x = [];
+      for (var i of r) {
+        let date = i.datamsg.slice(0,4)+"-"+i.datamsg.slice(4,6)+"-"+i.datamsg.slice(6,8);
+        let time = i.oramsg.slice(0,2)+":"+i.oramsg.slice(2,4);
+        let subject = i.oggetto;
+        let recipient = i.destinatario;
+        let actions = "X";
+        let message = i.messaggio;
+        let topush = {subject: subject, recipient: recipient, date: date, time: time, actions: actions, message: message}
+        x.push(topush);
+      }
+      this.msgsSource = x;
+    })
   }
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+
+  openMessageR(message): void {
+    console.log(message);
+    let dialogRef = this.dialog.open(MessageDialog, {
+      width: '500px',
+      data: { name: "Vishal Pandey", message: message }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
 }
 
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+@Component({
+  selector: 'message-dialog',
+  templateUrl: 'message-dialog.html',
+  styleUrls: ['./message-list.component.css']
+})
+export class MessageDialog {
+
+  message:any;
+
+  constructor(
+    public dialogRef: MatDialogRef<MessageDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private mS:MainService,
+    ) {
+      
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+ 
+
+}

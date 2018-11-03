@@ -46,11 +46,16 @@
                         <li class="menu-item animate-dropdown">
                             <a title="FAQ" routerLink="/faq">FAQ</a>
                         </li>
-                        <li class="menu-item animate-dropdown" style="float: right;">
+                        <li class="menu-item animate-dropdown" style="float: right;" *ngIf='!this.aS.isLoggedInn()'>
                             <a (click)="openSignup()" style="cursor: pointer;">Register</a> or <a (click)="openLogin()" style="cursor: pointer;">Sign In</a>
                             <!-- <button mat-stroked-button class="advance-search-button" routerLink="/advance-search">Advance Search</button> -->
                         </li>
+                        <li class="menu-item animate-dropdown" style="float: right;" *ngIf='this.aS.isLoggedInn()'>
+                            <a routerLink="/admin/producer/">Panel</a>
+                            &nbsp;&nbsp;&nbsp;<a (click)="this.aS.logout()" style="cursor: pointer;">Logout</a>
+                        </li>
                         
+
                         <li class="menu-item animate-dropdown">
                             
                         </li>
@@ -145,8 +150,8 @@
             
             <!-- .header-wishlist -->
             <!-- <button mat-stroked-button class="advance-search-button">Advanced Search</button> -->
-            <button mat-stroked-button class="advance-search-button" (click)="openLogin()">Login</button>
-            <button mat-stroked-button class="advance-search-button" (click)="openSignup()">Sign Up</button>
+
+            <button mat-stroked-button class="advance-search-button" routerLink="/advance-search">Advance Search</button>
             <!-- .site-header-cart -->
         </div>
         <!-- /.row -->

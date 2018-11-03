@@ -111,12 +111,14 @@ import { ProducerComponent } from './admin/components/producer/producer.componen
 import { OfferRequestComponent } from './producer/components/offer-request/offer-request.component';
 import { CompanyDataComponent } from './producer/components/company-data/company-data.component';
 import { BookRequestComponent } from './producer/components/book-request/book-request.component';
-import { MessageListComponent } from './producer/components/message-list/message-list.component';
+import { MessageListComponent, MessageDialog } from './producer/components/message-list/message-list.component';
 import { MessageAgrelmaComponent } from './producer/components/message-agrelma/message-agrelma.component';
 import { OtherDataComponent } from './producer/components/other-data/other-data.component';
 import { MiniSiteComponent } from './producer/components/mini-site/mini-site.component';
 import { ProducerAccountingComponent } from './producer/components/producer-accounting/producer-accounting.component';
 import { MessageComponent } from './components/message/message.component';
+import { NewOfferComponent } from './producer/components/new-offer/new-offer.component';
+import { NewRequestComponent } from './producer/components/new-request/new-request.component';
 
 @NgModule({
   declarations: [
@@ -159,7 +161,10 @@ import { MessageComponent } from './components/message/message.component';
     OtherDataComponent,
     MiniSiteComponent,
     ProducerAccountingComponent,
-    MessageComponent
+    MessageComponent,
+    MessageDialog,
+    NewOfferComponent,
+    NewRequestComponent
   ],
   imports: [
     AppRoutingModule,
@@ -207,6 +212,6 @@ import { MessageComponent } from './components/message/message.component';
     HttpModule,
   ],
   providers: [AuthGuardService, AuthService, CookieService],
-  entryComponents: [LoginDialog, SignupDialog, TryNow]
+  entryComponents: [LoginDialog, SignupDialog, TryNow, MessageDialog]
 })
 export class AppModule { }

@@ -1,0 +1,108 @@
+<section class="d-container">
+	<section class="d-i-container">
+		<section class="col-sm-12 m-col">
+			<div class="d-box">
+				<mat-toolbar>
+					<h3>Sector : {{selectedSector?.nomesettore}}</h3>
+				</mat-toolbar>
+				<mat-toolbar *ngIf="sectorTypes && selectedSector?.idsettore != '15'">
+					<h3>Type : {{selectedSectorType?.nometipologia}}</h3>
+				</mat-toolbar>
+				<main>
+					<div class="sector-list" *ngIf="!selectedSector">
+						<button mat-raised-button *ngFor="let s of sectors" (click)="selectSector(s)">{{s?.nomesettore}}</button>
+					</div>
+				</main>
+				<main *ngIf="selectedSector?.idsettore != '15'">
+					<div class="sector-list" *ngIf="sectorTypes && !selectedSectorType && !addNewType">
+						<button mat-raised-button *ngFor="let t of sectorTypes" (click)="selectSectorTypes(t)">{{t.nometipologia}}</button>
+						<button mat-raised-button class="anchor-button" (click)="addNewType = true">Add New Type</button>
+					</div>
+					<div class="edit-section" *ngIf="addNewType && !selectedSectorType">
+						<input type="text" placeholder="New Type Name " class="col-sm-12" #newType>
+						<br>
+						<button mat-raised-button class="anchor-button" (click)="addSectorType(newType.value)">Continue</button>
+						<button mat-raised-button (click)="addNewType = false" class="anchor-button">Select from list</button>
+					</div>
+
+					<!-- Form Start Here -->
+
+					<div class="form" *ngIf="selectedSectorType">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Request Title</label><input type="text" class="col-sm-8" [(ngModel)]="titolo">
+						</mat-toolbar>
+					</div>
+					<div class="form" *ngIf="selectedSectorType">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Organic Product</label><mat-checkbox [(ngModel)]="biologico"></mat-checkbox>
+						</mat-toolbar>
+					</div>
+					<div class="form" *ngIf="selectedSectorType">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Additional Description</label>
+							<textarea cols="col-sm-8" [(ngModel)]="descrizione"></textarea>
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Packing</label><input type="text" class="col-sm-8" [(ngModel)]="imballo">
+						</mat-toolbar>
+					</div>
+
+					<div class="form" *ngIf="selectedSectorType">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-8">Please select which countries of production your request is aimed at</label>
+							<mat-form-field class="col-sm-4" style="font-size: 12px;">
+							  <mat-select placeholder="Select Countries" [formControl]="pokemonControl" multiple>
+							    <mat-optgroup *ngFor="let group of countryGroup" [label]="group.groupName">
+							      <mat-option *ngFor="let c of group.countries" [value]="c.cid">
+							        {{c.cname}}
+							      </mat-option>
+							    </mat-optgroup>
+							  </mat-select>
+							</mat-form-field>
+						</mat-toolbar>
+					</div>
+
+
+
+					<div class="form" *ngIf="selectedSectorType">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">We are interested in a quantity of:</label>
+							<input type="text" class="col-sm-3" placeholder="(Ex: 1)" [(ngModel)]="prezzoper">
+							<input type="text" class="col-sm-5" placeholder="(Unit of measure - Ex: kg.)" [(ngModel)]="umprezzoper">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">We are ready to pay</label>
+							<input type="text" class="col-sm-3" placeholder="From 0,00" [(ngModel)]="prezzo">
+							<input type="text" class="col-sm-3" placeholder="To 0,00" [(ngModel)]="prezzo">
+							<select class="col-sm-2" [(ngModel)]="valuta">
+								<option *ngFor="let p of currencies" [ngValue]="p.codvaluta">{{p.nomevaluta}} ({{p.codvaluta}})</option>
+							</select>
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Price referred to:</label>
+							<input type="text" class="col-sm-3" placeholder="(Ex: 1)" [(ngModel)]="prezzoper">
+							<input type="text" class="col-sm-5" placeholder="(Unit of measure - Ex: kg.)" [(ngModel)]="umprezzoper">
+						</mat-toolbar>
+
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Destination to</label>
+							<input type="text" class="col-sm-4" placeholder="" [(ngModel)]="luogoconsegna">
+							<select class="col-sm-4" [(ngModel)]="nazconsegna">
+								<option *ngFor="let c of countries" [(ngValue)]="c.paese">{{c.paese}}</option>
+							</select>
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Preferred way of payment:</label><input type="text" class="col-sm-8" [(ngModel)]="modpag">
+						</mat-toolbar>
+					</div>
+					<mat-toolbar *ngIf="selectedSectorType">
+						<button mat-raised-button>Continue</button>
+					</mat-toolbar>
+
+
+
+				</main>
+			</div>
+		</section>
+	</section>
+</section>

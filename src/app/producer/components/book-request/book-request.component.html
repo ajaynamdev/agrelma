@@ -1,6 +1,6 @@
 <section class="d-container">
 	<section class="d-i-container">
-		<section class="col-sm-12 m-col">
+		<section class="col-sm-12 m-col" *ngIf="nodisplay">
 			<div class="d-box">
 				<header>
 					<h3>The services of consumption for the requests reception are already enabled.</h3>
@@ -20,10 +20,11 @@
 				</main>
 			</div>
 		</section>
-		<!-- <section class="col-sm-3 l-col">
+		<section class="col-sm-7 r-col">
+
 			<div class="d-box">
 				<header>
-					<h3>Title Of widget</h3>
+					<h3>Receive requests via e-Mail Its Free</h3>
 					<span class="action">
 						<button mat-icon-button>
 						  <mat-icon>more_vert</mat-icon>
@@ -31,38 +32,51 @@
 					</span>
 				</header>
 				<main>
-					This is the content
+					<input type="text" placeholder="email" class="col-sm-12" value="{{companyData?.indemail}}">
 				</main>
 			</div>
+
 			<div class="d-box">
 				<header>
-					<h3>Title Of widget</h3>
+					<h3>Select the country of which you want the requests</h3>
 					<span class="action">
 						<button mat-icon-button>
 						  <mat-icon>more_vert</mat-icon>
 						</button>
 					</span>
 				</header>
-				This is the content
+				<main>
+					<select *ngIf="countryList" class="col-sm-12">
+						<option>Select Country</option>
+						<option *ngFor="let c of countryList">{{c.paese}}</option>
+					</select>
+				</main>
 			</div>
-		</section>
-		<section class="col-sm-6 m-col">
+
 			<div class="d-box">
 				<header>
-					<h3>Another Title of the widget</h3>
+					<h3>Select in the list below the sectors for which you are interested to receive the requests:</h3>
 					<span class="action">
 						<button mat-icon-button>
-							<mat-icon>more_vert</mat-icon>
+						  <mat-icon>more_vert</mat-icon>
 						</button>
 					</span>
 				</header>
-				This is the content
+				<main>
+
+					<div class="col-sm-6" style="display: inline-block;" *ngFor="let sector of selectedSectors">
+						<span *ngIf="sector.selected == '1'">
+							<mat-checkbox checked="true">{{sector.nomesettore}}</mat-checkbox><br>
+						</span>
+						<span *ngIf="sector.selected != '1'">
+							<mat-checkbox>{{sector.nomesettore}}</mat-checkbox><br>
+						</span>
+
+					</div>
+					<div class="submit-button"><button mat-raised-button>Save Changes</button></div>
+				</main>
 			</div>
 		</section>
-		<section class="col-sm-3 r-col">
-			<div class="d-box">
-				This is the content
-			</div>
-		</section> -->
+
 	</section>
 </section>

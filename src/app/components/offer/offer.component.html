@@ -82,12 +82,13 @@
                                 <!-- .single-product-meta -->
                                 <div class="rating-and-sharing-wrapper">
                                     <div class="woocommerce-product-rating">
-                                        <div class="star-rating">
-                                            <span style="width:100%">Rated
+                                            <a href="{{company?.indwww}}">View Website</a>
+                                        <!-- <div class="star-rating">
+                                             <span style="width:100%">Rated
                                                 <strong class="rating">5.00</strong> out of 5 based on
                                                 <span class="rating">1</span> customer rating</span>
-                                        </div>
-                                        <a rel="nofollow" class="woocommerce-review-link" href="#reviews">(<span class="count">1</span> customer review)</a>
+                                        </div> -->
+                                        <!-- <a rel="nofollow" class="woocommerce-review-link" href="#reviews">(<span class="count">1</span> customer review)</a> -->
                                     </div>
                                 </div>
                                 <!-- .rating-and-sharing-wrapper -->
@@ -107,9 +108,10 @@
                                 <div class="product-actions-wrapper">
                                     <div class="product-actions">
                                         <p class="price">
-                                            <del style="text-decoration: none;">
+                                            <del style="text-decoration: none;" *ngIf="offer?.prezzo != '0.000'">
                                                 <span class="woocommerce-Price-amount amount">
                                                     <span class="woocommerce-Price-currencySymbol">$</span>Price</span>
+                                                    {{offer?.prezzo}} {{offer?.valuta}} / {{offer?.prezzoper}} {{offer?.umprezzoper}}
                                             </del>
                                             <ins>
                                                 <span class="woocommerce-Price-amount amount">
@@ -117,14 +119,10 @@
                                             </ins>
                                         </p>
                                         <!-- .single-product-header -->
-                                        <form enctype="multipart/form-data" method="post" class="cart">
-                                            <div class="quantity">
-                                                <label for="quantity-input">Quantity</label>
-                                                <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" id="quantity-input" disabled="true">
-                                            </div>
+                                        
                                             <!-- .quantity -->
-                                            <button class="single_add_to_cart_button button alt" value="185" name="add-to-cart" type="submit">Contact Details</button>
-                                        </form>
+                                            <button class="single_add_to_cart_button button alt" value="185" name="add-to-cart" routerLink="/contact-detail-producer/{{offer?.anagrafica}}" target="_blank">Contact Details</button>
+                                        
                                         <!-- .cart -->
                                         <a class="add-to-compare-link">Produced in (country) : {{offer?.paese}}</a>
                                     </div>
@@ -267,12 +265,12 @@
                                 </div>
                                 <div class="tab-pane active panel wc-tab" id="tab-description" role="tabpanel">
                                     <h2>Description</h2>
-                                    <p style="text-align: center;max-width: 1160px;margin: auto auto 60px;" innerHtml="{{description}}"></p>
+                                    <p style="max-width: 1160px;margin: auto auto 60px;" innerHtml="{{description}}"></p>
                                 </div>
                                 <div class="tab-pane" id="tab-specification" role="tabpanel">
                                     <div class="tm-shop-attributes-detail like-column columns-3">
                                         <h3 class="tm-attributes-title">General</h3>
-                                        <div class="shop_attributes"><b>in god we trust</b><br> Medströms Fisk AB deals in a variety of fresh and Frozen Seafood like prawn, crab, lobster, fish, shrimp, oyster and many other. We can on regular bases supply you cashew nuts,,bee wax just to name a few.The raw materials that are used for the production of our finished products are acquired in minimally processed or unprocessed states; these are free from impurities as well. We are offering our products in quality packaging to guarantee zero damage during transit. For this, we have hired professionals who hold immense knowledge in this domain</div>
+                                        <div class="shop_attributes"><b>{{company?.slogan}}</b><br>{{company?.descrizioneaziendale}}</div>
                                         <!-- <table class="shop_attributes">
                                             <tbody>
                                                 <tr>
@@ -293,9 +291,15 @@
                                         <h3 class="tm-attributes-title">Basic Informations</h3>
                                         <table class="shop_attributes">
                                             <tbody>
-                                                <tr>
+                                                <tr *ngIf="company?.impiegati ||(company?.impiegati != ' ') ">
                                                     <th>Number of Employees:</th>
-                                                    <td>From 20 to 50 persons</td>
+                                                    <td>
+                                                        <span *ngIf="company?.impiegati == 1">Less than 5 persons</span>
+                                                        <span *ngIf="company?.impiegati == 2">From 5 to 10 persons</span>
+                                                        <span *ngIf="company?.impiegati == 3">From 10 to 20 persons</span>
+                                                        <span *ngIf="company?.impiegati == 4">From 20 to 50 persons</span>
+                                                        <span *ngIf="company?.impiegati == 5">More Than 50 persons</span>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -306,11 +310,11 @@
                                             <tbody>
                                                 <tr>
                                                     <th>Year Established:</th>
-                                                    <td>1998</td>
+                                                    <td>{{company?.annoinizio}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Legal Representative/Business Owner:</th>
-                                                    <td>Holmes credence</td>
+                                                    <td>{{company?.legalerappresentante}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -322,44 +326,30 @@
                                                     <th>Main Markets:</th>
                                                     <td>
                                                         <ul>
-                                                            <li> Austria </li>
-                                                            <li> Belgium </li>
-                                                            <li> France </li>
-                                                            <li> Macau </li>
-                                                            <li> Andorra </li>
-                                                            <li> Albania </li>
-                                                            <li> Bosnia and Herzegovina </li>
-                                                            <li> Bulgaria </li>
-                                                            <li> Bahrain </li>
-                                                            <li> Belarus </li>
-                                                            <li> China </li>
-                                                            <li> Cyprus </li>
-                                                            <li> Czech Republic </li>
-                                                            <li> Hong Kong </li>
-                                                            <li> Croatia </li>
-                                                            <li> Japan </li>
-                                                            <li> Korea, Republic of </li>
-                                                            <li> Kuwait </li>
-                                                            <li> Kazakstan </li>
-                                                            <li> Oman </li>
+                                                            <li *ngFor="let c of country"> {{c}} </li>
                                                         </ul>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th>Main Customer:</th>
-                                                    <td>Asia countries,Australia and North America</td>
+                                                    <td>{{company?.clienteprincipale}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Export Percentage</th>
-                                                    <td>80%</td>
+                                                    <td>{{company?.percentualeesportazione}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Total Annual Purchase Volume:</th>
-                                                    <td>20%</td>
+                                                    <td>{{company?.volumeacquisti}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Products/services: (Sold)</th>
-                                                    <td>fresh and Frozen Seafood like prawn, crab, lobster, fish, shrimp, oyster,cashew nuts,bee wax,Hennessy Cognac,Arabica coffee,Coca Cola,Becks Beer,Frozen Whole Chicken, red bull energy drink,Heineken</td>
+                                                    <th>Total Annual Sale Volume:</th>
+                                                    <td>{{company?.volumevendite}}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>Products/services: (Sold/Buy)</th>
+                                                    <td>{{company?.vende}}<br>{{company?.compra}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

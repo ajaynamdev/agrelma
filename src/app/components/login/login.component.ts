@@ -30,15 +30,24 @@ export class LoginComponent implements OnInit {
 
   login(id:any, pwd:any) {
     this.message = "Loggin in ... ";
-    this.authService.getLogin(id,pwd).subscribe((data) => {
+    this.authService.getLogin(id,pwd).subscribe((data:any) => {
       this.config = { ...data }
+      if (data.status == 'true') {
+        console.log(data);
+        this.message = "Logged In";
+        this.cookieService.set("admin",data.HTTP_Authorization,360000,"/");
+        this.router.navigate(['/admin/producer']);
+      }else{
+        console.log(data);
+        this.message = data.error;
+      }
       if (this.config.key == 'success') {
         this.message = "Logged In";
         this.cookieService.set("admin",this.config.value,360000,"/");
         // this.router.navigate(['/']);
         window.location.href = "./";
       }else{
-        this.message = this.config.key;
+        // this.message = this.config.key;
       }
 
     })

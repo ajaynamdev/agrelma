@@ -21,7 +21,7 @@
                         <!-- .handheld-sidebar-toggle -->
                         <h1 class="woocommerce-products-header__title page-title">Search results - OFFERS</h1>
                         <!-- .shop-view-switcher -->
-                        <form class="form-techmarket-wc-ppp" method="POST">
+                        <!-- <form class="form-techmarket-wc-ppp" method="POST">
                             <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
                                 <option value="20">Show 20</option>
                                 <option value="40">Show 40</option>
@@ -30,9 +30,9 @@
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
+                        </form> -->
                         <!-- .form-techmarket-wc-ppp -->
-                        <form method="get" class="woocommerce-ordering">
+                        <!-- <form method="get" class="woocommerce-ordering">
                             <select class="orderby" name="orderby">
                                 <option value="popularity">Sort by popularity</option>
                                 <option value="rating">Sort by average rating</option>
@@ -43,7 +43,7 @@
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
+                        </form> -->
                         <!-- .woocommerce-ordering -->
                         <nav class="techmarket-advanced-pagination">
                             <form class="form-adv-pagination" method="post">
@@ -57,19 +57,19 @@
                         <div id="list-view-small" class="tab-pane active" role="tabpanel" >
                             <div class="woocommerce columns-1">
                                 <div class="products">
-                                    <div class="product list-view-small" *ngFor="let i of productcount">
+                                    <div class="product list-view-small" *ngFor="let offer of offerResult">
                                         <div class="media">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/1.jpg">
+                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="https://www.agrelma.com/DomOff/Foto/{{offer.nomefile}}">
                                             <div class="media-body">
                                                 <div class="product-info">
                                                     <div class="yith-wcwl-add-to-wishlist">
                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                                                     </div>
                                                     <!-- .yith-wcwl-add-to-wishlist -->
-                                                    <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" routerLink="/offer">
-                                                        <h2 class="woocommerce-loop-product__title">SCIALATIELLI GR.500 O’SARRACINO</h2>
+                                                    <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" routerLink="/offer/{{offer.iddomoff}}">
+                                                        <h2 class="woocommerce-loop-product__title">{{offer.titolo}}</h2>
                                                         <div class="techmarket-product-rating">
-                                                        	<div style="color: black;">Pasta / Artisanal</div>
+                                                        	<div style="color: black;">{{offer.nomesettore}} / {{offer.nometipologia}} <span *ngIf="offer.biologico">- Organic Product</span> </div>
                                                             <div title="Rated 4.00 out of 5" class="star-rating" *ngIf="nodisplay">
                                                                 <span style="width:20%">
                                                                     <strong class="rating">4.00</strong> out of 3</span>
@@ -80,22 +80,22 @@
                                                     <!-- .woocommerce-LoopProduct-link -->
                                                     <div class="woocommerce-product-details__short-description">
                                                         <ul>
-                                                            <li>Anima Italiana srl</li>
-                                                            <li>Italy (Arzano)</li>
+                                                            <li *ngIf="offer.prezzo != 0.000"><b>Price : </b> <b style="color: green;">{{offer.prezzo}} {{offer.valuta}} / {{offer.prezzoper}} {{offer.umprezzoper}}</b></li>
+                                                            <li *ngIf="offer.ordineminimo !=' '"><b>Minimum Order:</b> <b style="color: green;"> {{offer.ordineminimo}}  {{offer.unitamisura}}</b></li>
                                                         </ul>
-                                                        <li>Production country: Italy</li>
+                                                        <li>Production country: {{offer.paese}}</li>
                                                     </div>
                                                     <!-- .woocommerce-product-details__short-description -->
                                                 </div>
                                                 <!-- .product-info -->
                                                 <div class="product-actions">
                                                     <span class="price">
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">$</span>0,99 EUR / 1 pezzo</span>
+                                                        <span class="woocommerce-Price-amount amount v-provider">
+                                                            <span class="woocommerce-Price-currencySymbol"></span>{{offer.azienda}} ({{offer.nazione}} / {{offer.citta}})</span>
                                                     </span>
                                                     <!-- .price -->
                                                     <a class="button add_to_cart_button" routerLink="/contact-producer">Send Message</a>
-                                                    <a class="add-to-compare-link" routerLink="/contact-detail-producer">Contact Details</a>
+                                                    <a class="add-to-compare-link" routerLink="/contact-detail-producer/{{offer.idanagrafica}}" target="_blank">Contact Details</a>
                                                 </div>
                                                 <!-- .product-actions -->
                                             </div>
@@ -113,31 +113,28 @@
                     </div>
                     <!-- .tab-content -->
                     <div class="shop-control-bar-bottom">
-                        <form class="form-techmarket-wc-ppp" method="POST">
-                            <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
-                                <option value="20">Show 20</option>
-                                <option value="40">Show 40</option>
-                                <option value="-1">Show All</option>
-                            </select>
-                            <input type="hidden" value="5" name="shop_columns">
-                            <input type="hidden" value="15" name="shop_per_page">
-                            <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
                         <!-- .form-techmarket-wc-ppp -->
                         <p class="woocommerce-result-count">
-                            Showing 1&ndash;15 of 73 results
+                            Showing {{range}} of {{total}} results
                         </p>
                         <!-- .woocommerce-result-count -->
                         <nav class="woocommerce-pagination">
                             <ul class="page-numbers">
-                                <li>
+                                <!-- <li>
                                     <span class="page-numbers current">1</span>
+                                </li> -->
+                                <li><a class="previous page-numbers" routerLink="/search-result/offer/{{offerId}}/{{previousPage}}" *ngIf="pageId != 1">&larr;</a></li>
+                                <li *ngFor="let page of pagination">
+                                    <span *ngIf="(page-pageId) < 3 && (page-pageId) > -3">
+                                        <span class="page-numbers current" routerLink="/search-result/offer/{{offerId}}/{{page}}" *ngIf="page == pageId">{{page}}</span>
+                                        <a class="page-numbers" routerLink="/search-result/offer/{{offerId}}/{{page}}" *ngIf="page != pageId">{{page}}</a>
+                                    </span>
                                 </li>
-                                <li><a href="#" class="page-numbers">2</a></li>
-                                <li><a href="#" class="page-numbers">3</a></li>
+                                <li><a class="nextt page-numbers" routerLink="/search-result/offer/{{offerId}}/{{nextPage}}" *ngIf="pageId != lastPage">&rarr;</a></li>
+                                <!-- <li><a href="#" class="page-numbers">3</a></li>
                                 <li><a href="#" class="page-numbers">4</a></li>
                                 <li><a href="#" class="page-numbers">5</a></li>
-                                <li><a href="#" class="next page-numbers">→</a></li>
+                                <li><a href="#" class="next page-numbers">→</a></li> -->
                             </ul>
                             <!-- .page-numbers -->
                         </nav>
@@ -155,66 +152,30 @@
                     <div class="widget woocommerce widget_layered_nav maxlist-more" id="woocommerce_layered_nav-2">
                         <span class="gamma widget-title">Sector/Types</span>
                         <ul>
-                            <li class="wc-layered-nav-term ">
-                                <a href="#">apple</a>
+                            <span  *ngIf="!all">
+                            <li class="wc-layered-nav-term " *ngFor="let type of sectortype | slice:0:10;">
+                                <a routerLink="/search-result/offer/{{offerId}}/1/{{countryId}}/{{type.tipologia}}">{{type.nometipologia}}</a>
                                 <span class="count">(2)</span>
                             </li>
-                            <li class="wc-layered-nav-term "><a href="#">bosch</a>
-                                <span class="count">(1)</span>
+                            </span>
+                            <span  *ngIf="all">
+                            <li class="wc-layered-nav-term " *ngFor="let type of sectortype">
+                                <a routerLink="/search-result/offer/{{offerId}}/1/{{countryId}}/{{type.tipologia}}">{{type.nometipologia}}</a>
+                                <span class="count">(2)</span>
                             </li>
-                            <li class="wc-layered-nav-term "><a href="#">cannon</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">connect</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">galaxy</a>
-                                <span class="count">(3)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">gopro</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">kinova</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">samsung</a>
-                                <span class="count">(1)</span>
-                            </li>
+                            </span>
                         </ul>
+                        <a (click)="all= all ? false : true;">
+                            <span *ngIf="!all"><b> + more</b></span>
+                            <span *ngIf="all"><b> - less</b></span>
+                        </a>
                     </div>
                     <!-- .woocommerce widget_layered_nav -->
                     <div class="widget woocommerce widget_layered_nav maxlist-more" id="woocommerce_layered_nav-3">
                         <span class="gamma widget-title">Production Country</span>
                         <ul>
-                            <li class="wc-layered-nav-term "><a href="#">Black</a>
+                            <li class="wc-layered-nav-term " *ngFor="let c of country"><a routerLink="/search-result/offer/{{offerId}}/1/{{c.idnazione}}/{{typeId}}">{{c.paese}}</a>
                                 <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Blue</a>
-                                <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Green</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Orange</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Red</a>
-                                <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Yellow</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Green</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Orange</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Red</a>
-                                <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Yellow</a>
-                                <span class="count">(5)</span>
                             </li>
                         </ul>
                     </div>
@@ -252,7 +213,7 @@
                         <!-- .handheld-sidebar-toggle -->
                         <h1 class="woocommerce-products-header__title page-title">Search results - REQUESTS</h1>
                         <!-- .shop-view-switcher -->
-                        <form class="form-techmarket-wc-ppp" method="POST">
+                        <!-- <form class="form-techmarket-wc-ppp" method="POST">
                             <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
                                 <option value="20">Show 20</option>
                                 <option value="40">Show 40</option>
@@ -261,9 +222,9 @@
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
+                        </form> -->
                         <!-- .form-techmarket-wc-ppp -->
-                        <form method="get" class="woocommerce-ordering">
+                        <!-- <form method="get" class="woocommerce-ordering">
                             <select class="orderby" name="orderby">
                                 <option value="popularity">Sort by popularity</option>
                                 <option value="rating">Sort by average rating</option>
@@ -274,13 +235,13 @@
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
+                        </form> -->
                         <!-- .woocommerce-ordering -->
-                        <nav class="techmarket-advanced-pagination">
+                        <!-- <nav class="techmarket-advanced-pagination">
                             <form class="form-adv-pagination" method="post">
                                 <input type="number" value="1" class="form-control" step="1" max="5" min="1" size="2" id="goto-page">
                             </form> of 5<a href="#" class="next page-numbers">→</a>
-                        </nav>
+                        </nav> -->
                         <!-- .techmarket-advanced-pagination -->
                     </div>
                     <!-- .shop-control-bar -->
@@ -288,27 +249,27 @@
                         <div id="list-view-small" class="tab-pane active" role="tabpanel" >
                             <div class="woocommerce columns-1">
                                 <div class="products">
-                                    <div class="product list-view-small" *ngFor="let i of productcount">
+                                    <div class="product list-view-small" *ngFor="let r of requestResult">
                                         <div class="media">
-                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/images/products/1.jpg">
+                                            <!-- <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="assets/offer.png"> -->
                                             <div class="media-body">
                                                 <div class="product-info">
                                                     <div class="yith-wcwl-add-to-wishlist">
                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                                                     </div>
                                                     <!-- .yith-wcwl-add-to-wishlist -->
-                                                    <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" routerLink="/request">
-                                                        <h2 class="woocommerce-loop-product__title">Noodles in retail packages.</h2>
+                                                    <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" routerLink="/request/{{r.iddomoff}}">
+                                                        <h2 class="woocommerce-loop-product__title">{{r.titolo}}</h2>
                                                         <div class="techmarket-product-rating">
-                                                            <div style="color: black;">Pasta / Noodles</div>
+                                                            <div style="color: black;">{{r.nomesettore}} / {{r.nometipologia}}</div>
                                                         </div>
                                                     </a>
                                                     <!-- .woocommerce-LoopProduct-link -->
                                                     <div class="woocommerce-product-details__short-description">
                                                         <ul>
-                                                            <li>[28/05/2018]</li>
+                                                            <li>[{{printDate(r.datains) | date}}]</li>
                                                         </ul>
-                                                        <li>Importer country: Poland</li>
+                                                        <li>Importer country: {{r.nazione}}</li>
                                                     </div>
                                                     <!-- .woocommerce-product-details__short-description -->
                                                 </div>
@@ -338,31 +299,28 @@
                     </div>
                     <!-- .tab-content -->
                     <div class="shop-control-bar-bottom">
-                        <form class="form-techmarket-wc-ppp" method="POST">
-                            <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
-                                <option value="20">Show 20</option>
-                                <option value="40">Show 40</option>
-                                <option value="-1">Show All</option>
-                            </select>
-                            <input type="hidden" value="5" name="shop_columns">
-                            <input type="hidden" value="15" name="shop_per_page">
-                            <input type="hidden" value="right-sidebar" name="shop_layout">
-                        </form>
                         <!-- .form-techmarket-wc-ppp -->
                         <p class="woocommerce-result-count">
-                            Showing 1&ndash;15 of 73 results
+                            Showing {{range}} of {{total}} results
                         </p>
                         <!-- .woocommerce-result-count -->
                         <nav class="woocommerce-pagination">
                             <ul class="page-numbers">
-                                <li>
+                                <!-- <li>
                                     <span class="page-numbers current">1</span>
+                                </li> -->
+                                <li><a class="previous page-numbers" routerLink="/search-result/request/{{requestId}}/{{previousPage}}" *ngIf="pageId != 1">&larr;</a></li>
+                                <li *ngFor="let page of pagination">
+                                    <span *ngIf="(page-pageId) < 3 && (page-pageId) > -3">
+                                        <span class="page-numbers current" routerLink="/search-result/request/{{requestId}}/{{page}}" *ngIf="page == pageId">{{page}}</span>
+                                        <a class="page-numbers" routerLink="/search-result/request/{{requestId}}/{{page}}" *ngIf="page != pageId">{{page}}</a>
+                                    </span>
                                 </li>
-                                <li><a href="#" class="page-numbers">2</a></li>
-                                <li><a href="#" class="page-numbers">3</a></li>
+                                <li><a class="nextt page-numbers" routerLink="/search-result/request/{{requestId}}/{{nextPage}}" *ngIf="pageId != lastPage">&rarr;</a></li>
+                                <!-- <li><a href="#" class="page-numbers">3</a></li>
                                 <li><a href="#" class="page-numbers">4</a></li>
                                 <li><a href="#" class="page-numbers">5</a></li>
-                                <li><a href="#" class="next page-numbers">→</a></li>
+                                <li><a href="#" class="next page-numbers">→</a></li> -->
                             </ul>
                             <!-- .page-numbers -->
                         </nav>
@@ -380,68 +338,23 @@
                     <div class="widget woocommerce widget_layered_nav maxlist-more" id="woocommerce_layered_nav-2">
                         <span class="gamma widget-title">Sector/Types</span>
                         <ul>
-                            <li class="wc-layered-nav-term ">
-                                <a href="#">apple</a>
+                            <span  *ngIf="!all">
+                            <li class="wc-layered-nav-term " *ngFor="let type of sectortype | slice:0:10;">
+                                <a routerLink="/search-result/request/{{requestId}}/1/{{type.tipologia}}">{{type.nometipologia}}</a>
                                 <span class="count">(2)</span>
                             </li>
-                            <li class="wc-layered-nav-term "><a href="#">bosch</a>
-                                <span class="count">(1)</span>
+                            </span>
+                            <span  *ngIf="all">
+                            <li class="wc-layered-nav-term " *ngFor="let type of sectortype">
+                                <a routerLink="/search-result/request/{{requestId}}/1/{{type.tipologia}}">{{type.nometipologia}}</a>
+                                <span class="count">(2)</span>
                             </li>
-                            <li class="wc-layered-nav-term "><a href="#">cannon</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">connect</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">galaxy</a>
-                                <span class="count">(3)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">gopro</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">kinova</a>
-                                <span class="count">(1)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">samsung</a>
-                                <span class="count">(1)</span>
-                            </li>
+                            </span>
                         </ul>
-                    </div>
-                    <!-- .woocommerce widget_layered_nav -->
-                    <div class="widget woocommerce widget_layered_nav maxlist-more" id="woocommerce_layered_nav-3" *ngIf="nodisplay">
-                        <span class="gamma widget-title">Production Country</span>
-                        <ul>
-                            <li class="wc-layered-nav-term "><a href="#">Black</a>
-                                <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Blue</a>
-                                <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Green</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Orange</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Red</a>
-                                <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Yellow</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Green</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Orange</a>
-                                <span class="count">(5)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Red</a>
-                                <span class="count">(4)</span>
-                            </li>
-                            <li class="wc-layered-nav-term "><a href="#">Yellow</a>
-                                <span class="count">(5)</span>
-                            </li>
-                        </ul>
+                        <a (click)="all= all ? false : true;">
+                            <span *ngIf="!all"><b> + more</b></span>
+                            <span *ngIf="all"><b> - less</b></span>
+                        </a>
                     </div>
                     <!-- .woocommerce widget_layered_nav -->
                 </div>

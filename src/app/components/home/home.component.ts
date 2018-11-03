@@ -1,7 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { NguCarousel } from '@ngu/carousel';
+import { MainService } from '../../services/main.service';
 declare var $:any;
+declare function vishal():any;
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,32 @@ declare var $:any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+	showcase:any;
+	latestoffers:any;
+
+  constructor(public dialog: MatDialog,
+  	private mS:MainService) { }
 
   ngOnInit() {
 
+
   	$.getScript("../../../assets/js/scripts.js", function() {
 		});
+
+		this.mS.showcase().subscribe((r:any)=>{
+			this.showcase = r;
+			console.log(r);
+		})
+
+		this.mS.latestoffer().subscribe((r:any)=>{
+			this.latestoffers = r;
+			console.log(r);
+			vishal();
+		}, ()=>{
+			vishal();
+			$.getScript("../../../assets/js/scripts.js", function() {
+			});
+		})
 		
   	this.carouselOne = {
       grid: {xs: 1, sm: 2, md: 3, lg: 4, all: 0},
@@ -301,59 +323,72 @@ export class HomeComponent implements OnInit {
 		{
 			"id": "3",
 			"name": "Pasta",
-			"sub": []
+			"sub": [],
+			"sid": 27
 		},
 		{
 			"id": "4",
 			"name": "Delicatessen",
-			"sub": []
+			"sub": [],
+			"sid": 19
 		},
 		{
 			"id": "7",
 			"name": "Preserves",
-			"sub": []
+			"sub": [],
+			"sid": 26
 		},
 		{
 			"id": "8",
 			"name": "Sweets And Dough Products",
-			"sub": []
+			"sub": [],
+			"sid": 28
 		},
 		{
 			"id": "9",
 			"name": "Cheese",
-			"sub": []
+			"sub": [],
+			"sid": 6
 		},
 		{
 			"id": "10",
 			"name": "Coffee",
-			"sub": []
+			"sub": [],
+			"sid": 29
 		},
 		{
 			"id": "11",
 			"name": "Drinks",
-			"sub": []
+			"sub": [],
+			"sid": 11
 		},
 		{
 			"id": "12",
 			"name": "Frozen Products",
-			"sub": []
+			"sub": [],
+			"sid": 32
 		},
 		{
 			"id": "13",
 			"name": "Cereals",
-			"sub": []
+			"sub": [],
+			"sid": 3
 		},
 		{
 			"id": "14",
 			"name": "Convenience Food/Ready Meals",
-			"sub": []
+			"sub": [],
+			"sid": 30
 		},
 		{
 			"id": "15",
 			"name": "Vinegar",
-			"sub": []
+			"sub": [],
+			"sid": 31
 		}
   ];
+
+
 
   nodisplay:boolean = false;
 

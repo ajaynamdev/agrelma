@@ -271,3 +271,36 @@ mat-nav-list span{
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+.v-d-1, .v-d-2, .v-d-3, .v-d-16, .v-d-4{
+	border: 1px solid black;
+	width: inherit;
+	padding: 20px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	transition: 2s;
+	height: 0;
+}
+
+#v-d-1:hover + .v-d-1{
+	display: initial;
+	height: 450px;
+}
+
+
+
+
+.v-showcase-image{
+	height: 197px!important;
+}

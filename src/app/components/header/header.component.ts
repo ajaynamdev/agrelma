@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public aS:AuthService) { }
 
   ngOnInit() {
   }
@@ -152,15 +152,16 @@ export class LoginDialog {
 
   login(id:any, pwd:any) {
     this.message = "Loggin in ... ";
-    this.authService.getLogin(id,pwd).subscribe((data) => {
-      this.config = { ...data }
-      if (this.config.key == 'success') {
+    this.authService.getLogin(id,pwd).subscribe((data:any) => {
+      if (data.status == 'true') {
+        console.log(data);
         this.message = "Logged In";
-        this.cookieService.set("admin",this.config.value,360000,"/");
-        // this.router.navigate(['/']);
-        window.location.href = "/admin/producer";
+        this.cookieService.set("admin",data.HTTP_Authorization,360000,"/");
+        this.router.navigate(['/admin/producer']);
+        this.onNoClick();
       }else{
-        this.message = this.config.key;
+        console.log(data);
+        this.message = data.error;
       }
 
     })

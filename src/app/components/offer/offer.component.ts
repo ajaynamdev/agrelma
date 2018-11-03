@@ -21,11 +21,16 @@ export class OfferComponent implements OnInit {
   photo:any;
   description:any;
 
+  company:any;
+  country:any;
+
 
   ngOnInit() {
-  	$.getScript("../../../assets/js/scripts.js", function() {
-		});
-		this.route.paramMap.subscribe((r:any)=>{
+    window.scrollTo(0,0);
+    $.getScript("../../../assets/js/scripts.js", function() {
+    });
+    this.route.paramMap.subscribe((r:any)=>{
+      window.scrollTo(0,0);
       console.log(r.params.id);
       this.offerId = r.params.id;
       this.mService.getPhoto(this.offerId).subscribe((r:any)=>{
@@ -39,6 +44,16 @@ export class OfferComponent implements OnInit {
       	this.offer = r[0];
       	console.log(r[0]);
       	this.description = r[0].descrizione;
+        this.mService.getProducerCompany(r[0].anagrafica).subscribe((r:any)=>{
+          this.company = r.company[0];
+          this.country = r.country;
+        })
+        this.description = this.description.replace(/&#34;/g, '"');
+        this.description = this.description.replace(/&#60;/g, '<');
+        this.description = this.description.replace(/&lt;/g, '<');
+        this.description = this.description.replace(/&#62;/g, '>');
+        this.description = this.description.replace(/&gt;/g, '>');
+        this.description = this.description.replace(/&amp;/g, '&');
       })
     })
 

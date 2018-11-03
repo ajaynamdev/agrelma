@@ -26,6 +26,8 @@ import { DashboardComponent } from './admin/components/dashboard/dashboard.compo
 // Producer Routes
 import { ProducerComponent } from './admin/components/producer/producer.component';
 import { OfferRequestComponent } from './producer/components/offer-request/offer-request.component';
+import { NewOfferComponent } from './producer/components/new-offer/new-offer.component';
+import { NewRequestComponent } from './producer/components/new-request/new-request.component';
 import { BookRequestComponent } from './producer/components/book-request/book-request.component';
 import { CompanyDataComponent } from './producer/components/company-data/company-data.component';
 import { MessageAgrelmaComponent } from './producer/components/message-agrelma/message-agrelma.component';
@@ -54,6 +56,22 @@ const routes: Routes = [
 	},
 	{
 		path: "search-result/:id",
+		component: SearchresultComponent
+	},
+	{
+		path: "search-result/:id/:qid",
+		component: SearchresultComponent
+	},
+	{
+		path: "search-result/:id/:qid/:pid",
+		component: SearchresultComponent
+	},
+	{
+		path: "search-result/:id/:qid/:pid/:thetype",
+		component: SearchresultComponent
+	},
+	{
+		path: "search-result/:id/:qid/:pid/:country/:thetype",
 		component: SearchresultComponent
 	},
 	{
@@ -113,6 +131,10 @@ const routes: Routes = [
 		component: ContactDetailProducerComponent
 	},
 	{
+		path: "contact-detail-producer/:id",
+		component: ContactDetailProducerComponent
+	},
+	{
 		path: "message",
 		component: MessageComponent
 	},
@@ -138,6 +160,16 @@ const routes: Routes = [
 	          {
 	          	path: 'offer-request',
 	          	component: OfferRequestComponent
+	          },
+	          {
+	          	path: 'new-offer',
+	          	component: NewOfferComponent
+
+	          },
+	          {
+	          	path: 'new-request',
+	          	component: NewRequestComponent
+
 	          },
 	          {
 	          	path: 'book-request',

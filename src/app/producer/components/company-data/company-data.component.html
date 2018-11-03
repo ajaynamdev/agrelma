@@ -13,15 +13,15 @@
 				<main>
 					<div class="form-group d-form">
 						<label>Company Name</label>
-						<input type="text" placeholder="Company Name" class="col-sm-12">
+						<input type="text" placeholder="Company Name" class="col-sm-12" value="{{companyData?.azienda}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Address</label>
-						<input type="text" placeholder="Address" class="col-sm-12">
+						<input type="text" placeholder="Address" class="col-sm-12" value="{{companyData?.indirizzo}}">
 					</div>
 					<div class="form-group d-form">
 						<label>City</label>
-						<input type="text" placeholder="City" class="col-sm-12">
+						<input type="text" placeholder="City" class="col-sm-12" value="{{companyData?.citta}}">
 					</div>
 					<div class="form-group d-form">
 						<label>PO Box/Province</label>
@@ -29,7 +29,7 @@
 					</div>
 					<div class="form-group d-form">
 						<label>Country</label>
-						<input type="text" placeholder="Country" class="col-sm-12">
+						<input type="text" placeholder="Country" class="col-sm-12" value="{{companyData?.nazione}}">
 					</div>
 					<div class="form-group d-form">
 						<label>VAT/Cod.Fisc.</label>
@@ -37,7 +37,7 @@
 					</div>
 					<div class="form-group d-form">
 						<label>Contact</label>
-						<input type="text" placeholder="Contact Person" class="col-sm-12">
+						<input type="text" placeholder="Contact Person" class="col-sm-12" value="{{companyData?.contatto}}">
 					</div>
 					<div class="submit-button"><button mat-raised-button>Save</button></div>
 				</main>
@@ -83,7 +83,7 @@
 						</select>
 					</div>
 					<div class="form-group d-form">
-						<textarea></textarea>
+						<textarea value="{{companyData?.fiere}}"></textarea>
 					</div>
 					
 					<div class="submit-button"><button mat-raised-button>Save</button></div>
@@ -103,23 +103,23 @@
 				<main>
 					<div class="form-group d-form">
 						<label>Main Phone</label>
-						<input type="text" placeholder="Main Phone" class="col-sm-12">
+						<input type="text" placeholder="Main Phone" class="col-sm-12" value="{{companyData?.ntelefono}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Second Phone</label>
-						<input type="text" placeholder="Second Phone" class="col-sm-12">
+						<input type="text" placeholder="Second Phone" class="col-sm-12" value="{{companyData?.cellulare}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Fax</label>
-						<input type="text" placeholder="Fax" class="col-sm-12">
+						<input type="text" placeholder="Fax" class="col-sm-12" value="{{companyData?.nfax}}">
 					</div>
 					<div class="form-group d-form">
 						<label>e-Mail address</label>
-						<input type="text" placeholder="e-Mail address" class="col-sm-12">
+						<input type="text" placeholder="e-Mail address" class="col-sm-12" value="{{companyData?.indemail}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Website</label>
-						<input type="text" placeholder="Website" class="col-sm-12">
+						<input type="text" placeholder="Website" class="col-sm-12" value="{{companyData?.indwww}}">
 					</div>
 					<div class="submit-button"><button mat-raised-button>Save</button></div>
 				</main>
@@ -136,7 +136,7 @@
 				<main>
 					<p>Describe below the certifications of your company and perhaps add its image:</p>
 					<div class="form-group d-form">
-						<textarea></textarea>
+						<textarea value="{{companyData?.certificazioni}}"></textarea>
 					</div>
 					<mat-divider></mat-divider>
 					<br>
@@ -163,11 +163,11 @@
 				<main>
 					<div class="form-group d-form">
 						<label>Slogan</label>
-						<input type="text" placeholder="Slogan" class="col-sm-12">
+						<input type="text" placeholder="Slogan" class="col-sm-12" value="{{companyData?.slogan}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Company profile</label>
-						<textarea></textarea>
+						<textarea value="{{companyData?.descrizioneaziendale}}"></textarea>
 					</div>
 					<div class="form-group d-form">
 						<label>Number of Employees</label>
@@ -181,31 +181,31 @@
 					</div>
 					<div class="form-group d-form">
 						<label>Year Of Established</label>
-						<input type="text" placeholder="Year Of Established" class="col-sm-12">
+						<input type="text" placeholder="Year Of Established" class="col-sm-12" value="{{companyData?.annoinizio}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Legal Representative/Business Owner</label>
-						<input type="text" placeholder="Legal Representative/Business Owner" class="col-sm-12">
+						<input type="text" placeholder="Legal Representative/Business Owner" class="col-sm-12" value="{{companyData?.legalerappresentante}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Main activity</label>
-						<input type="text" placeholder="Main activity" class="col-sm-12">
+						<input type="text" placeholder="Main activity" class="col-sm-12" value="{{companyData?.attprinc}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Main Customer</label>
-						<input type="text" placeholder="Main Customer" class="col-sm-12">
+						<input type="text" placeholder="Main Customer" class="col-sm-12" value="{{companyData?.clienteprincipale}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Total Annual Sales Volume</label>
-						<input type="text" placeholder="Total Annual Sales Volume" class="col-sm-12">
+						<input type="text" placeholder="Total Annual Sales Volume" class="col-sm-12" value="{{companyData?.salesquantities}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Export Percentage</label>
-						<input type="text" placeholder="Export Percentage" class="col-sm-12">
+						<input type="text" placeholder="Export Percentage" class="col-sm-12" value="{{companyData?.exportpercentage}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Total Annual Purchase Volume</label>
-						<input type="text" placeholder="Total Annual Purchase Volume" class="col-sm-12">
+						<input type="text" placeholder="Total Annual Purchase Volume" class="col-sm-12" value="{{companyData?.purchasequantit}}">
 					</div>
 					<div class="form-group d-form">
 						<label>Products/Services: (Sold)</label>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-offer-request',
@@ -7,13 +8,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfferRequestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mS:MainService) { }
+
+  offersCols: string[] = ['delete', 'modify', 'date', 'title', 'clicks','pagenumber' , 'showcase', 'relist'];
+  offersSource:any;
+
+  requestcols: string[] = ['delete', 'modify', 'date', 'title', 'sector', 'type', 'country', 'clicks'];
+  requestSource:any;
+
+  nodisplay:boolean = false;
+ 
 
   ngOnInit() {
+    window.scrollTo(0,0);
+    this.mS.offers().subscribe((r:any)=>{
+      console.log(r);
+      let x = [];
+      for (var i of r) {
+        let date = i.datains.slice(0,4)+"-"+i.datains.slice(4,6)+"-"+i.datains.slice(6,8);
+        let title = i.titolo;
+        let sector = i.nomesettore;
+        let type = i.nometipologia;
+        let clicks = i.numtotclick;
+        let pagenumber = i.pagenumber;
+        let topush = {date: date, title: title, sector: sector, type: type, clicks: clicks, pagenumber: pagenumber}
+        x.push(topush)
+      }
+      this.offersSource = x;
+    })
+    this.mS.requests().subscribe((r:any)=>{
+      console.log(r);
+      let x = [];
+      for (var i of r) {
+        let date = i.datains.slice(0,4)+"-"+i.datains.slice(4,6)+"-"+i.datains.slice(6,8);
+        let title = i.titolo;
+        let sector = i.nomesettore;
+        let type = i.nometipologia;
+        let country = i.paese;
+        let clicks = i.numtotclick;
+        let topush = {date: date, title: title, sector: sector, type: type, country: country, clicks: clicks}
+        x.push(topush)
+      }
+      this.requestSource = x;
+    })
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'sector', 'type', 'country', 'clicks'];
-  displayedColumns1: string[] = ['delete', 'modify', 'date', 'image', 'title',  'click', 'page', 'showcase', 'relist'];
+  // displayedColumns1: string[] = ['delete', 'modify', 'date', 'image', 'title',  'click', 'page', 'showcase', 'relist'];
+  displayedColumns1: string[] = ['delete', 'modify', 'date', 'title', 'showcase', 'relist'];
   displayedColumns2: string[] = ['date', 'title', 'type'];
   dataSource = ELEMENT_DATA;
   dataSource1 = ELEMENT_DATA;
