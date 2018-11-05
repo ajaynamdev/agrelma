@@ -49,9 +49,9 @@
 
 					<div class="form" *ngIf="selectedSectorType">
 						<mat-toolbar class="col-sm-12">
-							<label class="col-sm-8">Please select which countries of production your request is aimed at</label>
-							<mat-form-field class="col-sm-4" style="font-size: 12px;">
-							  <mat-select placeholder="Select Countries" [formControl]="pokemonControl" multiple>
+							<label class="col-sm-4" style="line-height: 15px;">Please select which countries of production <br> your request is aimed at</label>
+							<mat-form-field class="col-sm-8" style="font-size: 12px;">
+							  <mat-select placeholder="Select Countries" [(ngModel)]="vcont" multiple>
 							    <mat-optgroup *ngFor="let group of countryGroup" [label]="group.groupName">
 							      <mat-option *ngFor="let c of group.countries" [value]="c.cid">
 							        {{c.cname}}
@@ -62,18 +62,31 @@
 						</mat-toolbar>
 					</div>
 
+					<div class="form" *ngIf="selectedSectorType">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4" style="line-height: 15px;">Please select which Continent of production <br> your request is aimed at</label>
+							<mat-form-field class="col-sm-8" style="font-size: 12px;">
+							  <mat-select placeholder="Select Continent" [(ngModel)]="vcontt" multiple>
+							    <mat-option *ngFor="let group of countryGroup" [value]="group.groupId">
+							      {{group.groupName}}
+							    </mat-option>
+							  </mat-select>
+							</mat-form-field>
+						</mat-toolbar>
+					</div>
+
 
 
 					<div class="form" *ngIf="selectedSectorType">
 						<mat-toolbar class="col-sm-12">
 							<label class="col-sm-4">We are interested in a quantity of:</label>
-							<input type="text" class="col-sm-3" placeholder="(Ex: 1)" [(ngModel)]="prezzoper">
-							<input type="text" class="col-sm-5" placeholder="(Unit of measure - Ex: kg.)" [(ngModel)]="umprezzoper">
+							<input type="text" class="col-sm-3" placeholder="(Ex: 1)" [(ngModel)]="ordineminimo">
+							<input type="text" class="col-sm-5" placeholder="(Unit of measure - Ex: kg.)" [(ngModel)]="unitamisura">
 						</mat-toolbar>
 						<mat-toolbar class="col-sm-12">
 							<label class="col-sm-4">We are ready to pay</label>
 							<input type="text" class="col-sm-3" placeholder="From 0,00" [(ngModel)]="prezzo">
-							<input type="text" class="col-sm-3" placeholder="To 0,00" [(ngModel)]="prezzo">
+							<input type="text" class="col-sm-3" placeholder="To 0,00" [(ngModel)]="prezzo2">
 							<select class="col-sm-2" [(ngModel)]="valuta">
 								<option *ngFor="let p of currencies" [ngValue]="p.codvaluta">{{p.nomevaluta}} ({{p.codvaluta}})</option>
 							</select>
@@ -96,7 +109,7 @@
 						</mat-toolbar>
 					</div>
 					<mat-toolbar *ngIf="selectedSectorType">
-						<button mat-raised-button>Continue</button>
+						<button mat-raised-button (click)="insertRequest()">Continue</button>
 					</mat-toolbar>
 
 

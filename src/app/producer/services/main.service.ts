@@ -13,10 +13,10 @@ export class MainService {
 
   Authorization = this.cookieService.get('admin');
 
-  // apiUrl = "https://agrelma.vishalpandey.xyz/api/admin/"
-  apiUrl = "http://localhost:8000/api/admin/"
-  // apiUrlPublic = "https://agrelma.vishalpandey.xyz/api/"
-  apiUrlPublic = "http://localhost:8000/api/"
+  apiUrl = "https://agrelma.vishalpandey.xyz/api/admin/"
+  // apiUrl = "http://localhost:8000/api/admin/"
+  apiUrlPublic = "https://agrelma.vishalpandey.xyz/api/"
+  // apiUrlPublic = "http://localhost:8000/api/"
 
   getToken(){
   	console.log(this.Authorization);
@@ -167,6 +167,32 @@ export class MainService {
     toSent.append('newTypeName',newTypeName);
     toSent.append('newVarietyName',newVarietyName);
     return this.http.post(this.apiUrl+'insertoffer', toSent, {headers:{'Authorization': this.Authorization}});
+  }
+
+  insertNewRequest(settore, tipologia, varieta, nazione, nazconsegna, valuta,  unitamisura, umprezzoper, descrizione, imballo, titolo, modpag,  prezzoper, luogoconsegna, biologico, ordineminimo, prezzo, prezzo2, newTypeName, newVarietyName, countrylist){
+    let toSent = new FormData();
+    toSent.append('settore',settore);
+    toSent.append('tipologia',tipologia);
+    toSent.append('varieta',varieta);
+    toSent.append('nazione',nazione);
+    toSent.append('nazconsegna',nazconsegna);
+    toSent.append('valuta',valuta);
+    toSent.append('unitamisura',unitamisura);
+    toSent.append('umprezzoper',umprezzoper);
+    toSent.append('descrizione',descrizione);
+    toSent.append('imballo',imballo);
+    toSent.append('titolo',titolo);
+    toSent.append('modpag',modpag);
+    toSent.append('prezzoper',prezzoper);
+    toSent.append('luogoconsegna',luogoconsegna);
+    toSent.append('biologico',biologico);
+    toSent.append('ordineminimo',ordineminimo);
+    toSent.append('prezzo',prezzo);
+    toSent.append('prezzo2',prezzo2);
+    toSent.append('newTypeName',newTypeName);
+    toSent.append('newVarietyName',newVarietyName);
+    toSent.append('countrylist',countrylist);
+    return this.http.post(this.apiUrl+'insertrequest', toSent, {headers:{'Authorization': this.Authorization}});
   }
   
 }

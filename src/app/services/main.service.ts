@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MainService {
 
-	// apiUrl="https://agrelma.vishalpandey.xyz/api/";
-	// localUrl="https://agrelma.vishalpandey.xyz/api/";
-	apiUrl="http://localhost:8000/api/";
-	localUrl="http://localhost:8000/api/";
+	apiUrl="https://agrelma.vishalpandey.xyz/api/";
+	localUrl="https://agrelma.vishalpandey.xyz/api/";
+	// apiUrl="http://localhost:8000/api/";
+	// localUrl="http://localhost:8000/api/";
 
   constructor(private http: HttpClient,) { }
 

@@ -21,3 +21,6 @@
 .edit-section{
 	width: 100%;
 }
+mat-toolbar{
+	font-size: 14px;
+}
