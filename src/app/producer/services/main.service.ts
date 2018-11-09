@@ -13,10 +13,10 @@ export class MainService {
 
   Authorization = this.cookieService.get('admin');
 
-  // apiUrl = "https://agrelma.vishalpandey.xyz/api/admin/"
-  apiUrl = "http://localhost:8000/api/admin/"
-  // apiUrlPublic = "https://agrelma.vishalpandey.xyz/api/"
-  apiUrlPublic = "http://localhost:8000/api/"
+  apiUrl = "https://agrelma.vishalpandey.xyz/api/admin/"
+  // apiUrl = "http://localhost:8000/api/admin/"
+  apiUrlPublic = "https://agrelma.vishalpandey.xyz/api/"
+  // apiUrlPublic = "http://localhost:8000/api/"
 
   getToken(){
   	console.log(this.Authorization);
