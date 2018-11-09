@@ -36,6 +36,7 @@ import { MiniSiteComponent } from './producer/components/mini-site/mini-site.com
 import { OtherDataComponent } from './producer/components/other-data/other-data.component';
 import { ProducerAccountingComponent } from './producer/components/producer-accounting/producer-accounting.component';
 
+import { AddFilesComponent } from './producer/components/add-files/add-files.component';
 
 const routes: Routes = [
 	{
@@ -198,6 +199,14 @@ const routes: Routes = [
 						{
 	          	path: 'producer-accounting',
 	          	component: ProducerAccountingComponent
+	          },
+	          {
+	          	path: 'add-files',
+	          	component: AddFilesComponent
+	          },
+	          {
+	          	path: 'add-files/:id',
+	          	component: AddFilesComponent
 	          },
 
           ]

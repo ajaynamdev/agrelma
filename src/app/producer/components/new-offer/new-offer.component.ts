@@ -28,8 +28,13 @@ export class NewOfferComponent implements OnInit {
   meatCuts:any;
   selectedMeatcut:any;
 
+  subVariety:any;
+  selectedSubVariety:any;
+
   addNewType:boolean = false;
   addNewVariety:boolean = false;
+  addNewMeatCut:boolean = false;
+  addNewSubVariety:boolean = false;
 
 
   ngOnInit() {
@@ -90,8 +95,12 @@ export class NewOfferComponent implements OnInit {
   selectVariety(i){
   	this.selectedVariety = i;
   	if(this.selectedSector.idsettore == '15'){
-	  	this.meatCut(i.idvarieta);
+      this.meatCut(i.idvarieta);
+    }
+    if(this.selectedSector.idsettore == '3'){
+	  	this.subVarietyType(i.idvarieta);
   	}
+
   }
 
   addVarietyType($name){
@@ -101,6 +110,7 @@ export class NewOfferComponent implements OnInit {
     }
     this.selectedVariety = $x;
     this.meatCuts = [];
+    this.subVariety = [];
   }
 
   skipVarietyType(){
@@ -117,6 +127,27 @@ export class NewOfferComponent implements OnInit {
   		this.meatCuts = r;
   		console.log(r);
   	})
+  }
+
+  subVarietyType($id){
+    this.mS.meatCut($id).subscribe((r:any)=>{
+      this.subVariety = r;
+      console.log(r);
+    })
+  }
+
+  selectSubVariety(i){
+    this.selectedSubVariety = i;
+  }
+
+  addNewSubVarietyType($name){
+    let $x = {'nomesottovarieta': $name, 'idsottovarieta': 'null'}
+    this.selectedSubVariety = $x;
+  }
+
+  skipSubVariety(){
+    let $x = {'nomesottovarieta': '', 'idsottovarieta': '0'}
+    this.selectedSubVariety = $x;
   }
 
   selectMeatCut(i){
@@ -145,6 +176,7 @@ export class NewOfferComponent implements OnInit {
   certificazioni = "";
   prezzo = "";
   campioni = "";
+  sottovarieta = "";
 
   format = {
     "coddomoff": "",         //reqoffcode (Generate from function with prefix 'O')
@@ -209,6 +241,9 @@ export class NewOfferComponent implements OnInit {
     let campioni = this.campioni?'1':'0';
     let newTypeName = this.selectedSectorType.nometipologia;
     let newVarietyName = this.selectedVariety.nomevarieta;
+    let sottovarieta = this.selectedSubVariety.idsottovarieta?this.selectedSubVariety.idsottovarieta:'0';
+    let newSubVarietyName = this.selectedSubVariety.nomesottovarieta?this.selectedSubVariety.nomesottovarieta:'null';
+
     
 
     console.log(settore);
@@ -234,10 +269,10 @@ export class NewOfferComponent implements OnInit {
     console.log(prezzo);
     console.log(campioni);
     
-    this.mS.insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName).subscribe((r:any)=>{
+    this.mS.insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName).subscribe((r:any)=>{
       console.log(r);
-      if (r=='1') {
-        this.router.navigate(['/admin/producer/offer-request']);
+      if (r.status=='1') {
+        this.router.navigate(['/admin/producer/add-files/'+r.offerid]);
       }
     })
   }

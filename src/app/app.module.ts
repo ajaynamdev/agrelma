@@ -119,6 +119,7 @@ import { ProducerAccountingComponent } from './producer/components/producer-acco
 import { MessageComponent } from './components/message/message.component';
 import { NewOfferComponent } from './producer/components/new-offer/new-offer.component';
 import { NewRequestComponent } from './producer/components/new-request/new-request.component';
+import { AddFilesComponent } from './producer/components/add-files/add-files.component';
 
 @NgModule({
   declarations: [
@@ -164,7 +165,8 @@ import { NewRequestComponent } from './producer/components/new-request/new-reque
     MessageComponent,
     MessageDialog,
     NewOfferComponent,
-    NewRequestComponent
+    NewRequestComponent,
+    AddFilesComponent
   ],
   imports: [
     AppRoutingModule,

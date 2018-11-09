@@ -1,0 +1,156 @@
+<section class="d-container">
+	<section class="d-i-container">
+		<section class="col-sm-12 m-col">
+			<div class="d-box">
+				<header>
+					<h3>Offer Data</h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main>
+					<b>Offer Code : </b><span>{{offerdetail?.coddomoff}}</span>
+					<br>
+					<b>Title : </b><span>{{offerdetail?.titolo}}</span>
+				</main>
+			</div>
+		</section>
+		<section class="col-sm-4 m-col">
+			<div class="d-box">
+				<header>
+					<h3>Image</h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main *ngIf="files">
+					<span *ngFor="let f of files">
+						<span *ngIf="f.tipofile == 'I'">
+							<b>File Name</b> : {{f.nomefile}} <br>
+							<b>Original Name</b> : {{f.nomefileorig}} <br><br><br>
+						</span>
+					</span>
+				</main>
+				
+				<mat-divider></mat-divider>
+
+				<main *ngIf="toggele">
+					<input type="file" name="" #filetoupload>
+					<button mat-raised-button (click)="upload(filetoupload.files[0], 'I')">Upload</button>
+				</main>
+				<main *ngIf="!toggele">
+					<input type="file" name="" #filetoupload>
+					<button mat-raised-button (click)="upload(filetoupload.files[0], 'I')">Upload</button>
+				</main>
+
+				<mat-divider></mat-divider>
+
+				<main>
+					<b>Insetructions</b>
+					<br>
+					<p>
+						1. Only jpg, png, gif format for the images are supported
+						<br>
+						2. Maximum size for the image is 1 mb.
+					</p>
+				</main>
+			</div>
+		</section>
+		<section class="col-sm-4 m-col">
+			<div class="d-box">
+				<header>
+					<h3>Catalog</h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main *ngIf="files">
+					<span *ngFor="let f of files">
+						<span *ngIf="f.tipofile == 'C'">
+							<b>File Name</b> : {{f.nomefile}} <br>
+							<b>Original Name</b> : {{f.nomefileorig}} <br><br><br>
+						</span>
+					</span>
+				</main>
+
+				<mat-divider></mat-divider>
+
+
+				<main *ngIf="toggele">
+					<input type="file" name="" #filetoupload1>
+					<button mat-raised-button (click)="upload(filetoupload1.files[0], 'C')">Upload</button>
+				</main>
+				<main *ngIf="!toggele">
+					<input type="file" name="" #filetoupload1>
+					<button mat-raised-button (click)="upload(filetoupload1.files[0], 'C')">Upload</button>
+				</main>
+
+				<mat-divider></mat-divider>
+
+				<main>
+					<b>Insetructions</b>
+					<br>
+					<p>
+						1. All Document Format is supported
+						<br>
+						2. Maximum size for the document is 1 mb.
+					</p>
+				</main>
+
+			</div>
+		</section>
+		<section class="col-sm-4 m-col">
+			<div class="d-box">
+				<header>
+					<h3>Video</h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main *ngIf="files">
+					<span *ngFor="let f of files">
+						<span *ngIf="f.tipofile == 'F'">
+							<b>File Name</b> : {{f.nomefile}} <br>
+							<b>Original Name</b> : {{f.nomefileorig}} <br><br><br>
+						</span>
+					</span>
+				</main>
+
+				<mat-divider></mat-divider>
+
+				<main *ngIf="toggele">
+					<input type="file" name="" #filetoupload2>
+					<button mat-raised-button (click)="upload(filetoupload2.files[0], 'F')">Upload</button>
+				</main>
+				<main *ngIf="!toggele">
+					<input type="file" name="" #filetoupload2>
+					<button mat-raised-button (click)="upload(filetoupload2.files[0], 'F')">Upload</button>
+				</main>
+
+
+				<mat-divider></mat-divider>
+
+				<main>
+					<b>Insetructions</b>
+					<br>
+					<p>
+						1. Only mp4 format for the videos are supported
+						<br>
+						2. Maximum size for the video is 2 mb.
+					</p>
+				</main>
+			</div>
+		</section>
+		<section class="col-sm-12 m-col">
+			<button mat-raised-button (click)="finish()">Finish</button>
+		</section>
+	</section>
+</section>

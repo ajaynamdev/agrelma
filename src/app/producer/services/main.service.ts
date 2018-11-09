@@ -140,7 +140,7 @@ export class MainService {
     "campioni": ""       //samples (Value of sample field '0' or '1')
   }
 
-  insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName){
+  insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName){
     let toSent = new FormData();
     toSent.append('settore',settore);
     toSent.append('tipologia',tipologia);
@@ -166,6 +166,8 @@ export class MainService {
     toSent.append('campioni',campioni);
     toSent.append('newTypeName',newTypeName);
     toSent.append('newVarietyName',newVarietyName);
+    toSent.append('sottovarieta',sottovarieta);
+    toSent.append('newSubVarietyName',newSubVarietyName);
     return this.http.post(this.apiUrl+'insertoffer', toSent, {headers:{'Authorization': this.Authorization}});
   }
 
@@ -193,6 +195,21 @@ export class MainService {
     toSent.append('newVarietyName',newVarietyName);
     toSent.append('countrylist',countrylist);
     return this.http.post(this.apiUrl+'insertrequest', toSent, {headers:{'Authorization': this.Authorization}});
+  }
+
+
+  getFileDetails(offeriId){
+    let toSent = new FormData();
+    toSent.append('offerid', offeriId);
+    return this.http.post(this.apiUrl+'filedetails', toSent, {headers:{'Authorization': this.Authorization}});
+  }
+
+  uplaodFile(offerId, fileType, file){
+    let toSent = new FormData();
+    toSent.append('offerid', offerId);
+    toSent.append('filetype', fileType);
+    toSent.append('file', file);
+    return this.http.post(this.apiUrl+'file', toSent, {headers:{'Authorization': this.Authorization}});
   }
   
 }
