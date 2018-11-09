@@ -142,7 +142,9 @@ export class MainService {
 
   insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
    TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
-   TipoP
+   TipoP,
+   Oliva,Olio,Odore,Acidita,Confezionato,
+   Vino,Profumo,Tenore,Zucchero,Vendemmia,Durata
    ){
     let toSent = new FormData();
     toSent.append('settore',settore);
@@ -183,6 +185,20 @@ export class MainService {
     toSent.append('DurataC', DurataC);
     toSent.append('Confezione', Confezione);
     toSent.append('TipoP', TipoP);
+
+    toSent.append('Oliva', Oliva);
+    toSent.append('Olio', Olio);
+    toSent.append('Odore', Odore);
+    toSent.append('Acidita', Acidita);
+    toSent.append('Confezionato', Confezionato);
+
+
+    toSent.append('Vino', Vino);
+    toSent.append('Profumo', Profumo);
+    toSent.append('Tenore', Tenore);
+    toSent.append('Zucchero', Zucchero);
+    toSent.append('Vendemmia', Vendemmia);
+    toSent.append('Durata', Durata);
     return this.http.post(this.apiUrl+'insertoffer', toSent, {headers:{'Authorization': this.Authorization}});
   }
 

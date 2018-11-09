@@ -61,7 +61,7 @@ export class NewOfferComponent implements OnInit {
 
   selectSector(i){
   	this.selectedSector = i;
-    if(i.idsettore == '6'){
+    if(i.idsettore == '6' || i.idsettore == '12' || i.idsettore == '18' || i.idsettore == '4' || i.idsettore == '9'){
       this.getTypeByCountry();
     }else{
       this.sectorType(i.idsettore);
@@ -78,7 +78,7 @@ export class NewOfferComponent implements OnInit {
   selectSectorTypes(i){
   	this.selectedSectorType = i;
   	this.varietyType(i.idtipologia);
-    if(this.selectedSector.idsettore == '6'){
+    if(this.selectedSector.idsettore == '6' || this.selectedSector.idsettore == '12' || this.selectedSector.idsettore == '18' || this.selectedSector.idsettore == '4' || this.selectedSector.idsettore == '9'){
       let country = this.nazione;
       for (var x of this.countries) {
         if (x.idnazione == country) {
@@ -97,7 +97,7 @@ export class NewOfferComponent implements OnInit {
     }
     this.selectedSectorType = $x;
     this.varietyTypes = [];
-    if(this.selectedSector.idsettore == '6'){
+    if(this.selectedSector.idsettore == '6' || this.selectedSector.idsettore == '12' || this.selectedSector.idsettore == '18' || this.selectedSector.idsettore == '4' || this.selectedSector.idsettore == '9'){
       let country = this.nazione;
       for (var x of this.countries) {
         if (x.idnazione == country) {
@@ -121,7 +121,7 @@ export class NewOfferComponent implements OnInit {
   	if(this.selectedSector.idsettore == '15'){
       this.meatCut(i.idvarieta);
     }
-    if(this.selectedSector.idsettore == '3'){
+    if(this.selectedSector.idsettore == '3' || this.selectedSector.idsettore == '15'){
 	  	this.subVarietyType(i.idvarieta);
   	}
 
@@ -230,6 +230,21 @@ export class NewOfferComponent implements OnInit {
 
   TipoP = "1";
 
+  Oliva = "1";
+  Olio = "1";
+  Odore = "";
+  Acidita = "";
+  Confezionato = "";
+
+
+
+  Vino = "2";
+  Profumo = "";
+  Tenore = "";
+  Zucchero = "";
+  Vendemmia = "";
+  Durata = "";
+
  /*********************************
   * Special Sector data input End *
   *********************************/
@@ -319,8 +334,20 @@ export class NewOfferComponent implements OnInit {
 
     let TipoP = this.TipoP;
 
+    let Oliva = this.Oliva;
+    let Olio = this.Olio;
+    let Odore = this.Odore;
+    let Acidita = this.Acidita;
+    let Confezionato = this.Confezionato;
 
-    
+    let Vino = this.Vino;
+    let Profumo = this.Profumo;
+    let Tenore = this.Tenore;
+    let Zucchero = this.Zucchero;
+    let Vendemmia = this.Vendemmia;
+    let Durata = this.Durata;
+
+
 
     console.log(settore);
     console.log(tipologia);
@@ -347,7 +374,9 @@ export class NewOfferComponent implements OnInit {
     console.log(TipoP);
     this.mS.insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
       TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
-      TipoP
+      TipoP,
+      Oliva,Olio,Odore,Acidita,Confezionato,
+      Vino,Profumo,Tenore,Zucchero,Vendemmia,Durata
       ).subscribe((r:any)=>{
       console.log(r);
       if (r.status=='1') {
