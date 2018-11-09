@@ -31,6 +31,8 @@ export class NewOfferComponent implements OnInit {
   subVariety:any;
   selectedSubVariety:any;
 
+  selectedCountry:any;
+
   addNewType:boolean = false;
   addNewVariety:boolean = false;
   addNewMeatCut:boolean = false;
@@ -59,7 +61,11 @@ export class NewOfferComponent implements OnInit {
 
   selectSector(i){
   	this.selectedSector = i;
-  	this.sectorType(i.idsettore);
+    if(i.idsettore == '6'){
+      this.getTypeByCountry();
+    }else{
+      this.sectorType(i.idsettore);
+    }
   }
 
   sectorType($sectorId){
@@ -72,6 +78,15 @@ export class NewOfferComponent implements OnInit {
   selectSectorTypes(i){
   	this.selectedSectorType = i;
   	this.varietyType(i.idtipologia);
+    if(this.selectedSector.idsettore == '6'){
+      let country = this.nazione;
+      for (var x of this.countries) {
+        if (x.idnazione == country) {
+          this.selectedCountry = x;
+          break;
+        }
+      }
+    }
   }
 
 
@@ -82,6 +97,15 @@ export class NewOfferComponent implements OnInit {
     }
     this.selectedSectorType = $x;
     this.varietyTypes = [];
+    if(this.selectedSector.idsettore == '6'){
+      let country = this.nazione;
+      for (var x of this.countries) {
+        if (x.idnazione == country) {
+          this.selectedCountry = x;
+          break;
+        }
+      }
+    }
   }
 
 
@@ -155,6 +179,15 @@ export class NewOfferComponent implements OnInit {
   }
 
 
+  getTypeByCountry(){
+    let sectorid = this.selectedSector.idsettore;
+    let countryid = this.nazione;
+    this.mS.getTypeByCountry(sectorid, countryid).subscribe((r:any)=>{
+      console.log(r);
+      this.sectorTypes = r;
+    })
+  }
+
 
    
   valuta = "EUR";
@@ -177,6 +210,31 @@ export class NewOfferComponent implements OnInit {
   prezzo = "";
   campioni = "";
   sottovarieta = "";
+
+
+ /*****************************
+  * Special Sector data input *
+  *****************************/
+
+  TipoF = "1";
+  TipoL = "1";
+  Pasta = "1";
+  Latte = "";
+  Grasso = "";
+  Acqua = "";
+  Sapore = "";
+  Colore = "";
+  DurataS = "";
+  DurataC = "";
+  Confezione = "";
+
+ /*********************************
+  * Special Sector data input End *
+  *********************************/
+
+
+
+
 
   format = {
     "coddomoff": "",         //reqoffcode (Generate from function with prefix 'O')
@@ -219,7 +277,7 @@ export class NewOfferComponent implements OnInit {
 
     let settore = this.selectedSector.idsettore;
     let tipologia = this.selectedSectorType.idtipologia;
-    let varieta = this.selectedVariety.idvarieta;
+    let varieta = this.selectedVariety?this.selectedVariety.idvarieta:'0';
     let nazione = this.nazione;
     let nazconsegna = this.nazconsegna;
     let valuta = this.valuta;
@@ -240,9 +298,22 @@ export class NewOfferComponent implements OnInit {
     let prezzo = this.prezzo;
     let campioni = this.campioni?'1':'0';
     let newTypeName = this.selectedSectorType.nometipologia;
-    let newVarietyName = this.selectedVariety.nomevarieta;
-    let sottovarieta = this.selectedSubVariety.idsottovarieta?this.selectedSubVariety.idsottovarieta:'0';
-    let newSubVarietyName = this.selectedSubVariety.nomesottovarieta?this.selectedSubVariety.nomesottovarieta:'null';
+    let newVarietyName = this.selectedVariety?this.selectedVariety.nomevarieta:'';
+    let sottovarieta = this.selectedSubVariety?this.selectedSubVariety.idsottovarieta:'0';
+    let newSubVarietyName = this.selectedSubVariety?this.selectedSubVariety.nomesottovarieta:'null';
+
+
+    let TipoF = this.TipoF;
+    let TipoL = this.TipoL;
+    let Pasta = this.Pasta;
+    let Latte = this.Latte;
+    let Grasso = this.Grasso;
+    let Acqua = this.Acqua;
+    let Sapore = this.Sapore;
+    let Colore = this.Colore;
+    let DurataS = this.DurataS;
+    let DurataC = this.DurataC;
+    let Confezione = this.Confezione;
 
     
 
@@ -269,7 +340,9 @@ export class NewOfferComponent implements OnInit {
     console.log(prezzo);
     console.log(campioni);
     
-    this.mS.insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName).subscribe((r:any)=>{
+    this.mS.insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
+      TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione
+      ).subscribe((r:any)=>{
       console.log(r);
       if (r.status=='1') {
         this.router.navigate(['/admin/producer/add-files/'+r.offerid]);

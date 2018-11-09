@@ -140,7 +140,8 @@ export class MainService {
     "campioni": ""       //samples (Value of sample field '0' or '1')
   }
 
-  insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName){
+  insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
+   TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione){
     let toSent = new FormData();
     toSent.append('settore',settore);
     toSent.append('tipologia',tipologia);
@@ -168,6 +169,17 @@ export class MainService {
     toSent.append('newVarietyName',newVarietyName);
     toSent.append('sottovarieta',sottovarieta);
     toSent.append('newSubVarietyName',newSubVarietyName);
+    toSent.append('TipoF', TipoF);
+    toSent.append('TipoL', TipoL);
+    toSent.append('Pasta', Pasta);
+    toSent.append('Latte', Latte);
+    toSent.append('Grasso', Grasso);
+    toSent.append('Acqua', Acqua);
+    toSent.append('Sapore', Sapore);
+    toSent.append('Colore', Colore);
+    toSent.append('DurataS', DurataS);
+    toSent.append('DurataC', DurataC);
+    toSent.append('Confezione', Confezione);
     return this.http.post(this.apiUrl+'insertoffer', toSent, {headers:{'Authorization': this.Authorization}});
   }
 
@@ -210,6 +222,13 @@ export class MainService {
     toSent.append('filetype', fileType);
     toSent.append('file', file);
     return this.http.post(this.apiUrl+'file', toSent, {headers:{'Authorization': this.Authorization}});
+  }
+
+  getTypeByCountry(sectorid, countryid) {
+    let toSent = new FormData();
+    toSent.append('sectorid', sectorid);
+    toSent.append('countryid', countryid);
+    return this.http.post(this.apiUrlPublic+"typebycountry", toSent);
   }
   
 }
