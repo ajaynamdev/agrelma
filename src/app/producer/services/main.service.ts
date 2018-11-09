@@ -13,10 +13,10 @@ export class MainService {
 
   Authorization = this.cookieService.get('admin');
 
-  apiUrl = "https://agrelma.vishalpandey.xyz/api/admin/"
-  // apiUrl = "http://localhost:8000/api/admin/"
-  apiUrlPublic = "https://agrelma.vishalpandey.xyz/api/"
-  // apiUrlPublic = "http://localhost:8000/api/"
+  // apiUrl = "https://agrelma.vishalpandey.xyz/api/admin/"
+  apiUrl = "http://localhost:8000/api/admin/"
+  // apiUrlPublic = "https://agrelma.vishalpandey.xyz/api/"
+  apiUrlPublic = "http://localhost:8000/api/"
 
   getToken(){
   	console.log(this.Authorization);
@@ -141,7 +141,9 @@ export class MainService {
   }
 
   insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
-   TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione){
+   TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
+   TipoP
+   ){
     let toSent = new FormData();
     toSent.append('settore',settore);
     toSent.append('tipologia',tipologia);
@@ -180,6 +182,7 @@ export class MainService {
     toSent.append('DurataS', DurataS);
     toSent.append('DurataC', DurataC);
     toSent.append('Confezione', Confezione);
+    toSent.append('TipoP', TipoP);
     return this.http.post(this.apiUrl+'insertoffer', toSent, {headers:{'Authorization': this.Authorization}});
   }
 

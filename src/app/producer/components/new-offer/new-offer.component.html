@@ -329,6 +329,121 @@
 						<button mat-raised-button (click)="insertOffer()">Continue</button>
 					</mat-toolbar>
 				</main>
+				<main *ngIf="selectedSector?.idsettore == '10'">
+					<div class="sector-list" *ngIf="sectorTypes && !selectedSectorType && !addNewType">
+						<button mat-raised-button *ngFor="let t of sectorTypes" (click)="selectSectorTypes(t)">{{t.nometipologia}}</button>
+						<button mat-raised-button class="anchor-button" (click)="addNewType = true">Add New Type</button>
+					</div>
+					<div class="edit-section" *ngIf="addNewType && !selectedSectorType">
+						<input type="text" placeholder="New Type Name " class="col-sm-12" #newType>
+						<br>
+						<button mat-raised-button class="anchor-button" (click)="addSectorType(newType.value)">Continue</button>
+						<button mat-raised-button (click)="addNewType = false" class="anchor-button">Select from list</button>
+					</div>
+
+					<div class="sector-list" *ngIf="varietyTypes && !selectedVariety && !addNewVariety">
+						<button mat-raised-button *ngFor="let v of varietyTypes" (click)="selectVariety(v)">{{v.nomevarieta}}</button>
+						<button mat-raised-button class="anchor-button" (click)=" addNewVariety = true">Add New Variety</button>
+						<button mat-raised-button class="anchor-button" (click)="skipVarietyType()">Skip</button>
+					</div>
+					<div class="edit-section" *ngIf="addNewVariety && !selectedVariety">
+						<input type="text" placeholder="New Variety Name" class="col-sm-12" #newVariety>
+						<br>
+						<button mat-raised-button class="anchor-button" (click)="addVarietyType(newVariety.value)">Continue</button>
+						<button mat-raised-button (click)="addNewVariety = false" class="anchor-button">Select from list</button>
+					</div>
+
+					<div class="form" *ngIf="selectedVariety">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-6">Product Type</label>
+							<select class="col-sm-6" [(ngModel)]="TipoP">
+								<option value="1">Fresh</option>
+								<option value="2">Frozen</option>
+								<option value="3">Breed</option>
+								<option value="4">Packed</option>
+							</select>
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Offer Title</label><input type="text" class="col-sm-8" [(ngModel)]="titolo">
+						</mat-toolbar>
+					</div>
+					<br>
+					<div class="form" *ngIf="selectedVariety">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Trademark</label><input type="text" class="col-sm-8" [(ngModel)]="nomeprodotto">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Quality</label><input type="text" class="col-sm-8" [(ngModel)]="qualita">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Certificate</label><input type="text" class="col-sm-8" [(ngModel)]="certificazioni">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Organic Product</label><mat-checkbox [(ngModel)]="biologico"></mat-checkbox>
+						</mat-toolbar>
+					</div>
+					<br>
+					<div class="form" *ngIf="selectedVariety">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Additional Description</label>
+							<textarea cols="col-sm-8" [(ngModel)]="descrizione"></textarea>
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Package</label><input type="text" class="col-sm-8" [(ngModel)]="Confezione">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Packing</label><input type="text" class="col-sm-8" [(ngModel)]="imballo">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Produced in (Country)</label>
+							<select class="col-sm-6" [(ngModel)]="nazione">
+								<option *ngFor="let c of countries" [ngValue]="c.idnazione">{{c.paese}}</option>
+							</select>
+						</mat-toolbar>
+					</div>
+					<br>
+					<div class="form" *ngIf="selectedVariety">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Price</label>
+							<input type="text" class="col-sm-3" placeholder="0,00" [(ngModel)]="prezzo">
+							<select class="col-sm-5" [(ngModel)]="valuta">
+								<option *ngFor="let p of currencies" [ngValue]="p.codvaluta">{{p.nomevaluta}} ({{p.codvaluta}})</option>
+							</select>
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Price referred to:</label>
+							<input type="text" class="col-sm-3" placeholder="(Ex: 1)" [(ngModel)]="prezzoper">
+							<input type="text" class="col-sm-5" placeholder="(Unit of measure - Ex: kg.)" [(ngModel)]="umprezzoper">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Origin</label>
+							<input type="text" class="col-sm-4" placeholder="Free on departure charged (EXW Loaded)" [(ngModel)]="luogoconsegna">
+							<select class="col-sm-4" [(ngModel)]="nazconsegna">
+								<option *ngFor="let c of countries" [(ngValue)]="c.paese">{{c.paese}}</option>
+							</select>
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Minimum Order</label>
+							<input type="text" class="col-sm-3" placeholder="(Ex: 100)" [(ngModel)]="ordineminimo">
+							<input type="text" class="col-sm-5" placeholder="(Unit of measure - Ex: kg.)"  [(ngModel)]="unitamisura">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Available quantity:</label><input type="text" class="col-sm-8" [(ngModel)]="quantita">
+						</mat-toolbar>
+					</div>
+					<br>
+					<div class="form" *ngIf="selectedVariety">
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Preferred way of payment:</label><input type="text" class="col-sm-8" [(ngModel)]="modpag">
+						</mat-toolbar>
+						<mat-toolbar class="col-sm-12">
+							<label class="col-sm-4">Avail.Sending samples</label><mat-checkbox [(ngModel)]="campioni"></mat-checkbox>
+						</mat-toolbar>
+					</div>
+					<mat-toolbar *ngIf="selectedVariety">
+						<button mat-raised-button (click)="insertOffer()">Continue</button>
+					</mat-toolbar>
+				</main>
 				<main *ngIf="selectedSector?.idsettore == '15'">
 					<div class="sector-list" *ngIf="sectorTypes && !selectedSectorType">
 						<button mat-raised-button *ngFor="let t of sectorTypes" (click)="selectSectorTypes(t)">{{t.nometipologia}}</button>
@@ -415,7 +530,7 @@
 						</mat-toolbar>
 					</div>
 				</main>
-				<main *ngIf="(selectedSector?.idsettore != '15') && selectedSector?.idsettore != '3' && selectedSector?.idsettore != '6'">
+				<main *ngIf="(selectedSector?.idsettore != '15') && selectedSector?.idsettore != '3' && selectedSector?.idsettore != '6' && selectedSector?.idsettore != '10'">
 					<div class="sector-list" *ngIf="sectorTypes && !selectedSectorType && !addNewType">
 						<button mat-raised-button *ngFor="let t of sectorTypes" (click)="selectSectorTypes(t)">{{t.nometipologia}}</button>
 						<button mat-raised-button class="anchor-button" (click)="addNewType = true">Add New Type</button>

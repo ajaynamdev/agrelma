@@ -228,6 +228,8 @@ export class NewOfferComponent implements OnInit {
   DurataC = "";
   Confezione = "";
 
+  TipoP = "1";
+
  /*********************************
   * Special Sector data input End *
   *********************************/
@@ -315,6 +317,9 @@ export class NewOfferComponent implements OnInit {
     let DurataC = this.DurataC;
     let Confezione = this.Confezione;
 
+    let TipoP = this.TipoP;
+
+
     
 
     console.log(settore);
@@ -339,9 +344,10 @@ export class NewOfferComponent implements OnInit {
     console.log(certificazioni);
     console.log(prezzo);
     console.log(campioni);
-    
+    console.log(TipoP);
     this.mS.insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
-      TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione
+      TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
+      TipoP
       ).subscribe((r:any)=>{
       console.log(r);
       if (r.status=='1') {
