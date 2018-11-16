@@ -64,7 +64,7 @@
 					  <!-- Name Column -->
 					  <ng-container matColumnDef="modify">
 					    <th mat-header-cell *matHeaderCellDef> Modify </th>
-					    <td mat-cell *matCellDef="let element"> <button mat-icon-button><mat-icon>edit</mat-icon></button> </td>
+					    <td mat-cell *matCellDef="let element"><button mat-icon-button routerLink="/admin/producer/edit-offer/{{element.offerid}}"><mat-icon>edit</mat-icon></button> </td>
 					  </ng-container>
 
 					  <!-- Weight Column -->

@@ -120,6 +120,7 @@ import { MessageComponent } from './components/message/message.component';
 import { NewOfferComponent } from './producer/components/new-offer/new-offer.component';
 import { NewRequestComponent } from './producer/components/new-request/new-request.component';
 import { AddFilesComponent } from './producer/components/add-files/add-files.component';
+import { EditOfferComponent } from './producer/components/edit-offer/edit-offer.component';
 
 @NgModule({
   declarations: [
@@ -166,7 +167,8 @@ import { AddFilesComponent } from './producer/components/add-files/add-files.com
     MessageDialog,
     NewOfferComponent,
     NewRequestComponent,
-    AddFilesComponent
+    AddFilesComponent,
+    EditOfferComponent
   ],
   imports: [
     AppRoutingModule,

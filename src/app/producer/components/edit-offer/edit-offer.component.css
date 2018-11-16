@@ -1,0 +1,23 @@
+.sector-list{
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.sector-list button{
+	margin: 5px;
+	padding: 20px;
+	background-color: rgba(230,230,230,0.2);
+}
+.sector-list button:hover{
+	background-color: lightpink;
+}
+
+.anchor-button{
+	background-color: lightpink!important;
+}
+
+.edit-section{
+	width: 100%;
+}

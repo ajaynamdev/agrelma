@@ -27,6 +27,7 @@ import { DashboardComponent } from './admin/components/dashboard/dashboard.compo
 import { ProducerComponent } from './admin/components/producer/producer.component';
 import { OfferRequestComponent } from './producer/components/offer-request/offer-request.component';
 import { NewOfferComponent } from './producer/components/new-offer/new-offer.component';
+import { EditOfferComponent } from './producer/components/edit-offer/edit-offer.component';
 import { NewRequestComponent } from './producer/components/new-request/new-request.component';
 import { BookRequestComponent } from './producer/components/book-request/book-request.component';
 import { CompanyDataComponent } from './producer/components/company-data/company-data.component';
@@ -208,6 +209,10 @@ const routes: Routes = [
 	          	path: 'add-files/:id',
 	          	component: AddFilesComponent
 	          },
+	          {
+	          	path: 'edit-offer/:id',
+	          	component: EditOfferComponent
+	          }
 
           ]
         }

@@ -2221,37 +2221,37 @@
                           <mat-tab>
                             <ng-template mat-tab-label class="tab-header">
                                 <span class="test">
-                                  Offers
+                                  Offers - test
                                 </span>
                             </ng-template>
                             <p>
                                 <mat-nav-list>
                                     <span>
-                                        <mat-list-item [matMenuTriggerFor]="menu1">
+                                        <mat-list-item [matMenuTriggerFor]="menuo1">
                                             <span>Wines And Liquors</span>
                                         </mat-list-item>
                                     </span>
                                     <mat-divider class="sector-divider"></mat-divider>
                                     <span>
-                                        <mat-list-item [matMenuTriggerFor]="menu2">
+                                        <mat-list-item [matMenuTriggerFor]="menuo2">
                                             <span>Oil And Olives</span>
                                         </mat-list-item>
                                     </span>
                                     <mat-divider class="sector-divider"></mat-divider>
                                     <span>
-                                        <mat-list-item [matMenuTriggerFor]="menu3">
+                                        <mat-list-item [matMenuTriggerFor]="menuo3">
                                             <span>Fish And Seafood</span>
                                         </mat-list-item>
                                     </span>
                                     <mat-divider class="sector-divider"></mat-divider>
                                     <span>
-                                        <mat-list-item [matMenuTriggerFor]="menu4">
+                                        <mat-list-item [matMenuTriggerFor]="menuo4">
                                             <span>Meat And Cured Pork</span>
                                         </mat-list-item>
                                     </span>
                                     <mat-divider class="sector-divider"></mat-divider>
                                     <span>
-                                        <mat-list-item [matMenuTriggerFor]="menu5">
+                                        <mat-list-item [matMenuTriggerFor]="menuo5">
                                             <span>Fruits And Vege.</span>
                                         </mat-list-item>
                                     </span>
@@ -2278,27 +2278,27 @@
                                         </span>
                                     </span>
                                 </mat-nav-list>
-                                <mat-menu #menu1="matMenu" [overlapTrigger]="'flase'" direction="end">
+                                <mat-menu #menuo1="matMenu" [overlapTrigger]="'flase'" direction="end">
                                   <button mat-menu-item routerLink="/search-result/offer/4">Quality Wine</button>
                                   <button mat-menu-item routerLink="/search-result/offer/9">Table Wine</button>
                                   <button mat-menu-item routerLink="/search-result/offer/23">Liquors</button>
                                 </mat-menu>
-                                <mat-menu #menu2="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo2="matMenu" [overlapTrigger]="'flase'">
                                   <button mat-menu-item routerLink="/search-result/offer/12">Oil</button>
                                   <button mat-menu-item routerLink="/search-result/offer/18">Olives</button>
                                   <button mat-menu-item routerLink="/search-result/offer/22">Oil Seeds</button>
                                 </mat-menu>
-                                <mat-menu #menu3="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo3="matMenu" [overlapTrigger]="'flase'">
                                   <button mat-menu-item routerLink="/search-result/offer/2">Fish And Seafood</button>
                                   <button mat-menu-item routerLink="/search-result/offer/10">Crostacea And Mollusca</button>
                                   <button mat-menu-item routerLink="/search-result/offer/21">Packed Fisheries</button>
 
                                 </mat-menu>
-                                <mat-menu #menu4="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo4="matMenu" [overlapTrigger]="'flase'">
                                   <button mat-menu-item routerLink="/search-result/offer/24">Cured Pork</button>
                                   <button mat-menu-item routerLink="/search-result/offer/15">Meat</button>
                                 </mat-menu>
-                                <mat-menu #menu5="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo5="matMenu" [overlapTrigger]="'flase'">
                                   <button mat-menu-item routerLink="/search-result/offer/1">Fruits</button>
                                   <button mat-menu-item routerLink="/search-result/offer/8">Citrus</button>
                                   <button mat-menu-item routerLink="/search-result/offer/7">Vegetables</button>

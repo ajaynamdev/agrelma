@@ -123,14 +123,14 @@
                                 <!-- <li>
                                     <span class="page-numbers current">1</span>
                                 </li> -->
-                                <li><a class="previous page-numbers" routerLink="/search-result/offer/{{offerId}}/{{previousPage}}" *ngIf="pageId != 1">&larr;</a></li>
+                                <li><a class="previous page-numbers" routerLink="/search-result/offer/{{offerId}}/{{previousPage}}/{{typeId}}" *ngIf="pageId != 1">&larr;</a></li>
                                 <li *ngFor="let page of pagination">
                                     <span *ngIf="(page-pageId) < 3 && (page-pageId) > -3">
-                                        <span class="page-numbers current" routerLink="/search-result/offer/{{offerId}}/{{page}}" *ngIf="page == pageId">{{page}}</span>
-                                        <a class="page-numbers" routerLink="/search-result/offer/{{offerId}}/{{page}}" *ngIf="page != pageId">{{page}}</a>
+                                        <span class="page-numbers current" routerLink="/search-result/offer/{{offerId}}/{{page}}/{{typeId}}" *ngIf="page == pageId">{{page}}</span>
+                                        <a class="page-numbers" routerLink="/search-result/offer/{{offerId}}/{{page}}/{{typeId}}" *ngIf="page != pageId">{{page}}</a>
                                     </span>
                                 </li>
-                                <li><a class="nextt page-numbers" routerLink="/search-result/offer/{{offerId}}/{{nextPage}}" *ngIf="pageId != lastPage">&rarr;</a></li>
+                                <li><a class="nextt page-numbers" routerLink="/search-result/offer/{{offerId}}/{{nextPage}}/{{typeId}}" *ngIf="pageId != lastPage">&rarr;</a></li>
                                 <!-- <li><a href="#" class="page-numbers">3</a></li>
                                 <li><a href="#" class="page-numbers">4</a></li>
                                 <li><a href="#" class="page-numbers">5</a></li>
@@ -309,14 +309,14 @@
                                 <!-- <li>
                                     <span class="page-numbers current">1</span>
                                 </li> -->
-                                <li><a class="previous page-numbers" routerLink="/search-result/request/{{requestId}}/{{previousPage}}" *ngIf="pageId != 1">&larr;</a></li>
+                                <li><a class="previous page-numbers" routerLink="/search-result/request/{{requestId}}/{{previousPage}}/{{previousPage}}/{{typeId}}" *ngIf="pageId != 1">&larr;</a></li>
                                 <li *ngFor="let page of pagination">
                                     <span *ngIf="(page-pageId) < 3 && (page-pageId) > -3">
-                                        <span class="page-numbers current" routerLink="/search-result/request/{{requestId}}/{{page}}" *ngIf="page == pageId">{{page}}</span>
-                                        <a class="page-numbers" routerLink="/search-result/request/{{requestId}}/{{page}}" *ngIf="page != pageId">{{page}}</a>
+                                        <span class="page-numbers current" routerLink="/search-result/request/{{requestId}}/{{page}}/{{typeId}}" *ngIf="page == pageId">{{page}}</span>
+                                        <a class="page-numbers" routerLink="/search-result/request/{{requestId}}/{{page}}/{{typeId}}" *ngIf="page != pageId">{{page}}</a>
                                     </span>
                                 </li>
-                                <li><a class="nextt page-numbers" routerLink="/search-result/request/{{requestId}}/{{nextPage}}" *ngIf="pageId != lastPage">&rarr;</a></li>
+                                <li><a class="nextt page-numbers" routerLink="/search-result/request/{{requestId}}/{{nextPage}}/{{typeId}}" *ngIf="pageId != lastPage">&rarr;</a></li>
                                 <!-- <li><a href="#" class="page-numbers">3</a></li>
                                 <li><a href="#" class="page-numbers">4</a></li>
                                 <li><a href="#" class="page-numbers">5</a></li>

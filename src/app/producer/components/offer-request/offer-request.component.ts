@@ -31,7 +31,8 @@ export class OfferRequestComponent implements OnInit {
         let type = i.nometipologia;
         let clicks = i.numtotclick;
         let pagenumber = i.pagenumber;
-        let topush = {date: date, title: title, sector: sector, type: type, clicks: clicks, pagenumber: pagenumber}
+        let offerid = i.iddomoff;
+        let topush = {date: date, title: title, sector: sector, type: type, clicks: clicks, pagenumber: pagenumber, offerid:offerid}
         x.push(topush)
       }
       this.offersSource = x;
