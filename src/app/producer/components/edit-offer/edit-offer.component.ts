@@ -80,25 +80,26 @@ export class EditOfferComponent implements OnInit {
 
 
         this.valuta = this.offerdetail.valuta
-		this.nazione = this.offerdetail.nazione
-		this.nazconsegna = this.offerdetail.nazconsegna
-		this.quantita = this.offerdetail.quantita
-		this.unitamisura = this.offerdetail.unitamisura
-		this.umprezzoper = this.offerdetail.umprezzoper
-		this.descrizione = this.offerdetail.descrizione
-		this.imballo = this.offerdetail.imballo
-		this.titolo = this.offerdetail.titolo
-		this.modpag = this.offerdetail.modpag
-		this.nomeprodotto = this.offerdetail.nomeprodotto
-		this.prezzoper = this.offerdetail.prezzoper
-		this.luogoconsegna = this.offerdetail.luogoconsegna
-		this.biologico = this.offerdetail.biologico
-		this.ordineminimo = this.offerdetail.ordineminimo
-		this.qualita = this.offerdetail.qualita
-		this.certificazioni = this.offerdetail.certificazioni
-		this.prezzo = this.offerdetail.prezzo
-		this.campioni = this.offerdetail.campioni
-		this.sottovarieta = this.offerdetail.sottovarieta
+    		this.nazione = this.offerdetail.nazione
+    		this.nazconsegna = this.offerdetail.nazconsegna
+    		this.quantita = this.offerdetail.quantita
+    		this.unitamisura = this.offerdetail.unitamisura
+    		this.umprezzoper = this.offerdetail.umprezzoper
+    		this.descrizione = this.offerdetail.descrizione
+    		this.imballo = this.offerdetail.imballo
+    		this.titolo = this.offerdetail.titolo
+    		this.modpag = this.offerdetail.modpag
+    		this.nomeprodotto = this.offerdetail.nomeprodotto
+    		this.prezzoper = this.offerdetail.prezzoper
+    		this.luogoconsegna = this.offerdetail.luogoconsegna
+    		this.biologico = this.offerdetail.biologico
+    		this.ordineminimo = this.offerdetail.ordineminimo
+    		this.qualita = this.offerdetail.qualita
+    		this.certificazioni = this.offerdetail.certificazioni
+    		this.prezzo = this.offerdetail.prezzo
+    		this.campioni = this.offerdetail.campioni
+    		this.sottovarieta = this.offerdetail.sottovarieta
+        this.coddomoff = this.offerdetail.coddomoff;
         
 
         // for (var i of this.sectorTypes) {
@@ -106,6 +107,90 @@ export class EditOfferComponent implements OnInit {
         // 		this.selectSectorTypes(i);
         // 	}
         // }
+
+
+
+        // Special sector details 
+        console.log(this.offerdetail.caragg);
+        let caragg = this.offerdetail.caragg;
+        let caraggarr = caragg.split("|");
+        for (var i:any = 0; i < caraggarr.length; ++i) {
+          
+          if (caraggarr[i] == '{TipoF}') {
+            this.TipoF = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{TipoL}') {
+            this.TipoL = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Pasta}') {
+            this.Pasta = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Latte}') {
+            this.Latte = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Grasso}') {
+            this.Grasso = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Acqua}') {
+            this.Acqua = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Sapore}') {
+            this.Sapore = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Colore}') {
+            this.Colore = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{DurataS}') {
+            this.DurataS = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{DurataC}') {
+            this.DurataC = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Confezione}') {
+            this.Confezione = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{TipoP}') {
+            this.TipoP = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Oliva}') {
+            this.Oliva = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Olio}') {
+            this.Olio = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Odore}') {
+            this.Odore = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Acidita}') {
+            this.Acidita = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Confezionato}') {
+            this.Confezionato = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Vino}') {
+            this.Vino = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Profumo}') {
+            this.Profumo = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Tenore}') {
+            this.Tenore = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Zucchero}') {
+            this.Zucchero = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Vendemmia}') {
+            this.Vendemmia = caraggarr[i+1];
+          }
+          if (caraggarr[i] == '{Durata}') {
+            this.Durata = caraggarr[i+1];
+          }
+
+          console.log(caraggarr[i]);
+        }
+        // console.log(caragg.split("|"));
+
+
       })
   	})
 
@@ -119,6 +204,7 @@ export class EditOfferComponent implements OnInit {
   	this.selectedSector = i;
     if(i.idsettore == '6' || i.idsettore == '12' || i.idsettore == '18' || i.idsettore == '4' || i.idsettore == '9'){
       this.getTypeByCountry();
+      this.sectorType(i.idsettore);
     }else{
       this.sectorType(i.idsettore);
     }
@@ -129,10 +215,17 @@ export class EditOfferComponent implements OnInit {
   		this.sectorTypes = r;
   		// console.log(r);
   		for (var i of this.sectorTypes) {
-        	if (i.idtipologia == this.offerdetail.tipologia) {
-        		this.selectSectorTypes(i);
-        	}
-        }
+      	if (i.idtipologia == this.offerdetail.tipologia) {
+      		this.selectSectorTypes(i);
+      	}
+      }
+      console.log(this.subVariety);
+      // for(var i of this.subVariety){
+      //   console.log(i);
+      //   // if (this.offerdetail.sottovarieta == i.) {
+      //     // code...
+      //   // }
+      // }
   	})
   }
 
@@ -223,6 +316,11 @@ export class EditOfferComponent implements OnInit {
     this.mS.meatCut($id).subscribe((r:any)=>{
       this.subVariety = r;
       console.log(r);
+      for (var i of this.subVariety) {
+        if (i.idsottovarieta == this.offerdetail.sottovarieta) {
+          this.selectSubVariety(i);
+        }
+      }
     })
   }
 
@@ -255,7 +353,7 @@ export class EditOfferComponent implements OnInit {
   }
 
 
-   
+  coddomoff:any = 0;
   valuta = "EUR";
   nazione = 59;  //idnazione (Country Id)
   nazconsegna = "Italy";
@@ -384,6 +482,7 @@ export class EditOfferComponent implements OnInit {
     let newVarietyName = this.selectedVariety?this.selectedVariety.nomevarieta:'';
     let sottovarieta = this.selectedSubVariety?this.selectedSubVariety.idsottovarieta:'0';
     let newSubVarietyName = this.selectedSubVariety?this.selectedSubVariety.nomesottovarieta:'null';
+    let coddomoff = this.coddomoff;
 
 
     let TipoF = this.TipoF;
@@ -438,7 +537,7 @@ export class EditOfferComponent implements OnInit {
     console.log(prezzo);
     console.log(campioni);
     console.log(TipoP);
-    this.mS.insertNewOffer(settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
+    this.mS.editOffer(coddomoff,settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
       TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
       TipoP,
       Oliva,Olio,Odore,Acidita,Confezionato,

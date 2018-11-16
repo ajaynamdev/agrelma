@@ -201,6 +201,68 @@ export class MainService {
     toSent.append('Durata', Durata);
     return this.http.post(this.apiUrl+'insertoffer', toSent, {headers:{'Authorization': this.Authorization}});
   }
+  editOffer(coddomoff ,settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
+   TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
+   TipoP,
+   Oliva,Olio,Odore,Acidita,Confezionato,
+   Vino,Profumo,Tenore,Zucchero,Vendemmia,Durata
+   ){
+    let toSent = new FormData();
+    toSent.append('coddomoff',coddomoff);
+    toSent.append('settore',settore);
+    toSent.append('tipologia',tipologia);
+    toSent.append('varieta',varieta);
+    toSent.append('nazione',nazione);
+    toSent.append('nazconsegna',nazconsegna);
+    toSent.append('valuta',valuta);
+    toSent.append('quantita',quantita);
+    toSent.append('unitamisura',unitamisura);
+    toSent.append('umprezzoper',umprezzoper);
+    toSent.append('descrizione',descrizione);
+    toSent.append('imballo',imballo);
+    toSent.append('titolo',titolo);
+    toSent.append('modpag',modpag);
+    toSent.append('nomeprodotto',nomeprodotto);
+    toSent.append('prezzoper',prezzoper);
+    toSent.append('luogoconsegna',luogoconsegna);
+    toSent.append('biologico',biologico);
+    toSent.append('ordineminimo',ordineminimo);
+    toSent.append('qualita',qualita);
+    toSent.append('certificazioni',certificazioni);
+    toSent.append('prezzo',prezzo);
+    toSent.append('campioni',campioni);
+    toSent.append('newTypeName',newTypeName);
+    toSent.append('newVarietyName',newVarietyName);
+    toSent.append('sottovarieta',sottovarieta);
+    toSent.append('newSubVarietyName',newSubVarietyName);
+    toSent.append('TipoF', TipoF);
+    toSent.append('TipoL', TipoL);
+    toSent.append('Pasta', Pasta);
+    toSent.append('Latte', Latte);
+    toSent.append('Grasso', Grasso);
+    toSent.append('Acqua', Acqua);
+    toSent.append('Sapore', Sapore);
+    toSent.append('Colore', Colore);
+    toSent.append('DurataS', DurataS);
+    toSent.append('DurataC', DurataC);
+    toSent.append('Confezione', Confezione);
+    toSent.append('TipoP', TipoP);
+
+    toSent.append('Oliva', Oliva);
+    toSent.append('Olio', Olio);
+    toSent.append('Odore', Odore);
+    toSent.append('Acidita', Acidita);
+    toSent.append('Confezionato', Confezionato);
+
+
+    toSent.append('Vino', Vino);
+    toSent.append('Profumo', Profumo);
+    toSent.append('Tenore', Tenore);
+    toSent.append('Zucchero', Zucchero);
+    toSent.append('Vendemmia', Vendemmia);
+    toSent.append('Durata', Durata);
+    return this.http.post(this.apiUrl+'editoffer', toSent, {headers:{'Authorization': this.Authorization}});
+  }
 
   insertNewRequest(settore, tipologia, varieta, nazione, nazconsegna, valuta,  unitamisura, umprezzoper, descrizione, imballo, titolo, modpag,  prezzoper, luogoconsegna, biologico, ordineminimo, prezzo, prezzo2, newTypeName, newVarietyName, countrylist){
     let toSent = new FormData();
