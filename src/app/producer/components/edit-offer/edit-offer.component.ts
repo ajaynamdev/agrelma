@@ -100,6 +100,7 @@ export class EditOfferComponent implements OnInit {
     		this.campioni = this.offerdetail.campioni
     		this.sottovarieta = this.offerdetail.sottovarieta
         this.coddomoff = this.offerdetail.coddomoff;
+        this.datains = this.offerdetail.datains;
         
 
         // for (var i of this.sectorTypes) {
@@ -354,6 +355,7 @@ export class EditOfferComponent implements OnInit {
 
 
   coddomoff:any = 0;
+  datains:any;
   valuta = "EUR";
   nazione = 59;  //idnazione (Country Id)
   nazconsegna = "Italy";
@@ -483,6 +485,7 @@ export class EditOfferComponent implements OnInit {
     let sottovarieta = this.selectedSubVariety?this.selectedSubVariety.idsottovarieta:'0';
     let newSubVarietyName = this.selectedSubVariety?this.selectedSubVariety.nomesottovarieta:'null';
     let coddomoff = this.coddomoff;
+    let datains = this.datains;
 
 
     let TipoF = this.TipoF;
@@ -537,7 +540,7 @@ export class EditOfferComponent implements OnInit {
     console.log(prezzo);
     console.log(campioni);
     console.log(TipoP);
-    this.mS.editOffer(coddomoff,settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
+    this.mS.editOffer(coddomoff,datains,settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
       TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
       TipoP,
       Oliva,Olio,Odore,Acidita,Confezionato,

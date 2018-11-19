@@ -136,10 +136,31 @@ export class NewRequestComponent implements OnInit {
   prezzo2 = "";
 
 
+
+
+  /*****************************
+  * Special Sector data input *
+  *****************************/
+
+  Oliva = "1";
+  Olio = "1";
+  Confezione = "";
+  Confezionato = "";
+  Congelato = false;
+  TipoP = "1";
+  Vino = "2";
+  TipoF = "1";
+
+
+  /*********************************
+  * Special Sector data input End *
+  *********************************/
+
+
   insertRequest(){
     let settore = this.selectedSector.idsettore;
-    let tipologia = this.selectedSectorType.idtipologia;
-    let varieta = this.selectedVariety.idvarieta;
+    let tipologia = this.selectedSectorType?this.selectedSectorType.idtipologia:'0';
+    let varieta = this.selectedVariety?this.selectedVariety.idvarieta:'0';
     let nazione = this.nazione;
     let nazconsegna = this.nazconsegna;
     let valuta = this.valuta;
@@ -155,12 +176,28 @@ export class NewRequestComponent implements OnInit {
     let ordineminimo = this.ordineminimo;
     let prezzo = this.prezzo;
     let prezzo2 = this.prezzo2;
-    let newTypeName = this.selectedSectorType.nometipologia;
-    let newVarietyName = this.selectedVariety.nomevarieta;
+    let newTypeName = this.selectedSectorType?this.selectedSectorType.nometipologia:' ';
+    let newVarietyName = this.selectedVariety?this.selectedVariety.nomevarieta:' ';
 
 
     // console.log( this.mknation(this.vcont, 'N') + this.mknation(this.vcontt, 'G'));
     let countrylist = this.mknation(this.vcont, 'N') + this.mknation(this.vcontt, 'G');
+
+
+
+
+
+
+
+
+    let Oliva = this.Oliva;
+    let Olio = this.Olio;
+    let Confezione = this.Confezione;
+    let Confezionato = this.Confezionato;
+    let Congelato = this.Congelato?'1':'0';
+    let TipoP = this.TipoP;
+    let Vino = this.Vino;
+    let TipoF = this.TipoF;
 
     // console.log(settore);
     // console.log(tipologia);
@@ -182,7 +219,11 @@ export class NewRequestComponent implements OnInit {
     // console.log(newTypeName);
     // console.log(newVarietyName);
     // console.log(this.vcont);
-    this.mS.insertNewRequest(settore, tipologia, varieta, nazione, nazconsegna, valuta,  unitamisura, umprezzoper, descrizione, imballo, titolo, modpag,  prezzoper, luogoconsegna, biologico, ordineminimo, prezzo, prezzo2, newTypeName, newVarietyName, countrylist).subscribe((r:any)=>{
+
+    // console.log(Congelato);
+
+    this.mS.insertNewRequest(settore, tipologia, varieta, nazione, nazconsegna, valuta,  unitamisura, umprezzoper, descrizione, imballo, titolo, modpag,  prezzoper, luogoconsegna, biologico, ordineminimo, prezzo, prezzo2, newTypeName, newVarietyName, countrylist,
+      Oliva,Olio,Confezione,Confezionato,Congelato,TipoP,Vino,TipoF).subscribe((r:any)=>{
       console.log(r);
       if (r=='11') {
         this.router.navigate(['/admin/producer/offer-request']);

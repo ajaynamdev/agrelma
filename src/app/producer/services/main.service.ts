@@ -201,7 +201,7 @@ export class MainService {
     toSent.append('Durata', Durata);
     return this.http.post(this.apiUrl+'insertoffer', toSent, {headers:{'Authorization': this.Authorization}});
   }
-  editOffer(coddomoff ,settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
+  editOffer(coddomoff, datains ,settore, tipologia, varieta, nazione, nazconsegna, valuta, quantita, unitamisura, umprezzoper, descrizione, imballo, titolo, modpag, nomeprodotto, prezzoper, luogoconsegna, biologico, ordineminimo, qualita, certificazioni, prezzo, campioni, newTypeName, newVarietyName, sottovarieta, newSubVarietyName,
    TipoF,TipoL,Pasta,Latte,Grasso,Acqua,Sapore,Colore,DurataS,DurataC,Confezione,
    TipoP,
    Oliva,Olio,Odore,Acidita,Confezionato,
@@ -209,6 +209,7 @@ export class MainService {
    ){
     let toSent = new FormData();
     toSent.append('coddomoff',coddomoff);
+    toSent.append('datains',datains);
     toSent.append('settore',settore);
     toSent.append('tipologia',tipologia);
     toSent.append('varieta',varieta);
@@ -264,7 +265,8 @@ export class MainService {
     return this.http.post(this.apiUrl+'editoffer', toSent, {headers:{'Authorization': this.Authorization}});
   }
 
-  insertNewRequest(settore, tipologia, varieta, nazione, nazconsegna, valuta,  unitamisura, umprezzoper, descrizione, imballo, titolo, modpag,  prezzoper, luogoconsegna, biologico, ordineminimo, prezzo, prezzo2, newTypeName, newVarietyName, countrylist){
+  insertNewRequest(settore, tipologia, varieta, nazione, nazconsegna, valuta,  unitamisura, umprezzoper, descrizione, imballo, titolo, modpag,  prezzoper, luogoconsegna, biologico, ordineminimo, prezzo, prezzo2, newTypeName, newVarietyName, countrylist,
+   Oliva,Olio,Confezione,Confezionato,Congelato,TipoP,Vino,TipoF){
     let toSent = new FormData();
     toSent.append('settore',settore);
     toSent.append('tipologia',tipologia);
@@ -287,6 +289,14 @@ export class MainService {
     toSent.append('newTypeName',newTypeName);
     toSent.append('newVarietyName',newVarietyName);
     toSent.append('countrylist',countrylist);
+    toSent.append('Oliva', Oliva);
+    toSent.append('Olio', Olio);
+    toSent.append('Confezione', Confezione);
+    toSent.append('Confezionato', Confezionato);
+    toSent.append('Congelato', Congelato);
+    toSent.append('TipoP', TipoP);
+    toSent.append('Vino', Vino);
+    toSent.append('TipoF', TipoF);
     return this.http.post(this.apiUrl+'insertrequest', toSent, {headers:{'Authorization': this.Authorization}});
   }
 
