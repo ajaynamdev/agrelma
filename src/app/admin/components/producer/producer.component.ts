@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-producer',
@@ -7,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProducerComponent implements OnInit {
 
-  constructor() { }
+  constructor(breakpointObserver: BreakpointObserver) {
+    breakpointObserver.observe([
+      Breakpoints.HandsetLandscape,
+      Breakpoints.HandsetPortrait
+    ]).subscribe(result => {
+      if (result.matches) {
+        this.activateHandsetLayout();
+      }
+    });
+  }
+
+  mobile:boolean = false;
+
+  activateHandsetLayout(){
+    this.mobile = true;
+  }
 
   ngOnInit() {
   }

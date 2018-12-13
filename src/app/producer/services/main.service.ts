@@ -300,6 +300,45 @@ export class MainService {
     return this.http.post(this.apiUrl+'insertrequest', toSent, {headers:{'Authorization': this.Authorization}});
   }
 
+  editRequest(coddomoff,datains, settore, tipologia, varieta, nazione, nazconsegna, valuta,  unitamisura, umprezzoper, descrizione, imballo, titolo, modpag,  prezzoper, luogoconsegna, biologico, ordineminimo, prezzo, prezzo2, newTypeName, newVarietyName, countrylist,
+   Oliva,Olio,Confezione,Confezionato,Congelato,TipoP,Vino,TipoF){
+    let toSent = new FormData();
+    toSent.append('coddomoff', coddomoff);
+    toSent.append('datains', datains);
+    toSent.append('settore',settore);
+    toSent.append('tipologia',tipologia);
+    toSent.append('varieta',varieta);
+    toSent.append('nazione',nazione);
+    toSent.append('nazconsegna',nazconsegna);
+    toSent.append('valuta',valuta);
+    toSent.append('unitamisura',unitamisura);
+    toSent.append('umprezzoper',umprezzoper);
+    toSent.append('descrizione',descrizione);
+    toSent.append('imballo',imballo);
+    toSent.append('titolo',titolo);
+    toSent.append('modpag',modpag);
+    toSent.append('prezzoper',prezzoper);
+    toSent.append('luogoconsegna',luogoconsegna);
+    toSent.append('biologico',biologico);
+    toSent.append('ordineminimo',ordineminimo);
+    toSent.append('prezzo',prezzo);
+    toSent.append('prezzo2',prezzo2);
+    toSent.append('newTypeName',newTypeName);
+    toSent.append('newVarietyName',newVarietyName);
+    toSent.append('countrylist',countrylist);
+    toSent.append('Oliva', Oliva);
+    toSent.append('Olio', Olio);
+    toSent.append('Confezione', Confezione);
+    toSent.append('Confezionato', Confezionato);
+    toSent.append('Congelato', Congelato);
+    toSent.append('TipoP', TipoP);
+    toSent.append('Vino', Vino);
+    toSent.append('TipoF', TipoF);
+    return this.http.post(this.apiUrl+'editrequest', toSent, {headers:{'Authorization': this.Authorization}});
+  }
+
+
+
 
   getFileDetails(offeriId){
     let toSent = new FormData();
@@ -320,6 +359,18 @@ export class MainService {
     toSent.append('sectorid', sectorid);
     toSent.append('countryid', countryid);
     return this.http.post(this.apiUrlPublic+"typebycountry", toSent);
+  }
+
+  deleteOfferRequest(offerid){
+    let toSent = new FormData();
+    toSent.append('offerid', offerid);
+    return this.http.post(this.apiUrl+'deleteoffer', toSent, {headers:{'Authorization': this.Authorization}});
+  }
+
+  domoffnazioni(offerid){
+    let toSent = new FormData();
+    toSent.append('offerid', offerid);
+    return this.http.post(this.apiUrl+'domoffnazioni', toSent, {headers:{'Authorization': this.Authorization}});
   }
   
 }

@@ -1,7 +1,17 @@
 <mat-divider></mat-divider>
-<nav mat-tab-nav-bar>
+<nav mat-tab-nav-bar *ngIf="!mobile">
   <a mat-tab-link *ngFor="let m of menu" [routerLink]="m.link" routerLinkActive="d-active">
     {{m.name}}
   </a>
 </nav>
+
+<section *ngIf="mobile">
+	<mat-toolbar class="m-menu">
+		<button mat-button [matMenuTriggerFor]="links">Menu</button>
+	</mat-toolbar>
+
+</section>
 <router-outlet></router-outlet>
+<mat-menu #links="matMenu" overlapTrigger="false">
+  <button mat-menu-item *ngFor="let m of menu" [routerLink]="m.link" routerLinkActive="d-active">{{m.name}}</button>
+</mat-menu>

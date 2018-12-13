@@ -17,7 +17,7 @@
 					        The actual rendered columns are set as a property on the row definition" -->
 
 					  <!-- Position Column -->
-					  <ng-container matColumnDef="subject">
+					  <ng-container matColumnDef="subject" sticky>
 					    <th mat-header-cell *matHeaderCellDef> Subject </th>
 					    <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
 					  </ng-container>
@@ -35,8 +35,8 @@
 					  </ng-container>
 
 					  <!-- Symbol Column -->
-					  <ng-container matColumnDef="actions">
-					    <th mat-header-cell *matHeaderCellDef> Actions </th>
+					  <ng-container matColumnDef="actions" stickyEnd>
+					    <th mat-header-cell *matHeaderCellDef> Read </th>
 					    <td mat-cell *matCellDef="let element"><span (click)="openMessageR(element.message)"><button mat-icon-button matTooltip="See the message"><mat-icon>message</mat-icon></button></span>  </td>
 					  </ng-container>
 
@@ -82,7 +82,7 @@
 
 					  <!-- Symbol Column -->
 					  <ng-container matColumnDef="actions">
-					    <th mat-header-cell *matHeaderCellDef> Actions </th>
+					    <th mat-header-cell *matHeaderCellDef> Read </th>
 					    <td mat-cell *matCellDef="let element"> <span (click)="openMessageR(element.message)"><button mat-icon-button matTooltip="See the message"><mat-icon>message</mat-icon></button></span> </td>
 					  </ng-container>
 

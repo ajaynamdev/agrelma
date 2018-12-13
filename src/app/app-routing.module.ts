@@ -29,6 +29,7 @@ import { OfferRequestComponent } from './producer/components/offer-request/offer
 import { NewOfferComponent } from './producer/components/new-offer/new-offer.component';
 import { EditOfferComponent } from './producer/components/edit-offer/edit-offer.component';
 import { NewRequestComponent } from './producer/components/new-request/new-request.component';
+import { EditRequestComponent } from './producer/components/edit-request/edit-request.component';
 import { BookRequestComponent } from './producer/components/book-request/book-request.component';
 import { CompanyDataComponent } from './producer/components/company-data/company-data.component';
 import { MessageAgrelmaComponent } from './producer/components/message-agrelma/message-agrelma.component';
@@ -212,8 +213,11 @@ const routes: Routes = [
 	          {
 	          	path: 'edit-offer/:id',
 	          	component: EditOfferComponent
-	          }
-
+	          },
+	          {
+	          	path: 'edit-request/:id',
+	          	component: EditRequestComponent
+	          },
           ]
         }
       ]

@@ -121,6 +121,7 @@ import { NewOfferComponent } from './producer/components/new-offer/new-offer.com
 import { NewRequestComponent } from './producer/components/new-request/new-request.component';
 import { AddFilesComponent } from './producer/components/add-files/add-files.component';
 import { EditOfferComponent } from './producer/components/edit-offer/edit-offer.component';
+import { EditRequestComponent } from './producer/components/edit-request/edit-request.component';
 
 @NgModule({
   declarations: [
@@ -168,7 +169,8 @@ import { EditOfferComponent } from './producer/components/edit-offer/edit-offer.
     NewOfferComponent,
     NewRequestComponent,
     AddFilesComponent,
-    EditOfferComponent
+    EditOfferComponent,
+    EditRequestComponent
   ],
   imports: [
     AppRoutingModule,

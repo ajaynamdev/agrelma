@@ -47,7 +47,8 @@ export class OfferRequestComponent implements OnInit {
         let type = i.nometipologia;
         let country = i.paese;
         let clicks = i.numtotclick;
-        let topush = {date: date, title: title, sector: sector, type: type, country: country, clicks: clicks}
+        let offerid = i.iddomoff;
+        let topush = {date: date, title: title, sector: sector, type: type, country: country, clicks: clicks, offerid:offerid}
         x.push(topush)
       }
       this.requestSource = x;
@@ -61,6 +62,32 @@ export class OfferRequestComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   dataSource1 = ELEMENT_DATA;
   dataSource2 = ELEMENT_DATA;
+
+
+
+
+
+  deleteOffer(offerid){
+    if(confirm("Do you really want to delete this offer")){
+      this.mS.deleteOfferRequest(offerid).subscribe((r:any)=>{
+        console.log(r);
+        if (r.status == '1') {
+          this.ngOnInit();
+        }
+      })
+    }
+  }
+
+  deleteRequest(offerid){
+    if(confirm("Do you really want to delete this Request")){
+      this.mS.deleteOfferRequest(offerid).subscribe((r:any)=>{
+        console.log(r);
+        if (r.status == '1') {
+          this.ngOnInit();
+        }
+      })
+    }
+  }
 
 }
 

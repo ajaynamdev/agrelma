@@ -106,5 +106,11 @@ export class MainService {
   	return this.http.get(this.localUrl+"latestoffers");
   }
 
+  latestrequests(){
+  	return this.http.get(this.localUrl+"latestrequests");
+  }
+
+
+
 
 }

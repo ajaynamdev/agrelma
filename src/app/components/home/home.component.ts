@@ -14,6 +14,11 @@ export class HomeComponent implements OnInit {
 
 	showcase:any;
 	latestoffers:any;
+	latestrequests:any;
+	latestrequests1:any;
+	latestrequests2:any;
+
+	firstSlider:boolean = true;
 
   constructor(public dialog: MatDialog,
   	private mS:MainService) { }
@@ -32,11 +37,32 @@ export class HomeComponent implements OnInit {
 		this.mS.latestoffer().subscribe((r:any)=>{
 			this.latestoffers = r;
 			console.log(r);
+			this.firstSlider = false;
 			vishal();
 		}, ()=>{
 			vishal();
 			$.getScript("../../../assets/js/scripts.js", function() {
 			});
+		})
+
+		this.mS.latestrequests().subscribe((r:any)=>{
+			this.latestrequests = r;
+			for (var i = 0; i < r.length; i++) {
+				r[i].datains = r[i].datains.slice(0,4)+"-"+r[i].datains.slice(4,6)+"-"+r[i].datains.slice(6,8);
+			}
+			this.latestrequests1 = [];
+			this.latestrequests2 = [];
+			for (var i = 0; i < r.length/2; i++){
+				this.latestrequests1.push(r[i]);
+			}
+			for (var i = r.length/2+1; i < r.length; i++){
+				this.latestrequests2.push(r[i]);
+			}
+
+
+
+			console.log("Latest Requests");
+			console.log(r);
 		})
 		
   	this.carouselOne = {
@@ -61,7 +87,7 @@ export class HomeComponent implements OnInit {
   public carouselOne: NguCarousel;
 
   requests = [
-  	{
+  		{
 			"id": "",
 			"sector":"Fish and Seafood",
 			"rfor":"Quotations of frozen fish and seafood.",
