@@ -5,6 +5,8 @@ import { AuthService } from '../../admin/services/auth.service';
 
 import { CookieService } from 'ngx-cookie-service';
 
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,12 +14,124 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public aS:AuthService) { }
+  constructor(public dialog: MatDialog, public aS:AuthService, public router: Router, public cokkie:CookieService) { }
 
   ngOnInit() {
   }
 
-  categories = ["Cereals","Cheese","Citrus","Coffee","Convenience food/ready meals","Crostacea and Mollusca","Cured Pork","Delicatessen","Drinks","Fish and Seafood","Frozen products","Fruits","Liquors","Meat","Oil","Oil Seeds","Olives","Packed Fisheries","Packed Fruit and Vegetables","Pasta","Preserves","Quality Wine","Sweets and dough products","Table Wine","Vegetables","Vinegar"];
+  query:any = "";
+  type:any = 0;
+  category:any = "0";
+
+
+  // categories = ["Cereals","Cheese","Citrus","Coffee","Convenience food/ready meals","Crostacea and Mollusca","Cured Pork","Delicatessen","Drinks","Fish and Seafood","Frozen products","Fruits","Liquors","Meat","Oil","Oil Seeds","Olives","Packed Fisheries","Packed Fruit and Vegetables","Pasta","Preserves","Quality Wine","Sweets and dough products","Table Wine","Vegetables","Vinegar"];
+  categories = [
+		{
+			id:'1',
+			name: 'Fruits'
+		},
+		{
+			id:'2',
+			name: 'Fish and Seafood'
+		},
+		{
+			id:'3',
+			name: 'Cereals'
+		},
+		{
+			id:'4',
+			name: 'Quality Wine'
+		},
+		{
+			id:'6',
+			name: 'Cheese'
+		},
+		{
+			id:'7',
+			name: 'Vegetables'
+		},
+		{
+			id:'8',
+			name: 'Citrus'
+		},
+		{
+			id:'9',
+			name: 'Table Wine'
+		},
+		{
+			id:'10',
+			name:'Crostacea and Mollusca'
+		},
+		{
+			id:'11',
+			name:'Drinks'
+		},
+		{
+			id:'12',
+			name:'Oil'
+		},
+		{
+			id:'15',
+			name:'Meat'
+		},
+		{
+			id:'18',
+			name:'Olives'
+		},
+		{
+			id:'19',
+			name:'Delicatessen'
+		},
+		{
+			id:'20',
+			name:'Packed Fruit and Vegetables'
+		},
+		{
+			id:'21',
+			name:'Packed Fisheries'
+		},
+		{
+			id:'22',
+			name:'Oil Seeds'
+		},
+		{
+			id:'23',
+			name:'Liquors'
+		},
+		{
+			id:'24',
+			name:'Cured Pork'
+		},
+		{
+			id:'26',
+			name:'Preserves'
+		},
+		{
+			id:'27',
+			name:'Pasta'
+		},
+		{
+			id:'28',
+			name:'Sweets and dough products'
+		},
+		{
+			id:'29',
+			name:'Coffee'
+		},
+		{
+			id:'30',
+			name:'Convenience food/ready meals'
+		},
+		{
+			id:'31',
+			name:'Vinegar'
+		},
+		{
+			id:'32',
+			name:'Frozen products'
+		}
+	]
+
   sectors = [
 		{
 			"id": "1",
@@ -102,6 +216,15 @@ export class HeaderComponent implements OnInit {
   ];
 
   nodisplay = false;
+
+
+  search(){
+  	console.log(this.query);
+  	console.log(this.type);
+  	console.log(this.category);
+  	this.cokkie.set('query', this.query);
+  	this.router.navigate(['/search-result/offersearch/'+this.category+"/1/0/0/"+this.query]);
+  }
 
   openLogin(): void {
     let dialogRef = this.dialog.open(LoginDialog, {

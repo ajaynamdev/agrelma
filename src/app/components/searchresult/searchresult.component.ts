@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { MainService } from '../../services/main.service';
+import { CookieService } from 'ngx-cookie-service';
 declare var $:any;
 
 @Component({
@@ -13,9 +14,11 @@ export class SearchresultComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
   private router: Router,
-  private mS:MainService) { }
+  private mS:MainService,
+  public cokkie:CookieService) { }
 
   offer:boolean = false;
+  offersearch:boolean = false;
   offerId:any;
   offerResult:any;
   pageId:any;
@@ -28,6 +31,8 @@ export class SearchresultComponent implements OnInit {
   nextPage:any;
   lastPage:any;
   pagination = [];
+  query:any="";
+  r:any;
 
 
 
@@ -42,6 +47,7 @@ export class SearchresultComponent implements OnInit {
   	$.getScript("../../../assets/js/scripts.js", function() {
 		});
     this.route.paramMap.subscribe((r:any)=>{
+      this.r = r;
       console.log(r.params.id);
       console.log(r.params.qid);
       console.log(r.params.country);
@@ -155,6 +161,69 @@ export class SearchresultComponent implements OnInit {
             }
           })
         }
+      }else if(r.params.id == "offersearch"){
+
+        // this.query = this.cokkie.get('query');
+        if (r.params.query) {
+          this.query = r.params.query
+        }else{
+          this.query = "";
+        }
+        console.log(this.query);
+        this.offersearch = true;
+        if (r.params.qid) {
+          this.offerId = r.params.qid;
+        }else{
+          this.offerId = '0';
+        }
+        console.log(r.params.qid);
+        this.pageId = r.params.pid;
+        this.nextPage = +this.pageId+1;
+        this.previousPage = +this.pageId-1;
+        if (r.params.pid) {
+          this.mS.getOfferSearch(this.offerId, this.pageId, this.countryId, this.typeId, this.query).subscribe((r:any)=>{
+            window.scrollTo(0,0);
+            console.log(r);
+            this.offerResult = r.result;
+            this.range = r.range;
+            this.total = r.total;
+            this.country = r.country;
+            this.sectortype = r.type;
+            let x = this.total/15;
+            if (x%15 != 0) {
+              x = x+1;
+            }
+            this.pagination = [];
+            for (var i = 1; i < x; i++) {
+              this.pagination.push(i);
+              this.lastPage = i;
+            }
+            console.log("Last Page = "+this.lastPage);
+          })
+        }else{
+          this.pageId = 1;
+          this.nextPage = +this.pageId+1;
+          this.previousPage = +this.pageId-1;
+          this.mS.getOfferSearch(this.offerId, 0, 0, 0, this.query).subscribe((r:any)=>{
+            window.scrollTo(0,0);
+            console.log(r);
+            this.offerResult = r.result;
+            this.range = r.range;
+            this.total = r.total;
+            this.country = r.country;
+            this.sectortype = r.type;
+            let x = this.total/15;
+            if (x%15 != 0) {
+              x = x+1;
+            }
+            this.pagination = [];
+            for (var i = 1; i <= x; i++) {
+              this.pagination.push(i);
+              this.lastPage = i;
+            }
+            console.log("Last Page = "+this.lastPage);
+          })
+        }
       }
     })
   }
@@ -166,5 +235,7 @@ export class SearchresultComponent implements OnInit {
 
   nodisplay = false;
   productcount = [1,2,3,4,5,6,7,8]; 
+
+
 
 }

@@ -83,6 +83,14 @@ export class MainService {
 	  	return this.http.get(this.localUrl+"getoffers/"+$id);
   	}
   }
+  getOfferSearch($id='%', $pid=null, $countryId=0, $typeId=0, $q=""){
+  	if ($pid) {
+	  	return this.http.get(this.localUrl+"searchoffers/"+$id+"/"+$pid+"/"+$countryId+"/"+$typeId+"/"+$q);
+  	}else{
+	  	return this.http.get(this.localUrl+"searchoffers/"+$id+"/1/%/%/"+$q);
+  	}
+  }
+
 
   getRequestList($id, $pid=null, $typeId=0){
   	let countryId = 139;

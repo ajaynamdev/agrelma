@@ -19,9 +19,12 @@ export class HomeComponent implements OnInit {
 	latestrequests2:any;
 
 	firstSlider:boolean = true;
+	loaded:boolean = false;
 
   constructor(public dialog: MatDialog,
-  	private mS:MainService) { }
+  	private mS:MainService) { 
+  	
+  }
 
   ngOnInit() {
 
@@ -38,6 +41,7 @@ export class HomeComponent implements OnInit {
 			this.latestoffers = r;
 			console.log(r);
 			this.firstSlider = false;
+			this.loaded = true;
 			vishal();
 		}, ()=>{
 			vishal();

@@ -24,6 +24,9 @@ export class OfferComponent implements OnInit {
   company:any;
   country:any;
 
+  isLoaded:boolean = false;
+  nodisplay:boolean = false;
+
 
   ngOnInit() {
     window.scrollTo(0,0);
@@ -36,14 +39,15 @@ export class OfferComponent implements OnInit {
       this.mService.getPhoto(this.offerId).subscribe((r:any)=>{
       	this.photo = r;
       	console.log(r);
-      	$.getScript("../../../assets/js/scripts.js", function() {
-				});
+        $.getScript("../../../assets/js/scripts.js", function() {
+        });
+        this.isLoaded = true;
       })
 
       this.mService.getOffer(this.offerId).subscribe((r:any)=>{
-      	this.offer = r[0];
-      	console.log(r[0]);
-      	this.description = r[0].descrizione;
+        this.offer = r[0];
+        console.log(r[0]);
+        this.description = r[0].descrizione;
         this.mService.getProducerCompany(r[0].anagrafica).subscribe((r:any)=>{
           this.company = r.company[0];
           this.country = r.country;

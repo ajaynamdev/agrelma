@@ -78,6 +78,10 @@ const routes: Routes = [
 		component: SearchresultComponent
 	},
 	{
+		path: "search-result/:id/:qid/:pid/:country/:thetype/:query",
+		component: SearchresultComponent
+	},
+	{
 		path: "offer",
 		component: OfferComponent
 	},
