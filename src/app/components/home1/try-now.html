@@ -1,0 +1,52 @@
+
+<button mat-fab-mini (click)="onNoClick()" style="float: right; margin-top: -20px; margin-right: -20px; border-radius: 40%; z-index: 10000000000000">X</button>
+<section class="try-container">
+	<h2>Give more visibility to your offers</h2>
+	<mat-divider></mat-divider>
+	<section class="content col-sm-12">
+		<section class="col-sm-12 info">
+			<h3>Showcase of Agrelma</h3>
+			<div class="tm-related-products-carousel1 section-products-carousel" id="tm-related-products-carousel1" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;slidesToShow&quot;:7,&quot;slidesToScroll&quot;:7,&quot;dots&quot;:true,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#tm-related-products-carousel1 .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:767,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
+                <section class="related">
+                    <!-- .section-header -->
+                    <div class="products">
+                        <div class="product"  *ngFor="let show of data.showcase | slice:0:5;">
+                        <!-- <div class="product"  *ngFor="let show of latestoffers"> -->
+                            <a class="woocommerce-LoopProduct-link">
+                                <div class="v-showcase-image-container">
+                                    <img src="https://www.agrelma.com/DomOff/Foto/{{show.nomefile}}" class="wp-post-image v-showcase-image" alt="">
+                                </div>
+                                <span class="price">
+                                    <span class="woocommerce-Price-amount amount"  *ngIf="show.prezzo != '0.000'">
+                                        <span class="woocommerce-Price-currencySymbol">{{show.valuta}} </span> {{show.prezzo}} / {{show.prezzoper}} {{show.umprezzoper}}
+                                    </span>
+                                    <span class="woocommerce-Price-amount amount">
+                                        <span class="woocommerce-Price-currencySymbol">From :</span> {{show.paese}}
+                                    </span>
+                                </span>
+                                <!-- /.price -->
+                                <h2 class="woocommerce-loop-product__title">{{show.titolo}}</h2>
+                            </a>
+                        </div>
+                        <!-- /.product-outer -->
+                        
+                    </div>
+                </section>
+                <!-- .single-product-wrapper -->
+            </div>
+			<p>The offers placed in the showcase are <b>highlighted</b> in every webpage and therefore are viewed frequently by the users.</p>
+			<p>Each time you put an offer in the showcase <b> the offer itself will be shown randomly within the homepage and the search pages for 7 or 30 days, according to your choice.</b></p>
+			<mat-divider></mat-divider>
+			<div>
+				<h4>Insert your offer in the Showcase</h4>
+				<ul>
+					<li>for 1 week costs 9,00 €</li>
+					<li>for 1 month costs 28,00 €</li>
+				</ul>
+			</div>
+            <button routerLink="/login-activate" (click)="onNoClick()">Activate Now</button>
+		</section>
+		
+	</section>
+	
+</section>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { MainService } from '../../services/main.service';
+import { AuthService } from '../../admin/services/auth.service';
 declare var $:any;
 
 @Component({
@@ -13,12 +14,16 @@ export class RequestComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
   private router: Router,
-  private mS:MainService) { }
+  private mS:MainService,
+  public aS:AuthService) { }
 
   requestId:any;
   request:any;
 
   description:any;
+
+  company:any;
+
 
   ngOnInit() {
   	this.route.paramMap.subscribe((r:any)=>{
@@ -34,6 +39,12 @@ export class RequestComponent implements OnInit {
 	        this.description = this.description.replace(/&gt;/g, '>');
 	        this.description = this.description.replace(/&amp;/g, '&');
   			console.log(r[0]);
+        if (this.aS.isProducer()) {
+          this.mS.getRequestDetail(r[0].iddomoff).subscribe((r:any)=>{
+            console.log(r);
+            this.company = r[0];
+          })
+        }
   		})
   	})
   }

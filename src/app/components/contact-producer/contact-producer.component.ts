@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-contact-producer',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactProducerComponent implements OnInit {
 
-  constructor() { }
+  constructor(public mS:MainService) { }
 
   ngOnInit() {
   }

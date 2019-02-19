@@ -43,6 +43,14 @@ export class AuthService {
       return false;
     }
   }
+
+  isProducer(): boolean{
+    if(this.cookieService.get('admin_type') == 'P'){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
 
 

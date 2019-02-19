@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class MainService {
 	// apiUrl="http://localhost:8000/api/";
 	// localUrl="http://localhost:8000/api/";
 
-  constructor(private http: HttpClient,) { }
+  constructor(private http: HttpClient,
+    public cookieService: CookieService) { }
 
   contactUs(company_name, contact, address, city, country, phone, fax, website, email, message) {
   	let tosent1 = new FormData();
@@ -91,6 +93,14 @@ export class MainService {
   	}
   }
 
+  getRequestSearch($id='0', $countryId=139, $pid=1, $typeId=0, $q=""){
+  	let countryId = 139;
+  	if ($pid) {
+	  	return this.http.get(this.localUrl+"searchrequest/"+$id+"/"+countryId+"/"+$pid+"/"+$typeId+"/"+$q);
+  	}else{
+	  	// return this.http.get(this.localUrl+"searchrequest/"+$id+"/1/%/%/"+$q);
+  	}
+  }
 
   getRequestList($id, $pid=null, $typeId=0){
   	let countryId = 139;
@@ -119,6 +129,66 @@ export class MainService {
   }
 
 
+  countryList(){
+    return this.http.get(this.apiUrl+"countrylist");
+  }
 
+
+  signup(Azienda,
+    Email,
+    Stato,
+    SettPrinc,
+    SettAgg,
+    txtUsername,
+    txtPassword,
+    txtPassword2,
+    Telefono,
+    Indirizzo,
+    Citta,
+    CAP,
+    Fax,
+    IndWeb,
+    Contatto,
+    Descrizione,){
+      let tosend = new FormData();
+       tosend.append('Azienda', Azienda);
+       tosend.append('Email', Email);
+       tosend.append('Stato', Stato);
+       tosend.append('SettPrinc', SettPrinc);
+       tosend.append('SettAgg', SettAgg);
+       tosend.append('txtUsername', txtUsername);
+       tosend.append('txtPassword', txtPassword);
+       tosend.append('txtPassword2', txtPassword2);
+       tosend.append('Telefono', Telefono);
+       tosend.append('Indirizzo', Indirizzo);
+       tosend.append('Citta', Citta);
+       tosend.append('CAP', CAP);
+       tosend.append('Fax', Fax);
+       tosend.append('IndWeb', IndWeb);
+       tosend.append('Contatto', Contatto);
+       tosend.append('Descrizione', Descrizione);
+       return this.http.post(this.apiUrl+'signup', tosend);
+  }
+
+  checkUsername($username){
+    return this.http.get(this.apiUrl+'checkusername?username='+$username);
+  }
+
+  Authorization = this.cookieService.get('admin');
+  message(iddomoff, previousmsg, object, message, quantity){
+    let tosend = new FormData();
+    tosend.append('iddomoff', iddomoff);
+    tosend.append('previousmsg', previousmsg);
+    tosend.append('object', object);
+    tosend.append('message', message);
+    tosend.append('quantity', quantity);
+    return this.http.post(this.apiUrl+"message", tosend, {headers:{'Authorization': this.Authorization}});
+  }
+
+  getRequestDetail(iddomoff){
+    let tosend = new FormData();
+    tosend.append('iddomoff', iddomoff);
+    return this.http.post(this.apiUrl+"requestdetails", tosend, {headers:{'Authorization': this.Authorization}});
+  }
 
 }

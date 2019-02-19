@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../../services/main.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-offer-request',
@@ -8,7 +9,8 @@ import { MainService } from '../../services/main.service';
 })
 export class OfferRequestComponent implements OnInit {
 
-  constructor(private mS:MainService) { }
+  constructor(private mS:MainService,
+    private cookieService:CookieService) { }
 
   offersCols: string[] = ['delete', 'modify', 'date', 'title', 'clicks','pagenumber' , 'showcase', 'relist'];
   offersSource:any;
@@ -17,6 +19,9 @@ export class OfferRequestComponent implements OnInit {
   requestSource:any;
 
   nodisplay:boolean = false;
+
+  type:any;
+
  
 
   ngOnInit() {
@@ -53,6 +58,7 @@ export class OfferRequestComponent implements OnInit {
       }
       this.requestSource = x;
     })
+    this.type = this.cookieService.get('admin_type');
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'sector', 'type', 'country', 'clicks'];

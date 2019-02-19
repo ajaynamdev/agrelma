@@ -53,6 +53,7 @@
 	margin: 10px;
 	border-radius: 5px;
 	border: 1px solid rgb(98,171,1);
+	cursor: pointer;
 	/*box-shadow: 2px 2px 2px rgb(1,255,1,0.4),
 							-2px -2px 2px rgb(1,255,1,0.4)!important;*/
 }
@@ -304,3 +305,24 @@ mat-nav-list span{
 .v-showcase-image{
 	height: 197px!important;
 }
+
+
+
+.v-offer-image{
+	max-height: 75px;
+}
+.v-offer-title ins span{
+	font-size: 10px!important;
+}
+.v-offer-description{
+	font-size: 10px!important; 
+}
+
+
+/deep/.mat-menu-item:hover{
+	color: black!important;
+}
+/deep/.mat-menu-content{
+	box-shadow: 5px 5px 15px lightgrey;
+}
+

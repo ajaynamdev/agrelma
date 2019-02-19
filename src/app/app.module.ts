@@ -122,6 +122,10 @@ import { NewRequestComponent } from './producer/components/new-request/new-reque
 import { AddFilesComponent } from './producer/components/add-files/add-files.component';
 import { EditOfferComponent } from './producer/components/edit-offer/edit-offer.component';
 import { EditRequestComponent } from './producer/components/edit-request/edit-request.component';
+import { Home1Component, TryNow as TryNow1 } from './components/home1/home1.component';
+import { SendMessageComponent } from './components/send-message/send-message.component';
+import { RelistOfferComponent } from './producer/components/relist-offer/relist-offer.component';
+import { LoginActivateComponent } from './components/login-activate/login-activate.component';
 
 @NgModule({
   declarations: [
@@ -170,7 +174,12 @@ import { EditRequestComponent } from './producer/components/edit-request/edit-re
     NewRequestComponent,
     AddFilesComponent,
     EditOfferComponent,
-    EditRequestComponent
+    EditRequestComponent,
+    Home1Component,
+    TryNow1,
+    SendMessageComponent,
+    RelistOfferComponent,
+    LoginActivateComponent
   ],
   imports: [
     AppRoutingModule,
@@ -218,6 +227,6 @@ import { EditRequestComponent } from './producer/components/edit-request/edit-re
     HttpModule,
   ],
   providers: [AuthGuardService, AuthService, CookieService],
-  entryComponents: [LoginDialog, SignupDialog, TryNow, MessageDialog]
+  entryComponents: [LoginDialog, SignupDialog, TryNow, TryNow1, MessageDialog]
 })
 export class AppModule { }

@@ -17,19 +17,19 @@
     </div>
 </div> -->
 <!-- .top-bar-v1 -->
-<header id="masthead" class="site-header header-v1" style="background-image: none; ">
+<header id="masthead" class="site-header header-v1  handheld-only" style="background-image: none;">
     <div class="col-full desktop-only">
         <div class="">
             <div class="row">
                 <div class="site-branding">
                     <a routerLink="/" class="custom-logo-link" rel="home">
-                        <img src="https://raw.githubusercontent.com/vishal-pandey/agrelma/developement/src/assets/agrelma-logo.gif">
+                        <img src="https://raw.githubusercontent.com/vishal-pandey/agrelma/developement/src/assets/agrelma-logo.gif" *ngIf="nodisplay">
                     </a>
                     <!-- /.custom-logo-link -->
                 </div>
                 <!-- /.site-branding -->
                 <!-- ============================================================= End Header Logo ============================================================= -->
-                <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu">
+                <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu" style="width: 100%!important;">
                     <ul id="menu-primary-menu" class="nav yamm">
                         <li class="sale-clr yamm-fw menu-item animate-dropdown">
                             <a title="Home" routerLink="/">Home</a>
@@ -67,8 +67,8 @@
                     <!-- .nav -->
                 </nav>
                 <!-- .primary-navigation -->
-                <nav id="secondary-navigation" class="secondary-navigation" aria-label="Secondary Navigation" data-nav="flex-menu">
-                    <ul id="menu-secondary-menu" class="nav">
+                <nav id="secondary-navigation" class="secondary-navigation" aria-label="Secondary Navigation" data-nav="flex-menu" *ngIf="nodisplay">
+                    <ul id="menu-secondary-menu" class="nav" *ngIf="nodisplay">
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2802 animate-dropdown">
                             <a title="Track Your Order" href="track-your-order.html">
                                 <i class="tm tm-order-tracking"></i>Track Your Order</a>
@@ -116,6 +116,12 @@
                 
             </div> -->
             <!-- .departments-menu -->
+            <div class="site-branding">
+                <a routerLink="/" class="custom-logo-link" rel="home">
+                    <img src="https://raw.githubusercontent.com/vishal-pandey/agrelma/developement/src/assets/agrelma-logo.gif">
+                </a>
+                <!-- /.custom-logo-link -->
+            </div>
             <form class="navbar-search" method="get" action="home-v1.html">
                 <label class="sr-only screen-reader-text" for="search">Search for:</label>
                 <div class="input-group">
@@ -241,4 +247,87 @@
     </div>
     <!-- .handheld-only -->
 </header>
+
+<header class="site-header header-v1 desktop-only" style=" margin: 0; padding: 0; width: 100%;">
+    <section class="row" style=" margin: 0; padding: 0; width: 100%;">
+        <section class="col-sm-12 status-bar">
+            <ul id="menu-primary-menu" class="nav yamm">
+                <li class="menu-item animate-dropdown" style="float: right;" *ngIf='!this.aS.isLoggedInn()'>
+                    <a (click)="openSignup()" style="cursor: pointer; color: #6db173; font-size: 13px;">REGESTER</a> | <a (click)="openLogin()" style="cursor: pointer; font-size: 13px;">Login</a>
+                    <!-- <button mat-stroked-button class="advance-search-button" routerLink="/advance-search">Advance Search</button> -->
+                </li>
+                <li class="menu-item animate-dropdown" style="float: right;" *ngIf='this.aS.isLoggedInn()'>
+                    <a routerLink="/admin/producer/">Panel</a>
+                    &nbsp;&nbsp;&nbsp;<a (click)="this.aS.logout()" style="cursor: pointer;">Logout</a>
+                </li>
+            </ul>
+        </section>
+        <section  class="col-sm-12" style="width: 100%; max-width: 1358px; display: flex; align-items: center; justify-content: center; margin-left: auto; margin-right: auto;">
+            <section class="col-sm-2">
+                <div class="site-branding">
+                    <a routerLink="/" class="custom-logo-link" rel="home">
+                        <img src="https://raw.githubusercontent.com/vishal-pandey/agrelma/developement/src/assets/agrelma-logo.gif">
+                    </a>
+                    <!-- /.custom-logo-link -->
+                </div>
+            </section>
+            <section class="col-sm-10" style="padding-left: 30px;">
+                <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu" style="width: 100%!important;">
+                    <ul id="menu-primary-menu" class="nav yamm">
+                        <li class="sale-clr yamm-fw menu-item animate-dropdown">
+                            <a title="Home" routerLink="/">Home</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <a title="Who We Are" routerLink="/about-us">Who We Are</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <a title="Contact Us" routerLink="/contact-us">Contact Us</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <a title="Partners" routerLink="/partners">Partners</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <a title="FAQ" routerLink="/faq">FAQ</a>
+                        </li>
+                    </ul>
+                    <!-- .nav -->
+                </nav>
+                <form class="navbar-search" method="get" action="home-v1.html">
+                    <label class="sr-only screen-reader-text" for="search">Search for:</label>
+                    <div class="input-group">
+                        <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr"  placeholder="Search for products" [(ngModel)]="query" name="query" />
+                        <div class="input-group-addon search-categories popover-header">
+                            <select name='type' id='product_cat' class='postform resizeselect' [(ngModel)]="type">
+                                <option value='0' selected='selected'>Offers</option>
+                                <option class="level-0" value="1">Requests</option>
+                            </select>
+                        </div>
+                        <div class="input-group-addon search-categories popover-header">
+                            <select name='category' id='product_cat1' class='postform resizeselect' [(ngModel)]="category">
+                                <option value='0' selected='selected'>In All Categories</option>
+
+                                <option class="level-0" value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
+                                
+                                
+                            </select>
+                        </div>
+                        <!-- .input-group-addon -->
+                        <div class="input-group-btn input-group-append">
+                            <!-- <input type="hidden" id="search-param" name="post_type" value="product" /> -->
+                            <button type="submit" class="btn btn-primary" (click)="search()">
+                                <i class="fa fa-search"></i>
+                                <span class="search-btn">Search</span>
+                            </button>
+                        </div>
+                        <!-- .input-group-btn -->
+                    </div>
+                    <!-- .input-group -->
+                </form>
+            </section>
+        </section>
+    </section>
+    
+</header>
+
+
 <!-- .header-v1 -->

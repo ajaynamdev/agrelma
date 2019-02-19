@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import {MainService} from '../../services/main.service';
+import { Router }      from '@angular/router';
 
 @Component({
   selector: 'app-present-online',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresentOnlineComponent implements OnInit {
 
-  constructor() { }
+  constructor(public mS:MainService, 
+  	public router: Router,) { }
 
   ngOnInit() {
+  	this.mS.countryList().subscribe((r:any)=>{
+  		console.log(r);
+  		this.countryList = r;
+  		this.isLoded = true;
+  	})
+  }
+
+  test(){
+  	console.log("testing");
+  }
+
+  selSec = [];
+
+  addSec(i){
+  	if (this.selSec.indexOf(i) == -1) {
+  		this.selSec.push(i);
+  	}else{
+  		this.selSec.splice(this.selSec.indexOf(i), 1);
+  	}
+  	this.makeActSet();
+  	console.log(this.selSec);
   }
 
   socialContact = [1];
@@ -95,7 +120,173 @@ export class PresentOnlineComponent implements OnInit {
 			"sub": []
 		}
   ];
+  activitySector = 
+	[
+		{'id':'3', 'name':'Cereals'},
+		{'id':'6', 'name':'Cheese'},
+		{'id':'8', 'name':'Citrus'},
+		{'id':'29', 'name':'Coffee'},
+		{'id':'30', 'name':'Convenience food/ready meals'},
+		{'id':'10', 'name':'Crostacea and Mollusca'},
+		{'id':'24', 'name':'Cured Pork'},
+		{'id':'19', 'name':'Delicatessen'},
+		{'id':'11', 'name':'Drinks'},
+		{'id':'2', 'name':'Fish and Seafood'},
+		{'id':'32', 'name':'Frozen products'},
+		{'id':'1', 'name':'Fruits'},
+		{'id':'23', 'name':'Liquors'},
+		{'id':'15', 'name':'Meat'},
+		{'id':'12', 'name':'Oil'},
+		{'id':'22', 'name':'Oil Seeds'},
+		{'id':'18', 'name':'Olives'},
+		{'id':'21', 'name':'Packed Fisheries'},
+		{'id':'20', 'name':'Packed Fruit and Vegetables'},
+		{'id':'27', 'name':'Pasta'},
+		{'id':'26', 'name':'Preserves'},
+		{'id':'4', 'name':'Quality Wine'},
+		{'id':'28', 'name':'Sweets and dough products'},
+		{'id':'9', 'name':'Table Wine'},
+		{'id':'7', 'name':'Vegetables'},
+		{'id':'31', 'name':'Vinegar'}
+	]
   selectedTab = 0;
+  countryList :any;
+  isLoded:boolean = false;
+  NumSettori = 26;
+
+
+  Azienda = new FormControl(''); 	// Company Name
+  Email = new FormControl(''); //Email
+  Stato = new FormControl(''); //Country
+  txtUsername = new FormControl(''); // Username
+  txtPassword = new FormControl(''); // Password
+  txtPassword2 = new FormControl(''); //Repeat Password
+  Indirizzo = new FormControl(''); //Address
+  Citta = new FormControl(''); //City
+  CAP = new FormControl(''); //PoBOX
+  Telefono = new FormControl(''); // Phone
+  Fax = new FormControl(''); //FAX
+  IndWeb = new FormControl(''); // Website
+  Contatto = new FormControl(''); // Contact
+  SettPrinc = new FormControl(''); // Main Sector
+  Descrizione = new FormControl(''); // Company Description
+  Impiegati = new FormControl(''); // Number of employees
+  AnnoInizio = new FormControl(''); // Year Established
+  LegaleRappresentante = new FormControl(''); //Legal Representative/Business Owner:
+  ClientePrincipale = new FormControl(''); //Main Customer:
+  VolumeVendite = new FormControl(''); //Total Annual Sales Volume:
+  PercentualeEsportazione = new FormControl(''); //Export Percentage
+  VolumeAcquisti = new FormControl(''); //Total Annual Purchase Volume
+  Vende = new FormControl(''); //Products/Services: (Sold)
+  Compra = new FormControl(''); //Products/Services: (Purchased)
+  SettAgg = '';
+
+
+  makeActSet(){
+  	let x = ';';
+  	for (var i of this.selSec) {
+  		x = x+i+';';
+  	}
+  	console.log(x);
+  	this.SettAgg = x;
+  }
+
+
+  signup(){
+  	if(!this.step1(true)){
+  		return;
+  	}
+  	if(!this.step2(true)){
+  		return;
+  	}
+
+  	this.mS.checkUsername(this.txtUsername.value).subscribe((r:any)=>{
+		if (r == 1) {
+			alert("This username already exist")
+			this.selectedTab = 0;
+			return false;
+		}else{
+			this.mS.signup(this.Azienda.value,
+		    this.Email.value,
+		    this.Stato.value,
+		    this.SettPrinc.value,
+		    this.SettAgg,
+		    this.txtUsername.value,
+		    this.txtPassword.value,
+		    this.txtPassword2.valid,
+		    this.Telefono.value,
+		    this.Indirizzo.value,
+		    this.Citta.value,
+		    this.CAP.value,
+		    this.Fax.value,
+		    this.IndWeb.value,
+		    this.Contatto.value,
+		    this.Descrizione.value).subscribe((r:any)=>{
+		    	console.log(r);
+		    	if (r) {
+		    		alert("You are registered successfully Now you can login with usernane and password you Entered");
+		    		this.router.navigate(['/login']);
+		    	}
+		    });
+		}
+	});
+
+  	
+  }
+
+  step1($check=false){
+	if(this.Azienda.value == '' ||
+		this.Email.value == '' ||
+		this.Stato.value == '' ||
+		this.txtUsername.value == '' ||
+		this.txtPassword.value == '' ||
+		this.txtPassword2.value == ''){
+		alert("All Fields Are Mandatory")
+		if ($check) {
+			this.selectedTab = 0;
+		}
+		return false;
+	}else if(this.txtPassword.value != this.txtPassword2.value){
+		alert('Password do not match');
+		if ($check) {
+			this.selectedTab = 0;
+		}
+		return false;
+	}
+	else{
+		
+		if (!$check) {
+			this.selectedTab = 1;
+		}
+		this.scroll(10);
+		return true;
+		
+	}
+  }
+
+  step2($check=false){
+  	if(this.Indirizzo.value == '' ||
+		this.Citta.value == '' ||
+		this.Telefono.value == '' ||
+		this.Contatto.value == '' ||
+		this.SettPrinc.value == '' ||
+		this.Descrizione.value == ''){
+		alert("Fields marked with * (astric) is Mandatory");
+		if ($check) {
+			this.selectedTab = 1;
+		}
+		return false;
+	}else{
+		if (!$check) {
+			this.selectedTab = 2;
+		}
+		this.scroll(10);
+		return true;
+	}
+  }
+
+
+
 
   addMore(){
   	this.socialContact.push((this.socialContact.length));

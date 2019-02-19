@@ -30,7 +30,14 @@
 		</section>
 		<section class="col-sm-4">
 			<section class="content">
-				<div class="sub-box">
+				<div class="sub-box" *ngIf="this.aS.isProducer()">
+					<h5>Buyer details</h5>
+					<b>{{company?.azienda}}</b><br>
+					<a routerLink="/contact-detail-producer/{{company?.idanagrafica}}">Contact</a>
+					<a href="{{company?.indwww}}">View Website</a><br>
+					<button routerLink="/send-message/{{company?.iddomoff}}">Send Message</button>
+				</div>
+				<div class="sub-box" *ngIf="!this.aS.isProducer()">
 					<h5>Buyer details</h5>
 					<span><br>In order to contact this buyer, simplylog-in or subscribe.<br><br></span>
 					<button>Subscribe</button>

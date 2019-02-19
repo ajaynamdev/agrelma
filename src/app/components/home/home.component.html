@@ -17,7 +17,7 @@
                                 <div class="v-slider">
                                     <ngu-carousel [inputs]="carouselOne">
                                           <ngu-item NguCarouselItem *ngFor="let request of latestrequests1">
-                                            <mat-card class="request-slider">
+                                            <mat-card class="request-slider" routerLink="/request/{{request.iddomoff}}">
                                                   <mat-card-subtitle>
                                                     
                                                     <b>{{request.nomesettore}}</b>
@@ -59,7 +59,7 @@
                                     </ngu-carousel>
                                     <ngu-carousel [inputs]="carouselOne">
                                           <ngu-item NguCarouselItem *ngFor="let request of latestrequests2">
-                                            <mat-card class="request-slider">
+                                            <mat-card class="request-slider" routerLink="/request/{{request.iddomoff}}">
                                                   <mat-card-subtitle>
                                                     
                                                     <b>{{request.nomesettore}}</b>
@@ -2320,27 +2320,27 @@
                                         </span>
                                     </span>
                                 </mat-nav-list>
-                                <mat-menu #menuo1="matMenu" [overlapTrigger]="'flase'" direction="end">
+                                <mat-menu #menuo1="matMenu" [overlapTrigger]="theflase" direction="end" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/offer/4">Quality Wine</button>
                                   <button mat-menu-item routerLink="/search-result/offer/9">Table Wine</button>
                                   <button mat-menu-item routerLink="/search-result/offer/23">Liquors</button>
                                 </mat-menu>
-                                <mat-menu #menuo2="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo2="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/offer/12">Oil</button>
                                   <button mat-menu-item routerLink="/search-result/offer/18">Olives</button>
                                   <button mat-menu-item routerLink="/search-result/offer/22">Oil Seeds</button>
                                 </mat-menu>
-                                <mat-menu #menuo3="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo3="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/offer/2">Fish And Seafood</button>
                                   <button mat-menu-item routerLink="/search-result/offer/10">Crostacea And Mollusca</button>
                                   <button mat-menu-item routerLink="/search-result/offer/21">Packed Fisheries</button>
 
                                 </mat-menu>
-                                <mat-menu #menuo4="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo4="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/offer/24">Cured Pork</button>
                                   <button mat-menu-item routerLink="/search-result/offer/15">Meat</button>
                                 </mat-menu>
-                                <mat-menu #menuo5="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menuo5="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/offer/1">Fruits</button>
                                   <button mat-menu-item routerLink="/search-result/offer/8">Citrus</button>
                                   <button mat-menu-item routerLink="/search-result/offer/7">Vegetables</button>
@@ -2409,27 +2409,27 @@
                                         </span>
                                     </span>
                                 </mat-nav-list>
-                                <mat-menu #menu1="matMenu" [overlapTrigger]="'flase'" direction="end">
+                                <mat-menu #menu1="matMenu" [overlapTrigger]="theflase" direction="end" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/request/4">Quality Wine</button>
                                   <button mat-menu-item routerLink="/search-result/request/9">Table Wine</button>
                                   <button mat-menu-item routerLink="/search-result/request/23">Liquors</button>
                                 </mat-menu>
-                                <mat-menu #menu2="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menu2="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/request/12">Oil</button>
                                   <button mat-menu-item routerLink="/search-result/request/18">Olives</button>
                                   <button mat-menu-item routerLink="/search-result/request/22">Oil Seeds</button>
                                 </mat-menu>
-                                <mat-menu #menu3="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menu3="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/request/2">Fish And Seafood</button>
                                   <button mat-menu-item routerLink="/search-result/request/10">Crostacea And Mollusca</button>
                                   <button mat-menu-item routerLink="/search-result/request/21">Packed Fisheries</button>
 
                                 </mat-menu>
-                                <mat-menu #menu4="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menu4="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/request/24">Cured Pork</button>
                                   <button mat-menu-item routerLink="/search-result/request/15">Meat</button>
                                 </mat-menu>
-                                <mat-menu #menu5="matMenu" [overlapTrigger]="'flase'">
+                                <mat-menu #menu5="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
                                   <button mat-menu-item routerLink="/search-result/request/1">Fruits</button>
                                   <button mat-menu-item routerLink="/search-result/request/8">Citrus</button>
                                   <button mat-menu-item routerLink="/search-result/request/7">Vegetables</button>
@@ -2793,15 +2793,15 @@
                                         <div class="landscape-product-widget product" *ngFor="let offer of latestoffers">
                                             <a class="woocommerce-LoopProduct-link" routerLink="/search-result/offer/{{offer.settore}}">
                                                 <div class="media">
-                                                    <img class="wp-post-image" src="https://www.agrelma.com/DomOff/Foto/{{offer.nomefile}}" alt="">
+                                                    <img class="wp-post-image v-offer-image" src="https://www.agrelma.com/DomOff/Foto/{{offer.nomefile}}" alt="">
                                                     <div class="media-body">
-                                                        <span class="price">
+                                                        <span class="price v-offer-title">
                                                             <ins>
                                                                 <span class="amount">Sector : {{offer.nomesettore}} <br>Country : {{offer.paese}}</span>
                                                             </ins>
                                                         </span>
                                                         <!-- .price -->
-                                                        <h2 class="woocommerce-loop-product__title">{{offer.titolo}}</h2>
+                                                        <h2 class="woocommerce-loop-product__title v-offer-description">{{offer.titolo}}<br>{{offer.prezzo}} {{offer.valuta}}/{{offer.prezzoper}} {{offer.umprezzoper}}<br>Minimum Order : {{offer.ordineminimo}} {{offer.umprezzoper}}</h2>
                                                         <div class="techmarket-product-rating">
                                                             <div title="Rated 0 out of 5" class="star-rating">
                                                                 <span style="width:0%">

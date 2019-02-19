@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { Home1Component } from './components/home1/home1.component';
 import { AsearchComponent } from './components/asearch/asearch.component';
 import { TestComponent } from './components/test/test.component';
 import { FaqComponent } from './components/faq/faq.component';
@@ -13,6 +14,7 @@ import { AboutComponent } from './components/about/about.component';
 import { PartnersComponent } from './components/partners/partners.component';
 import { XpayComponent } from './components/xpay/xpay.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoginActivateComponent } from './components/login-activate/login-activate.component';
 import { PresentOnlineComponent } from './components/present-online/present-online.component';
 import { SpecificRequestComponent } from './components/specific-request/specific-request.component';
 import { ContactProducerComponent } from './components/contact-producer/contact-producer.component';
@@ -38,12 +40,19 @@ import { MiniSiteComponent } from './producer/components/mini-site/mini-site.com
 import { OtherDataComponent } from './producer/components/other-data/other-data.component';
 import { ProducerAccountingComponent } from './producer/components/producer-accounting/producer-accounting.component';
 
-import { AddFilesComponent } from './producer/components/add-files/add-files.component';
+import { RelistOfferComponent } from './producer/components/relist-offer/relist-offer.component';
 
+import { AddFilesComponent } from './producer/components/add-files/add-files.component';
+import { SendMessageComponent } from './components/send-message/send-message.component'
+ 
 const routes: Routes = [
 	{
-		path: "",
+		path: "home1",
 		component: HomeComponent
+	},
+	{
+		path: "",
+		component: Home1Component
 	},
 	{
 		path: "advance-search",
@@ -82,6 +91,14 @@ const routes: Routes = [
 		component: SearchresultComponent
 	},
 	{
+		path: "send-message/:domoffid",
+		component: SendMessageComponent
+	},
+	{
+		path: "send-message/:domoffid/:ro/:quo",
+		component: SendMessageComponent
+	},
+	{
 		path: "offer",
 		component: OfferComponent
 	},
@@ -110,7 +127,7 @@ const routes: Routes = [
 		component: AboutComponent
 	},
 	{
-		path: "x-pay",
+		path: "x-pay/:amount",
 		component: XpayComponent
 	},
 	{
@@ -120,6 +137,10 @@ const routes: Routes = [
 	{
 		path: "login",
 		component: LoginComponent
+	},
+	{
+		path: "login-activate",
+		component: LoginActivateComponent
 	},
 	{
 		path: "present-product-online",
@@ -222,6 +243,10 @@ const routes: Routes = [
 	          	path: 'edit-request/:id',
 	          	component: EditRequestComponent
 	          },
+	          {
+	          	path: 'relist-offer/:offerid/:todo',
+	          	component: RelistOfferComponent
+	          }
           ]
         }
       ]

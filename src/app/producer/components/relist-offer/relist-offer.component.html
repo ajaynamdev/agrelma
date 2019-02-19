@@ -1,0 +1,90 @@
+<section class="d-container">
+	<section class="d-i-container">
+		<section class="col-sm-12 l-col">
+			<div class="d-box">
+				<header>
+					<h3>Promote Your Offer</h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main>
+					<div class="col-sm-12" style="display: flex; align-content: center; justify-content: center;">
+						<div class="col-sm-3" *ngIf="photo">
+							<img src="https://www.agrelma.com/DomOff/Foto/{{photo[0]?.nomefile}}">
+						</div>
+						<div class="col-sm-9">
+							<h3>{{offer?.titolo}}</h3>
+							<b>Sector : </b>{{offer?.nomesettore}}
+							<br>
+							<b style="color: lightgreen;">{{offer?.prezzo}} {{offer?.valuta}} / {{offer?.prezzoper}} {{offer?.umprezzoper}}</b>
+							<br>
+							<b>Minimum Order:</b> {{offer?.ordineminimo}} {{offer?.unitamisura}}
+						</div>
+					</div>
+				</main>
+			</div>		
+		</section>
+		<section class="col-sm-6">
+			<div class="d-box">
+				<header>
+					<h3>Make your offer visible in within the first search results</h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main>
+					<div>If you want your offer to appear in the first page, simply Relist it for <b style="color: red;">4.00 €</b>.</div>
+					<div>
+						<mat-checkbox [(ngModel)]="one" (change)="vchange()">Click here to access the <b>Relist function</b></mat-checkbox> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>4,00 €</b>
+						<br>
+						<br>
+					</div>
+				</main>
+			</div>
+		</section>
+		<section class="col-sm-6">
+			<div class="d-box">
+				<header>
+					<h3>Insert your offer in the showcase to increase the number of views.</h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main>
+					<div>Make your offer to appear in a “privileged” position within the results’ pages.</div>
+					<div>
+						<mat-checkbox [(ngModel)]="two" (change)="vchange('two')">Display offer in showcase for <b>1 week</b></mat-checkbox> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>9,00 €</b>
+						<br>
+						<mat-checkbox [(ngModel)]="three" (change)="vchange('three')">Display offer in showcase for <b>1 month</b></mat-checkbox> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>28,00 €</b>
+					</div>
+				</main>
+			</div>
+		</section>
+		<section class="col-sm-12 l-col">
+			<div class="d-box">
+				<header>
+					<h3></h3>
+					<span class="action">
+						<button mat-icon-button>
+						  <mat-icon>more_vert</mat-icon>
+						</button>
+					</span>
+				</header>
+				<main>
+					<div class="col-sm-12" style="display: flex; align-items: center; justify-content: flex-end; flex-direction: column;">
+						<span><b style="font-size: 24px;">Total: {{total}} €</b></span>
+						
+						<button mat-stroked-button (click)="proceed()">Proceed With the Activation</button>
+					</div>
+				</main>
+			</div>		
+		</section>		
+	</section>
+</section>

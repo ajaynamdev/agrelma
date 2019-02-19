@@ -30,7 +30,7 @@ export class OfferComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0,0);
-    $.getScript("../../../assets/js/scripts.js", function() {
+    $.getScript("https://vishal-pandey.github.io/agrelma/assets/js/scripts.js", function() {
     });
     this.route.paramMap.subscribe((r:any)=>{
       window.scrollTo(0,0);
@@ -39,9 +39,15 @@ export class OfferComponent implements OnInit {
       this.mService.getPhoto(this.offerId).subscribe((r:any)=>{
       	this.photo = r;
       	console.log(r);
-        $.getScript("../../../assets/js/scripts.js", function() {
+        $.getScript("https://vishal-pandey.github.io/agrelma/assets/js/scripts.js", function() {
         });
-        this.isLoaded = true;
+        setTimeout(()=>{
+          $.getScript("https://vishal-pandey.github.io/agrelma/assets/js/scripts.js", function() {
+          });
+          $.getScript("https://vishal-pandey.github.io/agrelma/assets/js/scripts.js", function() {
+          });
+          this.isLoaded = true;
+        }, 1000)
       })
 
       this.mService.getOffer(this.offerId).subscribe((r:any)=>{

@@ -1,0 +1,81 @@
+.vishal-menu{
+	list-style-type: none;
+	/*border: 1px solid red;*/
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 100%;
+}
+.vishal-menu li{
+	width: 100%;
+	height: 40px;
+	border: 1px solid green;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: none;
+	position: relative;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+	/*margin: 5px 0px; */
+}
+.vishal-menu li:last-child{
+	border-bottom: 1px solid green;
+}
+.vishal-menu li:hover{
+	background-color: #6bb374;
+	cursor: pointer;
+}
+.vishal-menu li:hover > .vishal-menu-content{
+	display: initial;
+	z-index: 1000;
+	background-color: white;
+}
+.vishal-menu-content{
+	display: none;
+	position: absolute;
+	width: 150px;
+	left: 100%;
+	top: 0;
+	/*width: 500px;*/
+	/*height: 300px;*/
+}
+
+.vishal-tab{
+	width: 100%;
+}
+.vishal-tab-container{
+	width: 100%;
+	z-index: 70000;
+	background-color: white;
+}
+.vishal-tab-header{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/*.vishal-tab-container .vishal-tab:nth-child(2){
+	display: initial;
+}*/
+
+.vishal-header-button{
+	display: inline-block;
+	width: 50%;
+	border: 1px solid green;
+	border-bottom: none;
+	border-right: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	cursor: pointer;
+}
+.vishal-header-button:last-child{
+	border-right: 1px solid green;
+}
+
+.vishalMenyActive{
+	background-color: #6bb374;
+}

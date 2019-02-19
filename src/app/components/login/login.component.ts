@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         this.message = "Logged In";
         this.cookieService.set("admin",data.HTTP_Authorization,360000,"/");
+        this.cookieService.set("admin_type",data.type,360000,"/");
         this.router.navigate(['/admin/producer']);
       }else{
         console.log(data);

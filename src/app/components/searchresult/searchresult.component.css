@@ -1,3 +1,17 @@
 .v-provider{
 	font-size: 20px!important;
 }
+
+.v-product-image-container{
+	height: 197px;
+	width: 224px;
+	max-height: 197px;
+	max-width: 224px;
+	overflow: hidden;
+	background-color: lightgrey;
+	background: radial-gradient(white, white);
+}
+.v-product-image{
+	height: 197px;
+	width: auto;
+}

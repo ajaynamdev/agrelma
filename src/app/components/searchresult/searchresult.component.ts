@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { MainService } from '../../services/main.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../../admin/services/auth.service';
 declare var $:any;
 
 @Component({
@@ -15,7 +16,8 @@ export class SearchresultComponent implements OnInit {
   constructor(private route: ActivatedRoute,
   private router: Router,
   private mS:MainService,
-  public cokkie:CookieService) { }
+  public cokkie:CookieService,
+  public aS:AuthService) { }
 
   offer:boolean = false;
   offersearch:boolean = false;
@@ -23,6 +25,7 @@ export class SearchresultComponent implements OnInit {
   offerResult:any;
   pageId:any;
   request:boolean = false;
+  requestsearch = false;
   requestId:any;
   requestResult:any;
   range:any;
@@ -171,6 +174,7 @@ export class SearchresultComponent implements OnInit {
         }
         console.log(this.query);
         this.offersearch = true;
+        this.requestsearch = false;
         if (r.params.qid) {
           this.offerId = r.params.qid;
         }else{
@@ -205,6 +209,70 @@ export class SearchresultComponent implements OnInit {
           this.nextPage = +this.pageId+1;
           this.previousPage = +this.pageId-1;
           this.mS.getOfferSearch(this.offerId, 0, 0, 0, this.query).subscribe((r:any)=>{
+            window.scrollTo(0,0);
+            console.log(r);
+            this.offerResult = r.result;
+            this.range = r.range;
+            this.total = r.total;
+            this.country = r.country;
+            this.sectortype = r.type;
+            let x = this.total/15;
+            if (x%15 != 0) {
+              x = x+1;
+            }
+            this.pagination = [];
+            for (var i = 1; i <= x; i++) {
+              this.pagination.push(i);
+              this.lastPage = i;
+            }
+            console.log("Last Page = "+this.lastPage);
+          })
+        }
+      }else if(r.params.id == "requestsearch"){
+        this.requestsearch = true;
+        this.offersearch = false;
+        if (r.params.query) {
+          this.query = r.params.query
+        }else{
+          this.query = "";
+        }
+        console.log(this.query);
+        if (r.params.qid) {
+          this.offerId = r.params.qid;
+          this.requestId = r.params.qid;
+        }else{
+          this.offerId = '0';
+          this.requestId = '0';
+        }
+        console.log(r.params.qid);
+        this.pageId = r.params.pid;
+        this.nextPage = +this.pageId+1;
+        this.previousPage = +this.pageId-1;
+        if (r.params.pid) {
+          this.mS.getRequestSearch(this.offerId, this.countryId, this.pageId, this.typeId, this.query).subscribe((r:any)=>{
+            window.scrollTo(0,0);
+            console.log(r);
+            this.requestResult = r.results;
+            this.range = r.range;
+            this.total = r.total;
+            this.sectortype = r.type;
+            let x = this.total/15;
+            console.log(x);
+            if (x%15 != 0) {
+              x = x+1;
+            }
+            this.pagination = [];
+            for (var i = 1; i <= x; i++) {
+              this.pagination.push(i);
+              this.lastPage = i;
+            }
+            console.log("Last Page = "+this.lastPage);
+          })
+        }else{
+          this.pageId = 1;
+          this.nextPage = +this.pageId+1;
+          this.previousPage = +this.pageId-1;
+          this.mS.getRequestSearch(this.offerId, 0, 1, 0, this.query).subscribe((r:any)=>{
             window.scrollTo(0,0);
             console.log(r);
             this.offerResult = r.result;

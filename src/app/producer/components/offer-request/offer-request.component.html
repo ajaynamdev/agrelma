@@ -40,7 +40,7 @@
 			</div>
 		</section>
 		<section class="col-sm-12 m-col">
-			<div class="d-box">
+			<div class="d-box" *ngIf="type=='T' || type=='P'">
 				<header>
 					<h3>Inserted Offers List</h3>
 					<span class="action">
@@ -102,21 +102,21 @@
 					  <!-- Symbol Column -->
 					  <ng-container matColumnDef="showcase">
 					    <th mat-header-cell *matHeaderCellDef> ShowCase </th>
-					    <td mat-cell *matCellDef="let element"> <button mat-icon-button style="background-color: lightgreen;" matTooltip="Put this Offer in ShowCase for 1 week">7<mat-icon>note_add</mat-icon></button>&nbsp;&nbsp;<button mat-icon-button style="background-color: lightgreen;" matTooltip="Put this Offer in ShowCase for 1 month">30<mat-icon>note_add</mat-icon></button> </td>
+					    <td mat-cell *matCellDef="let element"> <button mat-icon-button style="background-color: lightgreen;" matTooltip="Put this Offer in ShowCase for 1 week" routerLink="/admin/producer/relist-offer/{{element.offerid}}/2">7<mat-icon>note_add</mat-icon></button>&nbsp;&nbsp;<button mat-icon-button style="background-color: lightgreen;" matTooltip="Put this Offer in ShowCase for 1 month" routerLink="/admin/producer/relist-offer/{{element.offerid}}/3">30<mat-icon>note_add</mat-icon></button> </td>
 					  </ng-container>
 
 					  <!-- Symbol Column -->
 					  <ng-container matColumnDef="relist">
 					    <th mat-header-cell *matHeaderCellDef> Reslist </th>
-					    <td mat-cell *matCellDef="let element"> <button mat-icon-button style="background-color: lightgreen;" matTooltip="Put this offer in the first position in the lists"><mat-icon>playlist_add_check</mat-icon></button> </td>
+					    <td mat-cell *matCellDef="let element"> <button mat-icon-button style="background-color: lightgreen;" matTooltip="Put this offer in the first position in the lists" routerLink="/admin/producer/relist-offer/{{element.offerid}}/1"><mat-icon>playlist_add_check</mat-icon></button> </td>
 					  </ng-container>
 
 					  <tr mat-header-row *matHeaderRowDef="offersCols"></tr>
 					  <tr mat-row *matRowDef="let row; columns: offersCols;"></tr>
 					</table>
-				</main>
+				</main>  <!-- Inserted Offer List -->
 			</div>
-			<div class="d-box">
+			<div class="d-box" *ngIf="type=='A' || type=='P'">
 				<header>
 					<h3>Inserted Requests List</h3>
 					<span class="action">
@@ -183,13 +183,23 @@
 					  <tr mat-header-row *matHeaderRowDef="requestcols"></tr>
 					  <tr mat-row *matRowDef="let row; columns: requestcols;"></tr>
 					</table>
-				</main>
+				</main>  <!-- Inserted Request List -->
 			</div>
 		</section>
 		<section class="col-sm-12 m-col">
-			<div class="d-box">
+			<div class="d-box" *ngIf="type=='P'">
 				<main>
 					<button mat-raised-button routerLink="../new-offer">New Offer</button>
+					<button mat-raised-button routerLink="../new-request">New Request</button>
+				</main>
+			</div>
+			<div class="d-box" *ngIf="type=='T'">
+				<main>
+					<button mat-raised-button routerLink="../new-offer">New Offer</button>
+				</main>
+			</div>
+			<div class="d-box" *ngIf="type=='A'">
+				<main>
 					<button mat-raised-button routerLink="../new-request">New Request</button>
 				</main>
 			</div>

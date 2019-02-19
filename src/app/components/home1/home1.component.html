@@ -1,0 +1,908 @@
+
+<section id="content" class="site-content" tabindex="-1">
+	<section class="col-full">
+		<section class="n-content row">
+			<section class="col-sm-2 n-border left-coulmn">
+				<div class="side-container">
+					<img src="assets/images/home-page/free-button/prodotti-online-ing.png" routerLink="/present-product-online">
+                    <!-- <button class="offer-button" mat-stroked-button matBadge="Free" matBadgeSize="medium" routerLink="/present-product-online">Present Your Products Online</button> -->
+                </div>
+                <div class="side-container" *ngIf="nodisplay">
+                    <img src="https://www.agrelma.com/Img/banner-promo-UK.png" routerLink="/subscribe">
+                </div>
+                <div class="widget woocommerce widget_product_categories techmarket_widget_product_categories" style="margin-left: auto; margin-right: auto;">
+                    <!-- <mat-toolbar class="sectors">The Sectors</mat-toolbar> -->
+                    <div class="vishal-tab-container">
+                        <div class="vishal-tab-header">
+                            <span class="vishal-header-button" (click)="tabSelect(1)" [ngClass]="{'vishalMenyActive': tab == '1'}">Offers</span>
+                            <span class="vishal-header-button" (click)="tabSelect(2)" [ngClass]="{'vishalMenyActive': tab == '2'}">Request</span>
+                        </div>
+
+                        <div class="vishal-tab" *ngIf="tab == '1'">
+                            <ul class="vishal-menu">
+                                <li>
+                                    Wines And Liquors
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/offer/4">Quality Wine</li>
+                                            <li routerLink="/search-result/offer/9">Table Wine</li>
+                                            <li routerLink="/search-result/offer/23">Liquors</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Oil And Olives
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/offer/12">Oil</li>
+                                            <li routerLink="/search-result/offer/18">Olives</li>
+                                            <li routerLink="/search-result/offer/22">Oil Seeds</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Fish And Seafood
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/offer/2">Fish And Seafood</li>
+                                            <li routerLink="/search-result/offer/10">Crostacea And Mollusca</li>
+                                            <li routerLink="/search-result/offer/21">Packed Fisheries</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Meat And Cured Pork
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/offer/24">Cured Pork</li>
+                                            <li routerLink="/search-result/offer/15">Meat</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Fruits And Vege.
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/offer/1">Fruits</li>
+                                            <li routerLink="/search-result/offer/8">Citrus</li>
+                                            <li routerLink="/search-result/offer/7">Vegetables</li>
+                                            <li routerLink="/search-result/offer/20">Packed Fruit And Vegetables</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li routerLink="/search-result/offer/27">Pasta</li>
+                                <li routerLink="/search-result/offer/19">Delicatessen</li>
+                                <li routerLink="/search-result/offer/26">Preserves</li>
+                                <li routerLink="/search-result/offer/28">Sweets And Dough Products</li>
+                                <li routerLink="/search-result/offer/6">Cheese</li>
+                                <li routerLink="/search-result/offer/29">Coffee</li>
+                                <li routerLink="/search-result/offer/11">Drinks</li>
+                                <li routerLink="/search-result/offer/32">Frozen Products</li>
+                                <li routerLink="/search-result/offer/3">Cereals</li>
+                                <li routerLink="/search-result/offer/30">Convenience Food/Ready Meals</li>
+                                <li routerLink="/search-result/offer/31">Vinegar</li>
+                            </ul>
+                        </div>
+                        <div class="vishal-tab" *ngIf="tab == '2'">
+                            <ul class="vishal-menu">
+                                <li>
+                                    Wines And Liquors
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/request/4">Quality Wine</li>
+                                            <li routerLink="/search-result/request/9">Table Wine</li>
+                                            <li routerLink="/search-result/request/23">Liquors</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Oil And Olives
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/request/12">Oil</li>
+                                            <li routerLink="/search-result/request/18">Olives</li>
+                                            <li routerLink="/search-result/request/22">Oil Seeds</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Fish And Seafood
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/request/2">Fish And Seafood</li>
+                                            <li routerLink="/search-result/request/10">Crostacea And Mollusca</li>
+                                            <li routerLink="/search-result/request/21">Packed Fisheries</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Meat And Cured Pork
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/request/24">Cured Pork</li>
+                                            <li routerLink="/search-result/request/15">Meat</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    Fruits And Vege.
+                                    <div class="vishal-menu-content">
+                                        <ul class="vishal-menu">
+                                            <li routerLink="/search-result/request/1">Fruits</li>
+                                            <li routerLink="/search-result/request/8">Citrus</li>
+                                            <li routerLink="/search-result/request/7">Vegetables</li>
+                                            <li routerLink="/search-result/request/20">Packed Fruit And Vegetables</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li routerLink="/search-result/request/27">Pasta</li>
+                                <li routerLink="/search-result/request/19">Delicatessen</li>
+                                <li routerLink="/search-result/request/26">Preserves</li>
+                                <li routerLink="/search-result/request/28">Sweets And Dough Products</li>
+                                <li routerLink="/search-result/request/6">Cheese</li>
+                                <li routerLink="/search-result/request/29">Coffee</li>
+                                <li routerLink="/search-result/request/11">Drinks</li>
+                                <li routerLink="/search-result/request/32">Frozen Products</li>
+                                <li routerLink="/search-result/request/3">Cereals</li>
+                                <li routerLink="/search-result/request/30">Convenience Food/Ready Meals</li>
+                                <li routerLink="/search-result/request/31">Vinegar</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background-color: white; display: none;">
+                        <mat-tab-group class="sector-tabs">
+                          <mat-tab style="overflow: visible;">
+                            <ng-template mat-tab-label class="tab-header">
+                                <span class="test">
+                                  Offers
+                                </span>
+                            </ng-template>
+                            <p>
+                                <mat-nav-list>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menuo1">
+                                            <span>Wines And Liquors</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menuo2">
+                                            <span>Oil And Olives</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menuo3">
+                                            <span>Fish And Seafood</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menuo4">
+                                            <span>Meat And Cured Pork</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menuo5">
+                                            <span>Fruits And Vege.</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+
+                                    <span *ngFor="let sector of sectors; i as index">
+                                        <span *ngIf="sector.sub[0]">
+                                        </span>
+                                        <span *ngIf="!sector.sub[0]" >
+                                            <mat-list-item routerLink="/search-result/offer/{{sector.sid}}">
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item>
+                                            <mat-divider class="sector-divider" *ngIf="sector.id != '15'"></mat-divider>
+                                        </span>
+                                    </span>
+                                </mat-nav-list>
+                                <mat-menu #menuo1="matMenu" [overlapTrigger]="theflase" direction="end" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/offer/4">Quality Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/9">Table Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/23">Liquors</button>
+                                </mat-menu>
+                                <mat-menu #menuo2="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/offer/12">Oil</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/18">Olives</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/22">Oil Seeds</button>
+                                </mat-menu>
+                                <mat-menu #menuo3="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/offer/2">Fish And Seafood</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/10">Crostacea And Mollusca</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/21">Packed Fisheries</button>
+
+                                </mat-menu>
+                                <mat-menu #menuo4="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/offer/24">Cured Pork</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/15">Meat</button>
+                                </mat-menu>
+                                <mat-menu #menuo5="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/offer/1">Fruits</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/8">Citrus</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/7">Vegetables</button>
+                                  <button mat-menu-item routerLink="/search-result/offer/20">Packed Fruit And Vegetables</button>
+
+                                </mat-menu>
+                            </p>
+                          </mat-tab>
+                          <mat-tab>
+                            <ng-template mat-tab-label class="tab-header">
+                                <span class="test">
+                                  Requests
+                                </span>
+                            </ng-template>
+                            <p>
+                                <mat-nav-list>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu1">
+                                            <span>Wines And Liquors</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu2">
+                                            <span>Oil And Olives</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu3">
+                                            <span>Fish And Seafood</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu4">
+                                            <span>Meat And Cured Pork</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+                                    <span>
+                                        <mat-list-item [matMenuTriggerFor]="menu5">
+                                            <span>Fruits And Vege.</span>
+                                        </mat-list-item>
+                                    </span>
+                                    <mat-divider class="sector-divider"></mat-divider>
+
+                                    <span *ngFor="let sector of sectors; i as index">
+                                        <span *ngIf="sector.sub[0]">
+                                            <!-- <mat-list-item>
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item> -->
+                                            <!-- <mat-list-item routerLink="/search-result/offer" id="v-d-{{sector.id}}">
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item>
+                                            <div class="v-d-{{sector.id}}">
+                                                Menu
+                                            </div> -->
+                                        </span>
+                                            <!-- <mat-divider></mat-divider> -->
+                                        <span *ngIf="!sector.sub[0]" >
+                                            <mat-list-item routerLink="/search-result/request/{{sector.sid}}">
+                                                <span>{{sector.name}}</span>
+                                            </mat-list-item>
+                                            <mat-divider class="sector-divider" *ngIf="sector.id != '15'"></mat-divider>
+                                        </span>
+                                    </span>
+                                </mat-nav-list>
+                                <mat-menu #menu1="matMenu" [overlapTrigger]="theflase" direction="end" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/request/4">Quality Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/request/9">Table Wine</button>
+                                  <button mat-menu-item routerLink="/search-result/request/23">Liquors</button>
+                                </mat-menu>
+                                <mat-menu #menu2="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/request/12">Oil</button>
+                                  <button mat-menu-item routerLink="/search-result/request/18">Olives</button>
+                                  <button mat-menu-item routerLink="/search-result/request/22">Oil Seeds</button>
+                                </mat-menu>
+                                <mat-menu #menu3="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/request/2">Fish And Seafood</button>
+                                  <button mat-menu-item routerLink="/search-result/request/10">Crostacea And Mollusca</button>
+                                  <button mat-menu-item routerLink="/search-result/request/21">Packed Fisheries</button>
+
+                                </mat-menu>
+                                <mat-menu #menu4="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/request/24">Cured Pork</button>
+                                  <button mat-menu-item routerLink="/search-result/request/15">Meat</button>
+                                </mat-menu>
+                                <mat-menu #menu5="matMenu" [overlapTrigger]="theflase" [xPosition]="'before'">
+                                  <button mat-menu-item routerLink="/search-result/request/1">Fruits</button>
+                                  <button mat-menu-item routerLink="/search-result/request/8">Citrus</button>
+                                  <button mat-menu-item routerLink="/search-result/request/7">Vegetables</button>
+                                  <button mat-menu-item routerLink="/search-result/request/20">Packed Fruit And Vegetables</button>
+
+                                </mat-menu>
+                            </p>
+                          </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+                <div class="widget widget_techmarket_products_carousel_widget" *ngIf="nodisplay">
+                    <section id="single-sidebar-carousel" class="section-products-carousel">
+                        <header class="section-header">
+                            <h2 class="section-title">Last Offers</h2>
+                            <nav class="custom-slick-nav"></nav>
+                        </header>
+                        <!-- .section-header -->
+                        <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:true,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;rows&quot;:4,&quot;slidesPerRow&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm v-right-arrow tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#single-sidebar-carousel .custom-slick-nav&quot;}" *ngIf="loaded">
+                            <div class="container-fluid">
+                                <div class="woocommerce columns-1">
+                                    <div class="products">
+                                        <div class="landscape-product-widget product" *ngIf="nodisplay">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99 VUskal</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div></div>
+                                        <div class="landscape-product-widget product" *ngFor="let offer of latestoffers">
+                                            <a class="woocommerce-LoopProduct-link" routerLink="/search-result/offer/{{offer.settore}}">
+                                                <div class="media">
+                                                    <img class="wp-post-image v-offer-image" src="https://www.agrelma.com/DomOff/Foto/{{offer.nomefile}}" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price v-offer-title">
+                                                            <ins>
+                                                                <span class="amount">Sector : {{offer.nomesettore}} <br>Country : {{offer.paese}}</span>
+                                                            </ins>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title v-offer-description">{{offer.titolo}}<br>{{offer.prezzo}} {{offer.valuta}}/{{offer.prezzoper}} {{offer.umprezzoper}}<br>Minimum Order : {{offer.ordineminimo}} {{offer.umprezzoper}}</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product" *ngIf="nodisplay">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product" *ngIf="nodisplay">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product" *ngIf="nodisplay">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-1.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product" *ngIf="nodisplay">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-2.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product" *ngIf="nodisplay">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-3.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                        <div class="landscape-product-widget product" *ngIf="nodisplay">
+                                            <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="assets/images/products/sm-4.jpg" alt="">
+                                                    <div class="media-body">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount"> 50.99</span>
+                                                            </ins>
+                                                            <del>
+                                                                <span class="amount">26.99</span>
+                                                            </del>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">S100 Wireless Bluetooth Speaker – Neon Green</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of 5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
+                                                        </div>
+                                                        <!-- .techmarket-product-rating -->
+                                                    </div>
+                                                    <!-- .media-body -->
+                                                </div>
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                    </div>
+                                    <!-- .products -->
+                                </div>
+                                <!-- .woocommerce -->
+                            </div>
+                            <!-- .container-fluid -->
+                        </div>
+                        
+
+                        <div id="latestOfferSlider" class="carousel slide" data-ride="carousel" *ngIf="!loaded">
+
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img class="d-block w-100" src="https://cdn.grabon.in/gograbon/images/web-images/l-ofrs.png">
+                            </div>
+                            
+                            <div class="carousel-item" *ngFor="let offer of latestoffers" style="max-height: 200px; overflow: hidden;">
+                              <a routerLink="/search-result/offer/{{offer.settore}}"><img class="d-block w-100" src="https://www.agrelma.com/DomOff/Foto/{{offer.nomefile}}" alt="First slide" style="filter:blur(5px); min-height: 200px;"></a>
+                              <a routerLink="/search-result/offer/{{offer.settore}}"><div class="carousel-caption d-none d-md-block" style="background-color: rgba(111,111,111,0.8); border-radius: 5px;">
+                                <h5 style="color: white; font-size: 13px;">{{offer.titolo}}</h5>
+                                <p style="color: white"><b style="color: white">Sector : </b>{{offer.nomesettore}}<br><b style="color: white">Country : </b>{{offer.paese}}</p>
+                              </div></a>
+                            </div>
+                          </div>
+
+
+
+                          <a class="carousel-control-prev" href="#latestOfferSlider" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#latestOfferSlider" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+
+
+
+
+                    </section>
+                    <!-- .section-products-carousel -->
+                </div>
+			</section>
+			<section class="col-sm-10 row" style="padding: 0; margin-left: 15px;">
+				<section class="col-sm-9">
+					<div class="jumbotron-caption latest-request-container">
+	                    <h3 class="jumbo-title">Latest Requests</h3>
+	                    <div class="v-slider">
+	                        <ngu-carousel [inputs]="carouselOne">
+	                              <ngu-item NguCarouselItem *ngFor="let request of latestrequests1; index as i">
+	                                <mat-card class="request-slider" routerLink="search-result/request/{{request.settore}}">
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.nomesettore}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.titolo}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.nazione}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.datains | date}}</b>
+	                                      </mat-card-subtitle>
+	                                </mat-card>
+                                    <mat-card class="request-slider" routerLink="search-result/request/{{latestrequests2[i]?.settore}}" *ngIf="latestrequests2[i]">
+                                          <mat-card-subtitle>
+                                            
+                                            <b>{{latestrequests2[i]?.nomesettore}}</b>
+                                          </mat-card-subtitle>
+                                          <mat-card-subtitle>
+                                            
+                                            <b>{{latestrequests2[i]?.titolo}}</b>
+                                          </mat-card-subtitle>
+                                          <mat-card-subtitle>
+                                            
+                                            <b>{{latestrequests2[i]?.nazione}}</b>
+                                          </mat-card-subtitle>
+                                          <mat-card-subtitle>
+                                            
+                                            <b>{{latestrequests2[i]?.datains | date}}</b>
+                                          </mat-card-subtitle>
+                                    </mat-card>
+	                              </ngu-item>
+	                              <button NguCarouselPrev class='leftRs'></button>
+	                              <button NguCarouselNext class='rightRs'></button>
+	                        </ngu-carousel>
+	                        <ngu-carousel [inputs]="carouselOne" *ngIf="nodisplay">
+	                              <ngu-item NguCarouselItem *ngFor="let request of latestrequests2">
+	                                <mat-card class="request-slider" routerLink="search-result/request/{{request.settore}}">
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.nomesettore}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.titolo}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.nazione}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.datains | date}}</b>
+	                                      </mat-card-subtitle>
+	                                </mat-card>
+	                                <!-- <mat-card class="request-slider">
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.sector}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.rfor}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.country}}</b>
+	                                      </mat-card-subtitle>
+	                                      <mat-card-subtitle>
+	                                        
+	                                        <b>{{request.rdate}}</b>
+	                                      </mat-card-subtitle>
+	                                </mat-card> -->
+	                              </ngu-item>
+	                              <button NguCarouselPrev class='leftRs'></button>
+	                              <button NguCarouselNext class='rightRs'></button>
+	                        </ngu-carousel>
+
+	                    </div>
+	                    <!-- <h3 class="jumbo-title">Virtual Reality Headsets</h3>
+	                    <p class="jumbo-subtitle">Nullam dignissim elit ut urna rutrum, a fermentum mi auctor. Mauris efficitur magna orci, et dignissim lacus scelerisque sit amet. Proin malesuada tincidunt nisl ac commodo. Vivamus eleifend porttitor ex sit amet suscipit. Vestibulum at ullamcorper lacus, vel facilisis arcu. Aliquam erat volutpat.
+	                        <br>
+	                        <br>Maecenas in sodales nisl. Pellentesque ac nibh mi. Ut lobortis odio nulla, congue rhoncus risus facilisis eget. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+	                        <a href="#">read more <i class="tm tm-long-arrow-right"></i></a>
+	                    </p> -->
+	                </div>
+	                <section class="col-sm-12" style="padding: 0; margin-top: 15px;">
+						<img src="assets/images/home-page/banner2.jpg" routerLink="/send-specific-request">
+					</section>
+				</section>
+				<section class="col-sm-3 right-coulmn">
+					<div class="side-container">
+						<img src="assets/images/home-page/subscription.jpg" routerLink="/subscribe">
+	                </div>
+                    <div class="side-container">
+                        <img src="assets/images/home-page/banners/2.gif" routerLink="/subscribe">
+                    </div>
+	                <div class="side-container">
+                        <img src="assets/images/home-page/banners/1.gif" routerLink="/subscribe">
+                    </div>
+				</section>
+				<section class="col-sm-12" style="">
+					<br><br>
+                    <div class="shop-control-bar v-showcase-border v-top" *ngIf="nodisplay">
+                        <h1 class="woocommerce-products-header__title page-title">Offers In Showcase</h1>
+                    </div>
+                    
+                    <!-- .shop-control-bar -->
+                    <div class="tab-content v-showcase-border v-middle" *ngIf="nodisplay">
+                        <div id="grid" class="tab-pane active" role="tabpanel">
+                            <div class="woocommerce columns-5">
+                                <div class="products">
+
+                                    <!-- .product -->
+                                    <div class="product " *ngFor="let show of showcase">
+                                        <div class="yith-wcwl-add-to-wishlist">
+                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
+                                        </div>
+                                        <!-- .yith-wcwl-add-to-wishlist -->
+                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" routerLink="/offer/{{show.iddomoff}}">
+                                            <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image v-showcase-image" src="https://www.agrelma.com/DomOff/Foto/{{show.nomefile}}">
+                                            <span class="price">
+                                                <span class="woocommerce-Price-amount amount"  *ngIf="show.prezzo != '0.000'">
+                                                    <span class="woocommerce-Price-currencySymbol">{{show.valuta}} </span> {{show.prezzo}} / {{show.prezzoper}} {{show.umprezzoper}}
+                                                </span>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <span class="woocommerce-Price-currencySymbol">From :</span> {{show.paese}}
+                                                </span>
+                                            </span>
+                                            <h2 class="woocommerce-loop-product__title">{{show.titolo}}</h2>
+                                        </a>
+                                        <!-- .woocommerce-LoopProduct-link -->
+                                        <div class="hover-area">
+                                            <a class="button" routerLink="/contact-producer" *ngIf="nodisplay">Send Message</a>
+                                            <a class="add-to-compare-link1" *ngIf="show.ordineminimo != ' '"><b>Minimum Order : </b>{{show.ordineminimo}} {{show.umprezzoper}}</a>
+                                        </div>
+                                        <!-- .hover-area -->
+                                    </div>
+                                    
+                                    
+                                    <!-- .product -->
+                                </div>
+                                <!-- .products -->
+                            </div>
+                            <!-- .woocommerce -->
+                        </div>
+                    </div>
+                    <div class="shop-control-bar-bottom v-showcase-border v-bottom" *ngIf="nodisplay">
+                        <br><br>
+                    </div>
+                    <br>
+                    
+                    <div class="jumbotron-caption latest-request-container">
+                        <h3 class="jumbo-title">Offer in Showcase</h3>
+
+                        <ngu-carousel [inputs]="carouselTwo">
+                            <ngu-item NguCarouselItem *ngFor="let show of showcase1; index as i">
+                            <mat-card class="showcase-slider">
+                                  <mat-card-subtitle routerLink="/offer/{{show.iddomoff}}">
+                                    <div class="showcase-slider-box showcase-slider-img">
+                                        <img src="https://www.agrelma.com/DomOff/Foto/{{show.nomefile}}" class="wp-post-image v-showcase-image" alt="">
+                                    </div>
+                                    <div class="showcase-slider-box showcase-slider-data">
+                                        <span><h6>{{show.titolo}}</h6><br></span>
+                                        <span class="woocommerce-Price-amount amount"  *ngIf="show.prezzo != '0.000'">
+                                            <b>Price</b><span class="woocommerce-Price-currencySymbol">{{show.valuta}} </span> {{show.prezzo}} / {{show.prezzoper}} {{show.umprezzoper}}
+                                        </span>
+                                        <span *ngIf="show.ordineminimo != ' '"><b>Minimum Order : </b>{{show.ordineminimo}} {{show.umprezzoper}}</span>
+                                        <span><b>Pro. Country :</b> {{show.paese}}</span>
+
+                                    </div>
+                                  </mat-card-subtitle>
+                                  
+                            </mat-card>
+                            <mat-card class="showcase-slider" *ngIf="showcase2[i]">
+                                  <mat-card-subtitle routerLink="/offer/{{showcase2[i].iddomoff}}">
+                                    <div class="showcase-slider-box showcase-slider-img"><img src="https://www.agrelma.com/DomOff/Foto/{{showcase2[i].nomefile}}" class="wp-post-image v-showcase-image" alt=""></div>
+                                    <div class="showcase-slider-box showcase-slider-data">
+                                        <span><h6>{{showcase2[i]?.titolo}}</h6><br></span>
+                                        <span class="woocommerce-Price-amount amount"  *ngIf="show.prezzo != '0.000'">
+                                            <b>Price</b><span class="woocommerce-Price-currencySymbol">{{showcase2[i].valuta}} </span> {{showcase2[i].prezzo}} / {{showcase2[i].prezzoper}} {{showcase2[i].umprezzoper}}
+                                        </span>
+                                        <span *ngIf="showcase2[i].ordineminimo != ' '"><b>Minimum Order : </b>{{showcase2[i].ordineminimo}} {{showcase2[i].umprezzoper}}</span>
+                                        <span><b>Pro. Country :</b> {{showcase2[i].paese}}</span>
+                                    </div>
+                                  </mat-card-subtitle>
+                            </mat-card>
+                            </ngu-item>
+                            <button NguCarouselPrev class='leftRs'></button>
+                            <button NguCarouselNext class='rightRs'></button>
+                        </ngu-carousel>
+                    </div>
+
+
+
+
+                    
+                    <div class="tm-related-products-carousel1 section-products-carousel" id="tm-related-products-carousel1" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;slidesToShow&quot;:7,&quot;slidesToScroll&quot;:7,&quot;dots&quot;:true,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#tm-related-products-carousel1 .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:767,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}" *ngIf="nodisplay">
+                        <section class="related">
+                            <header class="section-header">
+                                <h2 class="section-title">Offer In Showcase</h2>
+                                <nav class="custom-slick-nav"></nav>
+                            </header>
+                            <!-- .section-header -->
+                            <div class="products">
+                                <div class="product"  *ngFor="let show of showcase">
+                                <!-- <div class="product"  *ngFor="let show of latestoffers"> -->
+                                    <a routerLink="/offer/{{show.iddomoff}}" class="woocommerce-LoopProduct-link">
+                                        <div class="v-showcase-image-container">
+                                            <img src="https://www.agrelma.com/DomOff/Foto/{{show.nomefile}}" class="wp-post-image v-showcase-image" alt="">
+                                        </div>
+                                        <span class="price">
+                                            <span class="woocommerce-Price-amount amount"  *ngIf="show.prezzo != '0.000'">
+                                                <span class="woocommerce-Price-currencySymbol">{{show.valuta}} </span> {{show.prezzo}} / {{show.prezzoper}} {{show.umprezzoper}}
+                                            </span>
+                                            <span class="woocommerce-Price-amount amount">
+                                                <span class="woocommerce-Price-currencySymbol">From :</span> {{show.paese}}
+                                            </span>
+                                        </span>
+                                        <!-- /.price -->
+                                        <h2 class="woocommerce-loop-product__title">{{show.titolo}}</h2>
+                                    </a>
+                                    <div class="hover-area" *ngIf="nodisplay">
+                                        <a class="button" routerLink="/contact-producer" *ngIf="nodisplay">Send Message</a>
+                                        <a class="add-to-compare-link1" *ngIf="show.ordineminimo != ' '"><b>Minimum Order : </b>{{show.ordineminimo}} {{show.umprezzoper}}</a>
+                                    </div>
+                                </div>
+                                <!-- /.product-outer -->
+                                
+                            </div>
+                        </section>
+                        <!-- .single-product-wrapper -->
+                    </div>
+                    <img src="assets/images/home-page/increse-visiblity.jpg" (click)="openTry()">
+                    <br>
+                    <div class="tm-related-products-carousel section-products-carousel" id="tm-related-products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;slidesToShow&quot;:7,&quot;slidesToScroll&quot;:7,&quot;dots&quot;:true,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-left\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;nextArrow&quot;:&quot;&lt;a href=\&quot;#\&quot;&gt;&lt;i class=\&quot;tm tm-arrow-right\&quot;&gt;&lt;\/i&gt;&lt;\/a&gt;&quot;,&quot;appendArrows&quot;:&quot;#tm-related-products-carousel .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:767,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}" *ngIf="showcase">
+                        <section class="related">
+                            <header class="section-header">
+                                <h2 class="section-title">Latest Offers</h2>
+                                <nav class="custom-slick-nav"></nav>
+                            </header>
+                            <!-- .section-header -->
+                            <div class="products">
+                                <!-- <div class="product"  *ngFor="let show of showcase"> -->
+                                <div class="product"  *ngFor="let show of latestoffers">
+                                    <a routerLink="/search-result/offer/{{show.settore}}" class="woocommerce-LoopProduct-link">
+                                        <div class="v-showcase-image-container">
+                                            <img src="https://www.agrelma.com/DomOff/Foto/{{show.nomefile}}" class="wp-post-image v-showcase-image" alt="">
+                                        </div>
+                                        <span class="price">
+                                            <span class="woocommerce-Price-amount amount"  *ngIf="show.prezzo != '0.000'">
+                                                <span class="woocommerce-Price-currencySymbol">{{show.valuta}} </span> {{show.prezzo}} / {{show.prezzoper}} {{show.umprezzoper}}
+                                            </span>
+                                            <span class="woocommerce-Price-amount amount">
+                                                <span class="woocommerce-Price-currencySymbol">From :</span> {{show.paese}}
+                                            </span>
+                                        </span>
+                                        <!-- /.price -->
+                                        <h2 class="woocommerce-loop-product__title">{{show.titolo}}</h2>
+                                    </a>
+                                    <div class="hover-area" *ngIf="nodisplay">
+                                        <a class="button" routerLink="/contact-producer" *ngIf="nodisplay">Send Message</a>
+                                        <a class="add-to-compare-link1" *ngIf="show.ordineminimo != ' '"><b>Minimum Order : </b>{{show.ordineminimo}} {{show.umprezzoper}}</a>
+                                    </div>
+                                </div>
+                                <!-- /.product-outer -->
+                                
+                            </div>
+                        </section>
+                        <!-- .single-product-wrapper -->
+                    </div>
+				</section>
+				<section class="col-sm-12">
+					
+				</section>
+			</section>
+		</section>
+	</section>
+</section>

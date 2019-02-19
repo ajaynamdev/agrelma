@@ -1,0 +1,24 @@
+.content h2{
+	text-align: center;
+}
+.content{
+	margin-left: auto;
+	margin-right: auto;
+}
+.next-button{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.remove-button{
+	background-color: lightgrey;
+	color: black;
+}
+.addmore-button, .addmore-button:hover{
+	background-color: lightgrey;
+	color: black;	
+}
+.tabs-container{
+	border: 1px solid lightgrey;
+	padding: 10px;
+}

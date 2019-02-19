@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
 	firstSlider:boolean = true;
 	loaded:boolean = false;
+	theflase:boolean = false;
 
   constructor(public dialog: MatDialog,
   	private mS:MainService) { 

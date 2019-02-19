@@ -1,0 +1,46 @@
+<section class="container">
+	<section class="col-full">
+		<section class="content col-sm-12">
+			<h2>Message sending</h2>
+			<p *ngIf="!isOffer">Use the following form to send a message to the buyer selected.</p>
+			<p *ngIf="isOffer">Use the following form to send a message to the buyer selected.</p>
+			<section class="tabs-container">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="email" class="col-sm-3">Sender e-Mail or User ID </label>
+						<input type="text" class="col-sm-9" value="{{company?.indemail}}" disabled="true">
+					</div>
+				</div>
+				<mat-divider></mat-divider><br>
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label for="email" class="col-sm-3">Recipient</label>
+						<input type="text" class="col-sm-9" value="{{request?.azienda}}" disabled="true">
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-3" *ngIf="!isOffer">Request</label>
+						<label for="email" class="col-sm-3" *ngIf="isOffer">Offer</label>
+						<input type="text" class="col-sm-9" value="{{request?.titolo}}" disabled="true">
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-3">Subject</label>
+						<input type="text" class="col-sm-9" placeholder="Subject" value="{{subject}}" #object>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-3">Message</label>
+						<textarea class="col-sm-9" placeholder="- Enter 20 to 500 characters." #themessage></textarea>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-3">Quantity needed</label>
+						<input type="text" class="col-sm-9" placeholder="Quantity needed" #quantity>
+					</div>
+				</div>
+				<mat-divider></mat-divider><br>
+				<div class="col-sm-12 next-button">
+					<button (click)="message(object.value, themessage.value, quantity.value)">Send</button>
+				</div>
+			</section>
+				
+		</section>
+	</section>
+</section>

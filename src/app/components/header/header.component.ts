@@ -223,7 +223,11 @@ export class HeaderComponent implements OnInit {
   	console.log(this.type);
   	console.log(this.category);
   	this.cokkie.set('query', this.query);
-  	this.router.navigate(['/search-result/offersearch/'+this.category+"/1/0/0/"+this.query]);
+  	if (this.type == '1') {
+  		this.router.navigate(['/search-result/requestsearch/'+this.category+"/1/0/0/"+this.query])
+  	}else{
+	  	this.router.navigate(['/search-result/offersearch/'+this.category+"/1/0/0/"+this.query]);
+  	}
   }
 
   openLogin(): void {
@@ -280,6 +284,7 @@ export class LoginDialog {
         console.log(data);
         this.message = "Logged In";
         this.cookieService.set("admin",data.HTTP_Authorization,360000,"/");
+        this.cookieService.set("admin_type",data.type,360000,"/");
         this.router.navigate(['/admin/producer']);
         this.onNoClick();
       }else{
